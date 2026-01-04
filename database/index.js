@@ -33,12 +33,23 @@ app.get("/shop", function(req, res){
             console.error("No rows found for ID $[ID]");
         }
         else {
+            //To monitor the application while developing it
             console.log("Data retreived from the database.");
             console.log(rows[0].Club);
             console.log(rows[0].Version);
             console.log(rows[0].Price);
             console.log(rows[0].League);
+
+            //Variables from Database
+            const clubName = rows[0].Club;
+            const versionName = rows[0].Version;
+            const price = rows[0].Price;
+            const league = rows[0].League;
+
+            res.render("test.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league});
         }
+
+        //Inject data into a HTML page
     })
 });
 
