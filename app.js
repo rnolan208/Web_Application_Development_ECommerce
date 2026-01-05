@@ -87,6 +87,28 @@ app.post("/shop", function(req, res){
 });
 
 
+//Route to handle Login Form Submission - POST Method
+app.post("/login", function(req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    //authenticate the username and password
+    const authenticated = auth.authenticateUser(username, password);
+    console.log(authenticated);
+
+    if(authenticated) {
+        console.log("Successful Authentication");
+        res.render("home");
+    }
+    else {
+        console.log("Failed Authentication");
+        res.render("failed");
+    }
+
+});
+
+
+
 // Server
 app.listen(3000, () => {
     console.log("Server started on port 3000");
@@ -104,3 +126,4 @@ auth.createUser("Mary", "pass456");
 //test users work
 console.log(auth.authenticateUser("John", "secret123"));
 console.log(auth.authenticateUser("John", "secret456"));
+
