@@ -1,0 +1,279 @@
+/*Importing font style*/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+/*Generic style settings*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Body font style using the imported Lora font*/
+body {
+  font-family: "Lora", serif;
+  font-style: normal;
+}
+
+/*Header font style - size and weights*/
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: black;
+}
+
+h6 {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/*Button*/
+button {
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: rgb(238, 21, 64);
+    color: black;
+    padding: 13px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3 ease;
+}
+/*button change colour when over*/
+button:hover {
+    background-color: black;
+    color: rgb(238, 21, 64);
+}
+
+
+/*Website Title*/
+.navbar-brand {
+    padding: 0 15px;
+    font-size: 25px;
+    top: 0;
+    left: 0;
+}
+
+/*Navbar Links - colour, padding, transition*/
+.navbar-light .navbar-nav .nav-link {
+    padding: 0 20px;
+    color: rgb(238, 21, 64);
+    font-size: 18px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+/*Navbar hover effects - change colour*/
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: black;
+}
+.navbar i.active {
+    color: black;
+}
+
+/*Navbar icons - pointer and paddings*/
+.navbar i {
+    padding: 0 20px;
+    cursor: pointer;
+    transition: 0.3 ease;
+    color: rgb(238, 21, 64);
+}
+
+/*Bar icon when screen resize, with hover effect below*/
+#bar {
+    font-size: 1.5rem;
+    padding: 3px;
+    cursor: pointer;
+    transition: 0.3 ease;
+    color: rgb(238, 21, 64);
+}
+
+#bar:hover,
+#bar.active {
+    background-color: rgb(238, 21, 64);
+    color: black;
+}
+
+/*Navbar resized (mobile, tablet, etc)*/
+.navbar-light .navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+
+/*Below is all done from browser by clicking Inspet -> Elemets -> Selector -> Copy -> Copy Selector*/
+/*Media Query to change background colour over nav icon when screen is resized*/
+@meida only screen and (max-width: 991px) {
+    body > nav > div > button:hover,
+    body > nav > div > button:focus{
+        background-color: white;
+    }
+/*make the navbar at the top of page white*/
+    body > nav > div > button:hover #bar,
+    body > nav > div > button:focus #bar{
+        background-color: white;
+    }
+/*when screen is resized make the links appear on the right hand side, under the icon*/
+#navbarSupportedContent > ul{
+    margin: 1rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    }
+/*apply padding at top to bottom for the links in list on resized screen*/
+#navbarSupportedContent > ul > li:nth-child(n) > a{
+    padding: 10px 0;
+}
+}
+
+
+
+/*Background Image and Text / Button for Homepage*/
+#home {
+    /*Image from: https://www.freepik.com/free-vector/abstract-background-with-dark-blue-watercolors_1068165.htm#fromView=search&page=2&position=37&uuid=3ab4d93f-8048-4496-a416-6b5f69966f1b&query=sports+background*/
+    background-image: url("images/background/abstract.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    /*position down 60px from top due to fixed navbar*/
+    background-position: top 60px center;
+    /*text and button on homepage*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+
+
+/*Footer style*/
+footer {
+    background-color: #222222;
+}
+/*text colour and size for the footer, colour to match red elsewhere*/
+footer h5{
+    color: #d8d8d8;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+footer h6{
+    color: #d8d8d8;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+footer p{
+    color: rgb(238, 21, 64);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/*Padding to give spacing between items in the footer list*/
+footer li {
+    padding-bottom: 25px;    
+}
+/*anchor tags in the FEATURED list - colour red and size*/
+footer li a {
+    font-size: 0.9rem;
+    color: rgb(238, 21, 64);
+}
+/*hover over feature for the tags in the FEATURED LIST, colour to match the FEATURED and CONTACT US colour of white*/
+footer li a:hover {
+    color: #d8d8d8;
+}
+/*Social Media icons in the copyright section placed in round blocks with colour, width/height, margin for spacing, and transition*/
+footer .copyright a {
+    color: rgb(238, 21, 64);
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    margin: 0 5px;
+}
+footer .copyright a:hover {
+    color:black;
+    background-color: rgb(238, 21, 64);
+}
+
+/*background of white for the transparen footer logo*/
+#footer_small_logo {
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    border-radius: 25%;
+}
+
+/*featured items section for scaling and alignment to cover entire space with max-height and be centered*/
+#feat_items .one img{
+    width: 100%;
+    max-height: 600px;
+    background-position: center center;
+    background-repeat: no;
+    background-size: cover;
+    position: relative;
+}
+
+/*featured items - button and text alignment to centre the text and button at top of images. position, width, height, top, and left keeps the button and text in the image container*/
+/*display, flex-direction, align-items, and text-align makes the button and text align centrally at the top of the images*/
+#feat_items .one .details {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*featured items - add hover on image to change its background colour with the red style elsewhere (using rgba) when the pointer is over the image*/
+#feat_items .one:hover .details {
+    cursor: pointer;
+    background-color: rgba(238, 21, 64, 0.3);
+}
+
+/*featured items - move the button down 70px from the top of the image*/
+#feat_items .one .details button {
+    transform: translateY(70px);
+}
+
+#slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(238, 21, 64);
+}
