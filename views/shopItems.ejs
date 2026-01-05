@@ -4,14 +4,54 @@
 
     </head>
     <body>
-        <h1>Club: <%= myClub %></h1>
-        <h2>Version: <%= myVersion %></h2>
+        <h1 id="product"><%= myClub %></h1>
+        <h2 id="type"><%= myVersion %></h2>
         <h2>League: <%= myLeague %></h2>
-        <h3>Price: <%= myPrice %></h3>
+        <div><h3>Price: €</h3><h3 id="price"><%= myPrice %></h3></div>
         <h3>Manufacturer: <%= myManufacturer %></h3>
         <img src="images/crest/<%= myCrest %>">
         <img src="images/jerseys/<%= myImage %>">
-
-        <a href="pages">Back to Home Page</a>
+        <br>
+        <br>
+        <!--Size option-->
+        <select id="size" name="size">
+            <option value="Xtra Small">XS</option>
+            <option value="Small">S</option>
+            <option value="Medium">M</option>
+            <option value="Large" >L</option>
+            <option value="Xtra Large">XL</option>
+            <option value="Double Xtra Large">2XL</option>
+        </select>
+        <br>
+        <br>
+        <!--Quantity option-->
+        <select id="quantity" name="quantity">
+            <option value="0">0</option>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <br>
+        <button onclick="addToCart()">Add to Cart</button>
+        <br>
+        <br>
+        <a href="home.html">Back to Home Page</a>
     </body>
 </html>
+
+<script>
+    function addToCart() {
+        //alert("This is from the function!");
+        let product = document.getElementById("product").innerHTML;
+        let type = document.getElementById("type").innerHTML;
+        let quantity = document.getElementById("quantity").value;
+        let size = document.getElementById("size").value;
+        let price = document.getElementById("price").innerHTML;
+        let type_quan_size_price = {t: type, quan: quantity, s: size, p: price};
+        
+        localStorage.setItem(product, JSON.stringify(type_quan_size_price));
+    }
+</script>  
