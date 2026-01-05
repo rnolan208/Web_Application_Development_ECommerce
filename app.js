@@ -91,3 +91,9 @@ app.post("/shop", function(req, res){
 app.listen(3000, () => {
     console.log("Server started on port 3000");
 });
+
+
+//Import authentication module
+const auth = require("./auth.js");
+
+auth("John", "secret123");
