@@ -96,4 +96,11 @@ app.listen(3000, () => {
 //Import authentication module
 const auth = require("./auth.js");
 
-auth("John", "secret123");
+//Users for the application
+auth.createUser("John", "secret123");
+auth.createUser("Robert", "helloworld");
+auth.createUser("Mary", "pass456");
+
+//test users work
+console.log(auth.authenticateUser("John", "secret123"));
+console.log(auth.authenticateUser("John", "secret456"));
