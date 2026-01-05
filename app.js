@@ -14,7 +14,7 @@ app.use(express.static("pages", {index: "home.html"}));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Static files - uses __dirname for absolute path in directory
+// Static files - uses __dirname for absolute path in directory (such as images)
 app.use(express.static(path.join(__dirname, "pages")));
 
 
@@ -44,8 +44,12 @@ app.get("/shop", function(req, res){
             const versionName = rows[0].Version;
             const price = rows[0].Price;
             const league = rows[0].League;
+            const manufact = rows[0].Manufacturer;
+            const images = rows[0].Image;
+            const crest = rows[0].Crest;
 
-            res.render("test.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league});
+            res.render("shopItems.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league, 
+                                    myManufacturer: manufact ,myImage: images, myCrest: crest});
         }
 
         //Inject data into a HTML page
@@ -86,6 +90,11 @@ app.post("/shop", function(req, res){
     })
 });
 
+//NEEDS TO BE FIXED AND UPDATED WITH HOME PAGE
+//Route back to Home Page
+app.get("/pages", function(req, res){
+    res.render("home.html");
+})
 
 //Route to handle Login Form Submission - POST Method
 app.post("/login", function(req, res) {
