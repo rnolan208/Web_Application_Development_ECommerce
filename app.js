@@ -116,6 +116,15 @@ app.post("/login", function(req, res) {
 
 });
 
+//Route to Jersey Shop Page
+app.get("/pages", function(req, res){
+    res.render("jerseyShopPage.html");
+})
+
+//Route to Misc Shop Page
+app.get("/pages", function(req, res){
+    res.render("miscShopPage.html");
+})
 
 
 // Server

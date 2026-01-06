@@ -1,45 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-    </head>
-    <body>
-        <h1 id="product"><%= myClub %></h1>
-        <h2 id="type"><%= myVersion %></h2>
-        <h2>League: <%= myLeague %></h2>
-        <div><h3>Price: €</h3><h3 id="price"><%= myPrice %></h3></div>
-        <h3>Manufacturer: <%= myManufacturer %></h3>
-        <img src="images/crest/<%= myCrest %>">
-        <img src="images/jerseys/<%= myImage %>">
-        <br>
-        <br>
-        <!--Size option-->
-        <select id="size" name="size">
-            <option value="Xtra Small">XS</option>
-            <option value="Small">S</option>
-            <option value="Medium">M</option>
-            <option value="Large" >L</option>
-            <option value="Xtra Large">XL</option>
-            <option value="Double Xtra Large">2XL</option>
-        </select>
-        <br>
-        <br>
-        <!--Quantity option-->
-        <select id="quantity" name="quantity">
-            <option value="0">0</option>
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <br>
-        <br>
-        <button onclick="addToCart()">Add to Cart</button>
-        <br>
-        <br>
-        <a href="home.html">Back to Home Page</a>
-    </body>
+<head>
+
+    <!--Navbar from Bootstrap-->
+    <!--Navbar class with padding at top and bottom of 3-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+        <div class="container">
+            <!--Logo from logo.com-->
+            <img src="images/logo/logo-red-transparent.png" alt="logo" width="100">
+            <!--Website Name-->
+            <a class="navbar-brand" href="#">Robert's Football Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!--Navigation bar when page is resized-->
+                <span><i id="bar" class="fa-solid fa-bars"></i></span>
+            </button>
+            <!--Navigation Links-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/jerseyShopPage">Jerseys</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/miscShopPage">Miscellaneous</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/contactUs">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <!--Search Button-->
+                        <form action="/shop" method="get" class="search-form">
+                            <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
+                            <button type="submit" class="icon-button" aria-label="Search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <!--Button to Checkout-->
+                            <a href="checkout.html" class="nav-link">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </a>
+                            <!--Buttion to Sign In-->
+                            <a href="login.html" class="nav-link">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            </a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Robert's Sports Shop</title>
+
+    <!--Importing Bootstrap for CSS-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Linking CSS file-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/8875caf3cf.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <h1 id="product">
+        <%= myClub %>
+    </h1>
+    <h2 id="type">
+        <%= myVersion %>
+    </h2>
+    <h2>League: <%= myLeague %>
+    </h2>
+    <div>
+        <h3>Price: €</h3>
+        <h3 id="price">
+            <%= myPrice %>
+        </h3>
+    </div>
+    <h3>Manufacturer: <%= myManufacturer %>
+    </h3>
+    <img src="images/crest/<%= myCrest %>">
+    <img src="images/jerseys/<%= myImage %>">
+    <br>
+    <br>
+    <!--Size option-->
+    <select id="size" name="size">
+        <option value="Xtra Small">XS</option>
+        <option value="Small">S</option>
+        <option value="Medium">M</option>
+        <option value="Large">L</option>
+        <option value="Xtra Large">XL</option>
+        <option value="Double Xtra Large">2XL</option>
+    </select>
+    <br>
+    <br>
+    <!--Quantity option-->
+    <select id="quantity" name="quantity">
+        <option value="0">0</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="addToCart()">Add to Cart</button>
+    <br>
+    <br>
+    <a href="home.html">Back to Home Page</a>
+
+
+ <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
+    <footer class="py-5">
+        <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
+        <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
+        <div class="row container mx-auto pt-5">
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <img id="footer_small_logo" src="images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <!--text below has padding added via bootstrap for spacing above it-->
+                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
+                </p>
+                <p>Shop with us to guarantee you</p>
+                <p><em>Score Your Next Victory</em></p>
+            </div>
+            <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <h5 class="pb-2">Featured</h5>
+                <!--list of featured items without bullet points and all in uppercase-->
+                <ul class="text-uppercase list-unstyled">
+                    <li><a href="#">Footballs</a></li>
+                    <li><a href="#">Boots</a></li>
+                    <li><a href="#">Jerseys</a></li>
+                    <li><a href="#">Goals</a></li>
+                    <li><a href="#">Miscellaneous</a></li>
+                </ul>
+            </div>
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <!-- contact us section with address, phone, and email-->
+                <h5 class="pb-2">Contact Us</h5>
+                <div>
+                    <h6 class="text-uppercase">Address</h6>
+                    <p>123 STREET NAME, ATU, GALWAY, IRELAND</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Phone</h6>
+                    <p>(059) 00 12345</p>
+                </div>
+                <div>
+                    <h6 class="text-uppercase">Email</h6>
+                    <p>robertsfootballshop@atu.ie</p>
+                </div>
+            </div>
+            <!--Large logo section with the image at 100% height via bootstrap-->
+            <div class="footer-one col-lg-3 col-md-6 col-12">
+                <img class="img-fluid w-90 h-100 m-2" src="images/logo/logo-red-transparent.png" alt="large logo">
+            </div>
+        </div>
+
+        <!--very bottom of footer with the copyright info-->
+        <div class="copyright mt-5 py-5">
+            <div class="row container mx-auto">
+                <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <img src="images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                </div>
+                <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
+                <div class="col-lg-4 col-md-6 col-12 text-nowrap">
+                    <p>Roberts Footall Shop &copy 2026. All Rights Reserved</p>
+                </div>
+                <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+    <!--Importing Bootstrap for JS and Popper-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+</body>
+
 </html>
 
 <script>
@@ -50,8 +214,8 @@
         let quantity = document.getElementById("quantity").value;
         let size = document.getElementById("size").value;
         let price = document.getElementById("price").innerHTML;
-        let type_quan_size_price = {t: type, quan: quantity, s: size, p: price};
-        
+        let type_quan_size_price = { t: type, quan: quantity, s: size, p: price };
+
         localStorage.setItem(product, JSON.stringify(type_quan_size_price));
     }
-</script>  
+</script>
