@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, "pages")));
 
 
 
+
 //Shop function GET Method
 app.get("/shop", function(req, res){
     const ID = req.query.rec;
