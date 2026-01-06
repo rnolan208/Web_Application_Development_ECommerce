@@ -3,21 +3,49 @@ const app = express();
 
 //Uses absolute path if project folder is loaded on different system - not hard-coding file paths
 const path = require("path");
+//Allows Node to browse backend folders such as for carousel images
+const fs = require("fs");
 
 //Connect to the db.js file
 const db = require("./database/db");
 
-//Server Static Files from Public Directory for Home page
-app.use(express.static("pages", {index: "home.html"}));
 
 // View engine - uses __dirname for absolute path in directory
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Static files - uses __dirname for absolute path in directory (such as images)
-app.use(express.static(path.join(__dirname, "pages")));
+// Static files - uses __dirname for absolute path in directory (CSS, JS, images, etc.)
+app.use("/public", express.static(path.join(__dirname, "public")));
 
+// For Home Page and Carousel Images
+app.get("/", (req, res) => {
+    const imagesDir = path.join(__dirname, "pages/images/jerseys");
 
+    //Creates empty array for the images to be stored before shuffle
+    let images = [];
+
+    try {
+        // Read all files in the folder
+        images = fs.readdirSync(imagesDir)
+            .filter(file => /\.(png|jpg|jpeg|webp)$/i.test(file)); // Only image files
+
+        // Shuffle the array randomly
+        for (let i = images.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [images[i], images[j]] = [images[j], images[i]];
+        }
+
+        // Picks the first 10 images after the shuffle
+        images = images.slice(0, 10);
+
+    } catch (err) {
+        console.error("Error reading images folder:", err);
+    }
+
+    console.log("Images selected for carousel:", images);
+
+    res.render("home", { images });
+});
 
 
 //Shop function GET Method
@@ -93,9 +121,7 @@ app.post("/shop", function(req, res){
 
 //NEEDS TO BE FIXED AND UPDATED WITH HOME PAGE
 //Route back to Home Page
-app.get("/pages", function(req, res){
-    res.render("home.html");
-})
+//app.get("/pages", function(req, res){    res.render("home.html");})
 
 //Route to handle Login Form Submission - POST Method
 app.post("/login", function(req, res) {
@@ -114,19 +140,7 @@ app.post("/login", function(req, res) {
         console.log("Failed Authentication");
         res.render("failed");
     }
-
 });
-
-//Route to Jersey Shop Page
-app.get("/pages", function(req, res){
-    res.render("jerseyShopPage.html");
-})
-
-//Route to Misc Shop Page
-app.get("/pages", function(req, res){
-    res.render("miscShopPage.html");
-})
-
 
 // Server
 app.listen(3000, () => {
