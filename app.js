@@ -19,7 +19,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 // For Home Page and Carousel Images
 app.get("/", (req, res) => {
-    const imagesDir = path.join(__dirname, "pages/images/jerseys");
+    const imagesDir = path.join(__dirname, "public/images/jerseys");
 
     //Creates empty array for the images to be stored before shuffle
     let images = [];
