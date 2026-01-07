@@ -378,8 +378,8 @@ body {
 }
 
 
-/*to create the white background with 50% transparency behind the text on the About page*/
-.aboutUS {
+/*About page - create white background with 50% transparency behind text*/
+.aboutUS  {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 30px;
     border-radius: 12px;
@@ -388,6 +388,48 @@ body {
 
 .aboutUS ul li {
     margin-bottom: 8px;
+}
+
+.aboutTitle {
+    text-align: center;
+}
+
+/*Contact US page - create white background with 50% transparency behind text*/
+
+.contactUS  {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.contactTitle {
+    text-align: center;
+}
+
+/*Contact US page - style for the box around the iframe map from Google Maps*/
+.map-box {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.map-button {
+    font-size: 0.8rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: rgb(238, 21, 64);
+    color: black;
+    padding: 13px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3 ease;
+}
+/*button change colour when over*/
+.map-button:hover {
+    background-color: black;
+    color: rgb(238, 21, 64);
 }
 
 
