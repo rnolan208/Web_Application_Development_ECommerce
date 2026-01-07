@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Linking CSS file-->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/8875caf3cf.js" crossorigin="anonymous"></script>
@@ -25,50 +25,61 @@
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
         <div class="container">
-            <!--Logo from logo.com-->
-            <img src="images/logo/logo-red-transparent.png" alt="logo" width="100">
-            <!--Website Name-->
-            <a class="navbar-brand" href="#">Robert's Football Shop</a>
+
+            <!--LEFT SIDE: Logo from logo.com and brand name-->
+            <div class="navbar-left d-flex align-items-center">
+                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+
+                <!--Website Name-->
+                <a class="navbar-brand" href="#">Robert's Football Shop</a>
+            </div>
+
+            <!-- TOGGLER -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <!--Navigation bar when page is resized-->
                 <span><i id="bar" class="fa-solid fa-bars"></i></span>
             </button>
-            <!--Navigation Links-->
+
+            <!--Navigation bar when page is resized / Collapsible Content-->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- CENTRE: Nav links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home">Home</a>
+                        <a class="nav-link" href="/views/home.ejs">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/jerseyShopPage">Jerseys</a>
+                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/miscShopPage">Miscellaneous</a>
+                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/about">About</a>
+                        <a class="nav-link" href="/public/about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/contactUs">Contact Us</a>
+                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <!--Search Button-->
-                        <form action="/shop" method="get" class="search-form">
-                            <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
-                            <button type="submit" class="icon-button" aria-label="Search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <!--Button to Checkout-->
-                            <a href="checkout.html" class="nav-link">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </a>
-                            <!--Buttion to Sign In-->
-                            <a href="login.html" class="nav-link">
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            </a>
-                    </li>
+                </ul>
+
+                <!-- RIGHT: Search + Icons-->
+                <div class="navbar-icons d-flex align-items-center ml-3">
+                    <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
+                        <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
+                        <button type="submit" class="icon-button" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <!--Button to Checkout-->
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                    <!--Buttion to Sign In-->
+                    <a href="login.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -83,25 +94,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/arsenal_1.png" alt="Arsenal Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/arsenal_1.png" alt="Arsenal Home">
                 <h5 class="p-name">Arsenal Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/chelsea_1.png" alt="Chelsea Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/chelsea_1.png" alt="Chelsea Home">
                 <h5 class="p-name">Chelsea Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/liverpool_1.png" alt="Liverpool Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/liverpool_1.png" alt="Liverpool Home">
                 <h5 class="p-name">Liverpool Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/man_city_1.png" alt="Man City Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/man_city_1.png" alt="Man City Home">
                 <h5 class="p-name">Man City Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -118,25 +129,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/atletico_madrid1.png" alt="Atletico Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/atletico_madrid1.png" alt="Atletico Home">
                 <h5 class="p-name">Atletico Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/barcelona1.png" alt="Barcelona Home">
-                <h5 class="p-name">Chelsea Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/jerseys/barcelona1.png" alt="Barcelona Home">
+                <h5 class="p-name">Barcelona Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/barcelona2.png" alt="Barcelona Away">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/barcelona2.png" alt="Barcelona Away">
                 <h5 class="p-name">Barcelona Away</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/real_madrid1.png" alt="Real Madrid Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/real_madrid1.png" alt="Real Madrid Home">
                 <h5 class="p-name">Real Madrid Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -153,25 +164,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/bohemian1.png" alt="Bohemians Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/bohemian1.png" alt="Bohemians Home">
                 <h5 class="p-name">Bohemians Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/shamrock1.png" alt="Shamrock Rovers Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/shamrock1.png" alt="Shamrock Rovers Home">
                 <h5 class="p-name">Shamrock Rovers Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/shelbourne1.png" alt="Shelbourne Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/shelbourne1.png" alt="Shelbourne Home">
                 <h5 class="p-name">Shelbourne Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/stpatrick1.png" alt="St. Patricks ALthletic Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/stpatrick1.png" alt="St. Patricks ALthletic Home">
                 <h5 class="p-name">St. Pats Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -189,25 +200,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/" alt="Ireland Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/" alt="Ireland Home">
                 <h5 class="p-name">Ireland Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/" alt="Ireland Away">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/" alt="Ireland Away">
                 <h5 class="p-name">Ireland Away</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/" alt="Argentina Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/" alt="Argentina Home">
                 <h5 class="p-name">Argentina Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/" alt="Spain Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/" alt="Spain Home">
                 <h5 class="p-name">Spain Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -225,25 +236,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/milan_1.png" alt="AC Milan Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/milan_1.png" alt="AC Milan Home">
                 <h5 class="p-name">AC Milan Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/inter_1.png" alt="Inter Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/inter_1.png" alt="Inter Home">
                 <h5 class="p-name">Inter Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/juventus_1.png" alt="Juventus Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/juventus_1.png" alt="Juventus Home">
                 <h5 class="p-name">Juventus Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/napoli_1.png" alt="Napoli Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/napoli_1.png" alt="Napoli Home">
                 <h5 class="p-name">Napoli Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -261,25 +272,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/bayern_1.png" alt="Bayern Munich Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/bayern_1.png" alt="Bayern Munich Home">
                 <h5 class="p-name">Bayern Munich Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/bayern_2.png" alt="Bayern Munich Away">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/bayern_2.png" alt="Bayern Munich Away">
                 <h5 class="p-name">Bayern Munich Away</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/dortmund_1.png" alt="Dortmund Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/dortmund_1.png" alt="Dortmund Home">
                 <h5 class="p-name">Dortmund Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/rb_leipzig_1.png" alt="RB Leipzig Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/rb_leipzig_1.png" alt="RB Leipzig Home">
                 <h5 class="p-name">RB Leipzig Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -297,25 +308,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/psg_1.png" alt="PSG Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/psg_1.png" alt="PSG Home">
                 <h5 class="p-name">PSG Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/psg_2.png" alt="PSG Away">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/psg_2.png" alt="PSG Away">
                 <h5 class="p-name">PSG Away</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/lyon_1.png" alt="Lyon Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/lyon_1.png" alt="Lyon Home">
                 <h5 class="p-name">Lyon Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/jerseys/olympique_marseille_1.png" alt="Marseille Home">
+                <img class="img-fluid mb-3" src="/public/images/jerseys/olympique_marseille_1.png" alt="Marseille Home">
                 <h5 class="p-name">Marseille Home</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -334,7 +345,7 @@
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
         <div class="row container mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
@@ -371,7 +382,7 @@
             </div>
             <!--Large logo section with the image at 100% height via bootstrap-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img class="img-fluid w-90 h-100 m-2" src="images/logo/logo-red-transparent.png" alt="large logo">
+                <img class="img-fluid w-90 h-100 m-2" src="/public/images/logo/logo-red-transparent.png" alt="large logo">
             </div>
         </div>
 
@@ -380,7 +391,7 @@
             <div class="row container mx-auto">
                 <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
                 <div class="col-lg-4 col-md-6 col-12">
-                    <img src="images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
                 </div>
                 <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
                 <div class="col-lg-4 col-md-6 col-12 text-nowrap">
@@ -400,12 +411,9 @@
 
 
     <!--Importing Bootstrap for JS and Popper-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 </body>
 

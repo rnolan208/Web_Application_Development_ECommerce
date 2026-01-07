@@ -73,17 +73,17 @@ button:hover {
 
 /*Website Title*/
 .navbar-brand {
-    padding: 0 15px;
-    font-size: 25px;
+    padding: 0 7px;
+    font-size: 22px;
     top: 0;
     left: 0;
 }
 
 /*Navbar Links - colour, padding, transition*/
 .navbar-light .navbar-nav .nav-link {
-    padding: 0 20px;
+    padding: 0 10px;
     color: rgb(238, 21, 64);
-    font-size: 18px;
+    font-size: 15px;
     transition: 0.3s ease;
     cursor: pointer;
 }
@@ -100,11 +100,31 @@ button:hover {
 
 /*Navbar icons - pointer and paddings*/
 .navbar i {
-    padding: 0 20px;
+    padding: 0 1px;
     cursor: pointer;
     transition: 0.3 ease;
     color: rgb(238, 21, 64);
 }
+
+/* Prevent navbar overflow 
+.navbar {
+    overflow: hidden;
+}*/
+
+.navbar .container {
+    max-width: 1140px; /* matches Bootstrap container */
+}
+
+/* Stop brand from shrinking 
+.navbar-left {
+    flex-shrink: 0;
+}*/
+
+/* Ensure icons stay inside container */
+.navbar-icons {
+    flex-shrink: 0;
+}
+
 
 /*Bar icon when screen resize, with hover effect below*/
 #bar {
@@ -114,6 +134,18 @@ button:hover {
     transition: 0.3 ease;
     color: rgb(238, 21, 64);
 }
+
+/* Let collapsible content take remaining space */
+.navbar-collapse {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Keep nav links on one line and prevent overlap 
+.navbar-nav {
+    white-space: nowrap;
+}*/
 
 #bar:hover,
 #bar.active {
@@ -160,15 +192,12 @@ button:hover {
     /*Image from: https://www.freepik.com/free-vector/abstract-background-with-dark-blue-watercolors_1068165.htm#fromView=search&page=2&position=37&uuid=3ab4d93f-8048-4496-a416-6b5f69966f1b&query=sports+background*/
     background-image: url("/public/images/background/abstract.jpg");
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
-    /*position down 60px from top due to fixed navbar*/
-    background-position: top 60px center;
+    background-position: top center;
     /*text and button on homepage*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    padding-top: 120px; /* space for fixed navbar */
+    padding-bottom: 80px;
 }
 
 
@@ -328,7 +357,7 @@ img {
 
 /*Stop navbar overlapping on pages*/
 body {
-    padding-top:130px; /* adjusted for navbar height */
+    padding-top:70px; /* adjusted for navbar height */
 }
 
 
@@ -346,6 +375,19 @@ body {
 
 .carousel-img.active {
     display: block;
+}
+
+
+/*to create the white background with 50% transparency behind the text on the About page*/
+.aboutUS {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.aboutUS ul li {
+    margin-bottom: 8px;
 }
 
 

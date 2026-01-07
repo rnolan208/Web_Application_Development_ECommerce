@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Linking CSS file-->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/8875caf3cf.js" crossorigin="anonymous"></script>
@@ -21,55 +21,65 @@
 
 
 <body>
-
-    <!--Navbar from Bootstrap-->
+<!--Navbar from Bootstrap-->
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
         <div class="container">
-            <!--Logo from logo.com-->
-            <img src="images/logo/logo-red-transparent.png" alt="logo" width="100">
-            <!--Website Name-->
-            <a class="navbar-brand" href="#">Robert's Football Shop</a>
+
+            <!--LEFT SIDE: Logo from logo.com and brand name-->
+            <div class="navbar-left d-flex align-items-center">
+                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+
+                <!--Website Name-->
+                <a class="navbar-brand" href="/views/home.ejs">Robert's Football Shop</a>
+            </div>
+
+            <!-- TOGGLER -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <!--Navigation bar when page is resized-->
                 <span><i id="bar" class="fa-solid fa-bars"></i></span>
             </button>
-            <!--Navigation Links-->
+
+            <!--Navigation bar when page is resized / Collapsible Content-->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- CENTRE: Nav links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home">Home</a>
+                        <a class="nav-link" href="/views/home.ejs">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/jerseyShopPage">Jerseys</a>
+                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/miscShopPage">Miscellaneous</a>
+                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/about">About</a>
+                        <a class="nav-link" href="/public/about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/contactUs">Contact Us</a>
+                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <!--Search Button-->
-                        <form action="/shop" method="get" class="search-form">
-                            <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
-                            <button type="submit" class="icon-button" aria-label="Search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <!--Button to Checkout-->
-                            <a href="checkout.html" class="nav-link">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </a>
-                            <!--Buttion to Sign In-->
-                            <a href="login.html" class="nav-link">
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            </a>
-                    </li>
+                </ul>
+
+                <!-- RIGHT: Search + Icons-->
+                <div class="navbar-icons d-flex align-items-center ml-3">
+                    <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
+                        <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
+                        <button type="submit" class="icon-button" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <!--Button to Checkout-->
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                    <!--Buttion to Sign In-->
+                    <a href="login.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -85,25 +95,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="World Cup 2026">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="World Cup 2026">
                 <h5 class="p-name">World Cup 2026</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Premier League 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Premier League 25/26">
                 <h5 class="p-name">Premier League 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Champions League 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Champions League 25/26">
                 <h5 class="p-name">Champions League 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Europa League 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Europa League 25/26">
                 <h5 class="p-name">Europa League 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -113,25 +123,25 @@
     <section id="featured" class="my-5 pb-5">
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="La Liga 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="La Liga 25/26">
                 <h5 class="p-name">La Liga 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Serie A 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Serie A 25/26">
                 <h5 class="p-name">Serie A 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Ligue 1 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Ligue 1 25/26">
                 <h5 class="p-name">Ligue 1 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Bundesliga 25/26">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Bundesliga 25/26">
                 <h5 class="p-name">Bundesliga 25/26</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -148,25 +158,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="8 x 4 Forza">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="8 x 4 Forza">
                 <h5 class="p-name">8 x 4 Forza</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="8 x 5 Samba">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="8 x 5 Samba">
                 <h5 class="p-name">8 x 5 Samba</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="12 x 6 Forza">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="12 x 6 Forza">
                 <h5 class="p-name">12 x 6 Forza</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="12 x 6 Samba">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="12 x 6 Samba">
                 <h5 class="p-name">12 x 6 Samba</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -184,25 +194,25 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Vapor Grip 3">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Vapor Grip 3">
                 <h5 class="p-name">Vapor Grip 3</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Phantom">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Phantom">
                 <h5 class="p-name">Phantom</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Predator Pro">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Predator Pro">
                 <h5 class="p-name">Predator Pro</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Copa Pro">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Copa Pro">
                 <h5 class="p-name">Copa Pro</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -219,19 +229,19 @@
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-4 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Tiro">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Tiro">
                 <h5 class="p-name">Tiro Shin Pads </h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-4 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="Forza Club">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="Forza Club">
                 <h5 class="p-name">Forza Club</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
             </div>
              <div class="product text-center col-lg-4 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/pages/images/misc_items/" alt="PShadow">
+                <img class="img-fluid mb-3" src="/public/images/misc_items/" alt="PShadow">
                 <h5 class="p-name">Shadow</h5>
                 <h4 class="p-price"></h4>
                 <button class="details">More Details</button>
@@ -247,7 +257,7 @@
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
         <div class="row container mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
@@ -313,12 +323,9 @@
 
 
     <!--Importing Bootstrap for JS and Popper-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 
 

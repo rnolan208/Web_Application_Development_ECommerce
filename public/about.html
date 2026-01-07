@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title><%= myClub %> <%= myVersion %> </title>
+    <title>Robert's Sports Shop</title>
 
     <!--Importing Bootstrap for CSS-->
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
@@ -15,13 +14,13 @@
     <!--Linking CSS file-->
     <link rel="stylesheet" href="/public/css/style.css">
 
-    <!--Font Awesome -->
+    <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/8875caf3cf.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-<!--Navbar from Bootstrap-->
+    <!--Navbar from Bootstrap-->
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
         <div class="container">
@@ -31,7 +30,7 @@
                 <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
 
                 <!--Website Name-->
-                <a class="navbar-brand" href="/views/home.ejs">Robert's Football Shop</a>
+                <a class="navbar-brand" href="#">Robert's Football Shop</a>
             </div>
 
             <!-- TOGGLER -->
@@ -85,71 +84,81 @@
     </nav>
 
 
-    <div class="container mt-5 pt-4 pb-4">
+
+    <!--Main page body - information about the project-->
+    <section id="home">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5 d-flex flex-column align-items-center text-center">
+                    <!--Left side - Project and Shop information-->
+                    <div class="aboutUS">
+                        <h4>Welcome to <strong>Robert’s Football Shop</strong>, your first stop for football merchandise
+                            from top football leagues.</h4>
+                        <br>
+                        <h5>Robert’s Football Shop is an e-commerce store created as part of the Web Applications
+                            Development module within the
+                            Software Development H. Dip. at ATU 2025/26.</h5>
+                        <h5>The website was designed to showcase the core features and functionality of
+                            a modern online retail platform. The store specialises in football apparel and equipment,
+                            with a strong focus on quality,
+                            variety, and ease of use.</h5>
+                        <h5>My aim is to provide a smooth and enjoyable shopping experience, from browsing products to
+                            completing secure online purchases,
+                            while applying real-world HTML, CSS, JavaScipt, and NODE principles learned through academic
+                            study.</h5>
+
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex flex-column align-items-center text-center"></div>
+                <!--Right side - outline of what the site sells-->
+                <div class="col-md-5 d-flex flex-column align-items-center text-center">
+                    <div class="aboutUS">
+                        <h4>We offer a wide selection of soccer jerseys from top competitions, including:</h4>
+                        <br>
+                        <h5>
+                            <ul class="list-unstyled">
+                                <li>Premier League</li>
+                                <li>League of Ireland</li>
+                                <li>La Liga</li>
+                                <li>Serie A</li>
+                                <li>Bundesliga</li>
+                                <li>Ligue 1</li>
+                                <li>International Teams</li>
+                            </ul>
+                        </h5>
+                        <br>
+                        <h5>In addition to jerseys, Robert’s Football Shop also stocks a range of football essentials,
+                            such as footballs, goalkeeper
+                            gloves, soccer goals, and shin guards.</h5>
+                        <br>
+                        <h5>Thank you for visiting <strong>Robert’s Football Shop</strong> and supporting this project.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+
+    <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+    <section id="band" class="container">
+        <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
-            <!--Left side of the column - Product Name and Image in a container-->
-            <div class="col-md-8 d-flex flex-column align-items-center text-center">
-                <h1 id="product">
-                    <%= myClub %>
-                </h1>
-                <div class="product-image-wrapper">
-                    <img src="public/images/jerseys/<%= myImage %>" class="img-fluid mt-4 product-image" alt="Jersey Image">
-                </div>
-            </div>
-
-            <!--Right side of the column - Crest at Top above Information-->
-            <div class="col-md-4">
-                <!-- Crest / Logo -->
-                <div class="text-center mb-4">
-                    <img src="public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;" alt="Club Crest">
-                </div>
-                <!-- Product info -->
-                <h2 id="type">
-                    <%= myClub %>
-                        <%= myVersion %>
-                </h2>
-                <p><strong>League: </strong>
-                    <%= myLeague %>
-                </p>
-                <p><strong>Manufacturer: </strong>
-                    <%= myManufacturer %>
-                </p>
-                <h3 class="text-danger">
-                    €<span id="price">
-                        <%= myPrice %>
-                    </span>
-                </h3>
-                <!--Size option-->
-                <p><strong>Size: </strong>
-                <select id="size" name="size">
-                    <option value="Xtra Small">XS</option>
-                    <option value="Small">S</option>
-                    <option value="Medium">M</option>
-                    <option value="Large">L</option>
-                    <option value="Xtra Large">XL</option>
-                    <option value="Double Xtra Large">2XL</option>
-                </select></p>
-                <!--Quantity option-->
-                <p><strong>Quantity: </strong>
-                <select id="quantity" name="quantity">
-                    <option value="0">0</option>
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select></p>
-                
-                <button class="btn btn-danger btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
-               
-                <!-- Back to home -->
-                <div class="mt-4 text-center">
-                    <a href="home.html" class="text-muted"></a> ← Back to Home Page </a>
-                </div>
-            </div>
-
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
+                alt="nike">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/adidas-logo-black-and-white.png"
+                alt="addidas">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
+                alt="puma">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/umbro-logo-black-and-white.png"
+                alt="umbro">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/Oneills-logo-black-and-white.png"
+                alt="o'neills">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
+                alt="macron">
         </div>
-    </div>
+    </section>
+
 
 
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
@@ -158,10 +167,10 @@
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
         <div class="row container mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                    width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
-                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need
-                    it!!
+                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
                 <p>Shop with us to guarantee you</p>
                 <p><em>Score Your Next Victory</em></p>
@@ -196,7 +205,8 @@
             </div>
             <!--Large logo section with the image at 100% height via bootstrap-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img class="img-fluid w-90 h-100 m-2" src="images/logo/logo-red-transparent.png" alt="large logo">
+                <img class="img-fluid w-90 h-100 m-2" src="/public/images/logo/logo-red-transparent.png"
+                    alt="large logo">
             </div>
         </div>
 
@@ -205,7 +215,7 @@
             <div class="row container mx-auto">
                 <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
                 <div class="col-lg-4 col-md-6 col-12">
-                    <img src="images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
                 </div>
                 <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
                 <div class="col-lg-4 col-md-6 col-12 text-nowrap">
@@ -233,17 +243,3 @@
 </body>
 
 </html>
-
-<script>
-    function addToCart() {
-        //alert("This is from the function!");
-        let product = document.getElementById("product").innerHTML;
-        let type = document.getElementById("type").innerHTML;
-        let quantity = document.getElementById("quantity").value;
-        let size = document.getElementById("size").value;
-        let price = document.getElementById("price").innerHTML;
-        let type_quan_size_price = { t: type, quan: quantity, s: size, p: price };
-
-        localStorage.setItem(product, JSON.stringify(type_quan_size_price));
-    }
-</script>
