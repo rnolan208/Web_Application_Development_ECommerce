@@ -70,6 +70,27 @@ button:hover {
     color: rgb(238, 21, 64);
 }
 
+/*Buttons for links to shop, misc, and jerseys on shop pages*/
+.page-buttons {
+    display: flex;
+    width: 100%;
+}
+
+/*Give buttons equal spacing and remove the link underline*/
+.page-buttons a {
+    flex: 1;
+    text-decoration: none;
+}
+
+.page-buttons .my-button {
+    width: 100%;
+    flex: 1;               /* each button takes equal space */
+    margin: 0;             /* remove default spacing */
+    border-radius: 0;      /* remove button rounding for flush edges */
+    padding: 25px 0;       /* vertical height */
+    text-align: center;
+    font-size: 1.2rem;     /* slightly bigger if needed */
+}
 
 /*Website Title*/
 .navbar-brand {
@@ -378,9 +399,9 @@ body {
 }
 
 
-/*About page - create white background with 50% transparency behind text*/
+/*About page - create white background with 85% transparency behind text*/
 .aboutUS  {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -394,10 +415,10 @@ body {
     text-align: center;
 }
 
-/*Contact US page - create white background with 50% transparency behind text*/
+/*Contact US page - create white background with 85% transparency behind text*/
 
 .contactUS  {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -432,4 +453,24 @@ body {
     color: rgb(238, 21, 64);
 }
 
+/*Back to Top Button*/
+#backToTop {
+    position: fixed;      /* stays in the same place when scrolling */
+    bottom: 50px;         /* distance from bottom */
+    right: 20px;          /* distance from right */
+    display: none;        /* hidden by default */
+    z-index: 1000;        /* on top of other content */
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    border-radius: 5px;   /* optional rounding */
+    cursor: pointer;
+    background-color: rgb(238, 21, 64);
+    color: black;
+    border: none;
+    transition: 0.3s ease;
+}
 
+#backToTop:hover {
+    background-color: black;
+    color: rgb(238, 21, 64);
+}
