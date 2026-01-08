@@ -142,6 +142,21 @@ app.post("/login", function(req, res) {
     }
 });
 
+//Route for the entire shopEntire page
+app.get("/shop-all", (req, res) => {
+    //No need for the const ID = req.query.rec as this will be using all items from db on the one page
+    db.query("SELECT * FROM product_data.database", (err, rows) => {
+        if (err) {
+            console.error("Error getting data from database.", err);
+            res.status(500).send("Error retreiving data from database.");
+        }
+        res.render("shopEntire", {
+            products: rows
+        });
+    });
+});
+
+
 // Server
 app.listen(3000, () => {
     console.log("Server started on port 3000");

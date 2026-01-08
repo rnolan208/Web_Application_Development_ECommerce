@@ -6,14 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title><%= myClub %> <%= myVersion %> </title>
+    <title>Shop All Items</title>
 
     <!--Importing Bootstrap for CSS-->
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Linking CSS file-->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 
     <!--Font Awesome -->
     <script src="https://kit.fontawesome.com/8875caf3cf.js" crossorigin="anonymous"></script>
@@ -21,68 +21,493 @@
 </head>
 
 <body>
-
     <!--Navbar from Bootstrap-->
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
         <div class="container">
-            <!--Logo from logo.com-->
-            <img src="images/logo/logo-red-transparent.png" alt="logo" width="100">
-            <!--Website Name-->
-            <a class="navbar-brand" href="#">Robert's Football Shop</a>
+
+            <!--LEFT SIDE: Logo from logo.com and brand name-->
+            <div class="navbar-left d-flex align-items-center">
+                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+
+                <!--Website Name-->
+                <a class="navbar-brand" href="#">Robert's Football Shop</a>
+            </div>
+
+            <!-- TOGGLER -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <!--Navigation bar when page is resized-->
                 <span><i id="bar" class="fa-solid fa-bars"></i></span>
             </button>
-            <!--Navigation Links-->
+
+            <!--Navigation bar when page is resized / Collapsible Content-->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- CENTRE: Nav links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home">Home</a>
+                        <a class="nav-link" href="/views/home.ejs">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/jerseyShopPage">Jerseys</a>
+                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/miscShopPage">Miscellaneous</a>
+                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/about">About</a>
+                        <a class="nav-link" href="/public/about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/contactUs">Contact Us</a>
+                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <!--Search Button-->
-                        <form action="/shop" method="get" class="search-form">
-                            <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
-                            <button type="submit" class="icon-button" aria-label="Search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                            <!--Button to Checkout-->
-                            <a href="checkout.html" class="nav-link">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </a>
-                            <!--Buttion to Sign In-->
-                            <a href="login.html" class="nav-link">
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            </a>
-                    </li>
+                </ul>
+
+                <!-- RIGHT: Search + Icons-->
+                <div class="navbar-icons d-flex align-items-center ml-3">
+                    <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
+                        <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
+                        <button type="submit" class="icon-button" aria-label="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <!--Button to Checkout-->
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </a>
+                    <!--Buttion to Sign In-->
+                    <a href="login.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
 
+
+    <!-- Premier League -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="premierLeague">Premier League</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Premier League" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- La Liga -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="laLiga">La Liga</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "La Liga" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- League of Irealnd -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="leagueOfIreland">League of Ireland</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "League of Ireland" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Serie A -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="serieA">Serie A</h3>
+        <hr>
+    </div>
+
+    <div class="container text-center mt-5 py-5">
+        <h3 id="leagueOfIreland">League of Ireland</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Serie A" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Bundesliga -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="bundesliga">Bundesliga</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Bundesliga" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Ligue 1 -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="ligue1">Ligue 1</h3>
+        <hr>
+    </div>
+
+    <!-- For loop to get info and make 'Cards' for each item-->
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Ligue 1" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- International -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="international">International Teams</h3>
+        <hr>
+    </div>
+
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "International" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Footballs -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="footballs">Footballs</h3>
+        <hr>
+    </div>
+
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Ball" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Goals-->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="goals">Goals</h3>
+        <hr>
+    </div>
+
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Goals" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Gloves -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="gloves">Goalkeeper Gloves</h3>
+        <hr>
+    </div>
+
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Gloves" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+    <!-- Shin Pads -->
+    <div class="container text-center mt-5 py-5">
+        <h3 id="shinPads">Shin Pads</h3>
+        <hr>
+    </div>
+
+    <div class="row">
+        <% products.forEach(product=> { %>
+            <!-- Make sure the product is for the correct league -->
+            <% if (product.League === "Shin Pads" ) { %>
+                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                    <!-- Product Image -->
+                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+
+                    <!-- Product Name and Version (example Arsenal Home)-->
+                    <h5>
+                        <%= product.Club %>
+                            <%= product.Version %>
+                    </h5>
+
+                    <!-- Product Price-->
+                    <h4>€<%= product.Price %>
+                    </h4>
+
+                    <a href="/shop?rec=<%= product.ID %>">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <!-- Close the for and forEach loops-->
+                <% } %>
+                    <% }) %>
+    </div>
+
+
+
+     <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+    <section id="band" class="container">
+        <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
+        <div class="row">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
+                alt="nike">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/adidas-logo-black-and-white.png"
+                alt="addidas">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
+                alt="puma">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/umbro-logo-black-and-white.png"
+                alt="umbro">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/Oneills-logo-black-and-white.png"
+                alt="o'neills">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
+                alt="macron">
+        </div>
+    </section>
+
+
+    <!--Back to Top Button-->
+    <button id="backToTop" title="Go to top">↑ Top</button>
+
     
+    <!--Link JAVASCRIPT FILE-->
+    <script src="/public/script.js"></script>
+
+
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
     <footer class="py-5">
         <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
         <div class="row container mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                    width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need
                     it!!
@@ -120,7 +545,8 @@
             </div>
             <!--Large logo section with the image at 100% height via bootstrap-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img class="img-fluid w-90 h-100 m-2" src="images/logo/logo-red-transparent.png" alt="large logo">
+                <img class="img-fluid w-90 h-100 m-2" src="/public/images/logo/logo-red-transparent.png"
+                    alt="large logo">
             </div>
         </div>
 
@@ -129,7 +555,7 @@
             <div class="row container mx-auto">
                 <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
                 <div class="col-lg-4 col-md-6 col-12">
-                    <img src="images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
                 </div>
                 <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
                 <div class="col-lg-4 col-md-6 col-12 text-nowrap">
@@ -149,12 +575,9 @@
 
 
     <!--Importing Bootstrap for JS and Popper-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 </body>
 
