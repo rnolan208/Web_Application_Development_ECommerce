@@ -1,246 +1,256 @@
-ID,Club,Version,Price,League,Manufacturer,Crest,Image,
-1,Arsenal,Home,114.99,Premier League,Adidas,arsenal.png,arsenal_1.png,
-2,Arsenal,Away,90,Premier League,Adidas,arsenal.png,arsenal_2.png,
-3,Aston Villa,Home,100,Premier League,Adidas,aston_villa.png,aston_villa_1.png,
-4,Aston Villa,Away,84.99,Premier League,Adidas,aston_villa.png,aston_villa_2.png,
-5,Bournemouth,Home,94.99,Premier League,Umbro,bournemouth.png,bournemouth_1.png,
-6,Bournemouth,Away,74.99,Premier League,Umbro,bournemouth.png,bournemouth_2.png,
-7,Brentford,Home,90,Premier League,Joma,brentford.png,brentford_1.png,
-8,Brentford,Away,69.99,Premier League,Joma,brentford.png,brentford_2.png,
-9,Brighton,Home,100,Premier League,Nike,brighton.png,brighton_1.png,
-10,Brighton,Away,84.99,Premier League,Nike,brighton.png,brighton_2.png,
-11,Burnley,Home,90,Premier League,Castore,burnley.png,burnley_1.png,
-12,Burnley,Away,70,Premier League,Castore,burnley.png,burnley_2.png,
-13,Chelsea,Home,109.99,Premier League,Nike,chelsea.png,chelsea_1.png,
-14,Chelsea,Away,90,Premier League,Nike,chelsea.png,chelsea_2.png,
-15,Crystal Palace,Home,95,Premier League,Macron,crystal_palace.png,crystal_palace_1.png,
-16,Crystal Palace,Away,75,Premier League,Macron,crystal_palace.png,crystal_palace_2.png,
-17,Everton,Home,100,Premier League,Castore,everton.png,everton_1.png,
-18,Everton,Away,84.99,Premier League,Castore,everton.png,everton_2.png,
-19,Fulham,Home,95,Premier League,Adidas,fulham.png,fulham_1.png,
-20,Fulham,Away,74.99,Premier League,Adidas,fulham.png,fulham_2.png,
-21,Leeds,Home,90,Premier League,Adidas,leeds.png,leeds_1.png,
-22,Leeds,Away,69.99,Premier League,Adidas,leeds.png,leeds_2.png,
-23,Liverpool,Home,110,Premier League,Adidas,liverpool.png,liverpool_1.png,
-24,Liverpool,Away,90,Premier League,Adidas,liverpool.png,liverpool_2.png,
-25,Manchester City,Home,114.99,Premier League,Puma,man_city.png,man_city_1.png,
-26,Manchester City,Away,90,Premier League,Puma,man_city.png,man_city_2.png,
-27,Manchester United,Home,115,Premier League,Adidas,man_utd.png,manunited_1.png,
-28,Manchester United,Away,89.99,Premier League,Adidas,man_utd.png,manunited_2.png,
-29,Newcastle,Home,99.99,Premier League,Adidas,newcastle.png,newcastle_1.png,
-30,Newcastle,Away,85,Premier League,Adidas,newcastle.png,newcastle_2.png,
-31,Nottingham Forest,Home,94.99,Premier League,Adidas,forest.png,forest_1.png,
-32,Nottingham Forest,Away,74.99,Premier League,Adidas,forest.png,forest_2.png,
-33,Sunderland,Home,90,Premier League,Hummel,sunderland.png,sunderland_1.png,
-34,Sunderland,Away,69.99,Premier League,Hummel,sunderland.png,sunderland_2.png,
-35,Tottenham,Home,109.99,Premier League,Nike,spurs.png,tottenham_1.png,
-36,Tottenham,Away,89.99,Premier League,Nike,spurs.png,tottenham_2.png,
-37,West Ham,Home,95,Premier League,Umbro,west_ham.png,west_ham_1.png,
-38,West Ham,Away,74.99,Premier League,Umbro,west_ham.png,west_ham_2.png,
-39,Wolves,Home,90,Premier League,SUDU,wolves.png,wolves_1.png,
-40,Wolves,Away,70,Premier League,SUDU,wolves.png,wolves_2.png,
-41,Alavés,Home,64.99,La Liga,Puma,alaves.png,alaves1.png,
-42,Alavés,Away,54.99,La Liga,Puma,alaves.png,alaves2.png,
-43,Athletic Club,Home,75,La Liga,Castore,athletic.png,athletic_bilbao1.png,
-44,Athletic Club,Away,70,La Liga,Castore,athletic.png,athletic_bilbao2.png,
-45,Atlético Madrid,Home,99.99,La Liga,Nike,atletico_madrid.png,atletico_madrid1.png,
-46,Atlético Madrid,Away,89.99,La Liga,Nike,atletico_madrid.png,atletico_madrid2.png,
-47,Barcelona,Home,119.99,La Liga,Nike,barcelona.png,barcelona1.png,
-48,Barcelona,Away,109.99,La Liga,Nike,barcelona.png,barcelona2.png,
-49,Celta Vigo,Home,70,La Liga,Hummel,celta_vigo.png,celta1.png,
-50,Celta Vigo,Away,65,La Liga,Hummel,celta_vigo.png,celta2.png,
-51,Elche,Home,55,La Liga,Nike,elche.png,elche1.png,
-52,Elche,Away,50,La Liga,Nike,elche.png,elche2.png,
-53,Espanyol,Home,70,La Liga,Kelme,espanyol.png,espanol1.png,
-54,Espanyol,Away,59.99,La Liga,Kelme,espanyol.png,espanol2.png,
-55,Getafe,Home,65,La Liga,Joma,getafe.png,getafe1.png,
-56,Getafe,Away,60,La Liga,Joma,getafe.png,getafe2.png,
-57,Girona,Home,69.99,La Liga,Puma,girona.png,girona1.png,
-58,Girona,Away,59.99,La Liga,Puma,girona.png,girona2.png,
-59,Levante,Home,65,La Liga,Macron,levante.png,levante1.png,
-60,Levante,Away,60,La Liga,Macron,levante.png,levante2.png,
-61,Mallorca,Home,65,La Liga,Nike,mallorca.png,mallorca1.png,
-62,Mallorca,Away,59.99,La Liga,Nike,mallorca.png,mallorca2.png,
-63,Osasuna,Home,70,La Liga,Macron,osasuna.png,osasuna1.png,
-64,Osasuna,Away,59.99,La Liga,Macron,osasuna.png,osasuna2.png,
-65,Rayo Vallecano,Home,70,La Liga,Macron,rayo_vallecano.png,rayo_vallecano1.png,
-66,Rayo Vallecano,Away,60,La Liga,Macron,rayo_vallecano.png,rayo_vallecano2.png,
-67,Real Betis,Home,75,La Liga,Hummel,betis.png,betis1.png,
-68,Real Betis,Away,64.99,La Liga,Hummel,betis.png,betis2.png,
-69,Real Madrid,Home,119.99,La Liga,Adidas,madrid.png,real_madrid1.png,
-70,Real Madrid,Away,115,La Liga,Adidas,madrid.png,real_madrid2.png,
-71,Real Oviedo,Home,65,La Liga,Adidas,oviedo.png,oviedo1.png,
-72,Real Oviedo,Away,55,La Liga,Adidas,oviedo.png,oviedo2.png,
-73,Real Sociedad,Home,75,La Liga,Macron,sociedad.png,real_sociedad1.png,
-74,Real Sociedad,Away,60,La Liga,Macron,sociedad.png,real_sociedad2.png,
-75,Sevilla,Home,99.99,La Liga,Adidas,sevilla.png,sevilla1.png,
-76,Sevilla,Away,85,La Liga,Adidas,sevilla.png,sevilla2.png,
-77,Valencia,Home,99.99,La Liga,Puma,valencia.png,valencia1.png,
-78,Valencia,Away,89.99,La Liga,Puma,valencia.png,valencia2.png,
-79,Villarreal,Home,70,La Liga,Joma,villarreal.png,villarreal1.png,
-80,Villarreal,Away,59.99,La Liga,Joma,villarreal.png,villarreal2.png,
-81,FC Heidenheim 1846,Home,84.99,Bundesliga,Puma,heidenheim.png,heidenheim_1.png,
-82,FC Heidenheim 1846,Away,74.95,Bundesliga,Puma,heidenheim.png,heidenheim_2.png,
-83,FC Union Berlin,Home,94.95,Bundesliga,Adidas,union_berlin.png,union_berlin_1.png,
-84,FC Union Berlin,Away,74.95,Bundesliga,Adidas,union_berlin.png,union_berlin_2.png,
-85,Bayer 04 Leverkusen,Home,89.95,Bundesliga,New Balance,leverkusen.png,leverkusen_1.png,
-86,Bayer 04 Leverkusen,Away,84.99,Bundesliga,New Balance,leverkusen.png,leverkusen_2.png,
-87,Bayern Munich,Home,100,Bundesliga,Adidas,bayern_munich.png,bayern_1.png,
-88,Bayern Munich,Away,89.99,Bundesliga,Adidas,bayern_munich.png,bayern_2.png,
-89,Borussia Dortmund,Home,100,Bundesliga,Puma,dortmund.png,dortmund_1.png,
-90,Borussia Dortmund,Away,84.99,Bundesliga,Puma,dortmund.png,dortmund_2.png,
-91,Borussia Mönchengladbach ,Home,89.95,Bundesliga,Puma,borussia_gladbach.png,borussia_gladbach_1.png,
-92,Borussia Mönchengladbach ,Away,69.95,Bundesliga,Puma,borussia_gladbach.png,borussia_gladbach_2.png,
-93,Eintracht Frankfurt,Home,99.99,Bundesliga,Adidas,eintracht_frankfurt.png,eintracht_frankfurt_1.png,
-94,Eintracht Frankfurt,Away,74.99,Bundesliga,Adidas,eintracht_frankfurt.png,eintracht_frankfurt_2.png,
-95,FC Augsburg,Home,89.95,Bundesliga,Mizuno,augsburg.png,augsburg_1.png,
-96,FC Augsburg,Away,69.99,Bundesliga,Mizuno,augsburg.png,augsburg_2.png,
-97,FC Cologne,Home,99.95,Bundesliga,Hummel,cologne.png,koln_1.png,
-98,FC Cologne,Away,80,Bundesliga,Hummel,cologne.png,koln_2.png,
-99,Hamburg SV,Home,94.99,Bundesliga,Adidas,hamburg.png,hsv_1.png,
-100,Hamburg SV,Away,79.95,Bundesliga,Adidas,hamburg.png,hsv_2.png,
-101,FSV Mainz 05,Home,84.99,Bundesliga,Jako,mainz.png,mainz_1.png,
-102,FSV Mainz 05,Away,64.95,Bundesliga,Jako,mainz.png,mainz_2.png,
-103,RB Leipzig,Home,95,Bundesliga,Puma,rb_leipzig.png,rb_leipzig_1.png,
-104,RB Leipzig,Away,74.99,Bundesliga,Puma,rb_leipzig.png,rb_leipzig_2.png,
-105,SC Freiburg,Home,85,Bundesliga,Nike,freiburg.png,freiburg_1.png,
-106,SC Freiburg,Away,70,Bundesliga,Nike,freiburg.png,freiburg_2.png,
-107,St. Pauli,Home,79.95,Bundesliga,Puma,st_pauli.png,st_pauli_1.png,
-108,St. Pauli,Away,59.95,Bundesliga,Puma,st_pauli.png,st_pauli_2.png,
-109,TSG Hoffenheim,Home,79.95,Bundesliga,Joma,hoffenheim.png,hoffenheim_1.png,
-110,TSG Hoffenheim,Away,64.99,Bundesliga,Joma,hoffenheim.png,hoffenheim_2.png,
-111,VfB Stuttgart,Home,80,Bundesliga,Jako,stuttgart.png,stuttgart_1.png,
-112,VfB Stuttgart,Away,63.99,Bundesliga,Jako,stuttgart.png,stuttgart_2.png,
-113,VfL Wolfsburg,Home,90,Bundesliga,Nike,"wolfsburg,png",wolfsburg_1.png,
-114,VfL Wolfsburg,Away,69.99,Bundesliga,Nike,"wolfsburg,png",wolfsburg_2.png,
-115,Werder Bremen ,Home,70,Bundesliga,Hummel,werder_bremen.png,werder_bremen_1.png,
-116,Werder Bremen ,Away,64.95,Bundesliga,Hummel,werder_bremen.png,werder_bremen_2.png,
-117,Bohemians,Home,54.99,League of Ireland,O’Neill’s,bohemians.png,bohemian1.png,
-118,Bohemians,Away,45,League of Ireland,O’Neill’s,bohemians.png,bohemian2.png,
-119,Derry City,Home,54.99,League of Ireland,O’Neill’s,derry_city.png,derrycity1.png,
-120,Derry City,Away,45,League of Ireland,O’Neill’s,derry_city.png,derrycity2.png,
-121,Drogheda United,Home,54.99,League of Ireland,Macron,drogheda.png,drogheda1.png,
-122,Drogheda United,Away,45,League of Ireland,Macron,drogheda.png,drogheda2.png,
-123,Dundalk,Home,54.99,League of Ireland,Macron,dundalk.png,,
-124,Dundalk,Away,45,League of Ireland,Macron,dundalk.png,,
-125,Galway United,Home,54.99,League of Ireland,O’Neill’s,,galway1.png,
-126,Galway United,Away,45,League of Ireland,O’Neill’s,,galway2.png,
-127,Shamrock Rovers,Home,54.99,League of Ireland,Macron,shamrock.png,shamrock1.png,
-128,Shamrock Rovers,Away,45,League of Ireland,Macron,shamrock.png,shamrock2.png,
-129,Shelbourne,Home,54.99,League of Ireland,O’Neill’s,shelbourne.png,shelbourne1.png,
-130,Shelbourne,Away,45,League of Ireland,O’Neill’s,shelbourne.png,shelbourne2.png,
-131,Sligo Rovers,Home,54.99,League of Ireland,Umbro,sligo.png,sligorovers1.png,
-132,Sligo Rovers,Away,45,League of Ireland,Umbro,sligo.png,sligorovers2.png,
-133,St. Patrick’s Athletic,Home,54.99,League of Ireland,Umbro,st_pats.png,stpatrick1.png,
-134,St. Patrick’s Athletic,Away,45,League of Ireland,Umbro,st_pats.png,stpatrick2.png,
-135,Waterford,Home,54.99,League of Ireland,Puma,waterford.png,waterford1.png,
-136,Waterford,Away,45,League of Ireland,Puma,waterford.png,waterford2.png,
-137,AJ Auxerre ,Home,,Ligue 1,Macron,auxerre.png,auxerre_1.png,
-138,AJ Auxerre ,Away,,Ligue 1,Macron,auxerre.png,auxerre_2.png,
-139,AS Monaco,Home,,Ligue 1,Mizuno,monaco.png,monaco_1.png,
-140,AS Monaco,Away,,Ligue 1,Mizuno,monaco.png,monaco_2.png,
-141,Angers,Home,,Ligue 1,Nike,angers.png,angers_1.png,
-142,Angers,Away,,Ligue 1,Nike,angers.png,angers_2.png,
-143,Brest,Home,,Ligue 1,Adidas,brest.png,brest_1.png,
-144,Brest,Away,,Ligue 1,Adidas,brest.png,brest_2.png,
-145,Le Harve AC,Home,,Ligue 1,Umbro,harve.png,havre_1.png,
-146,Le Harve AC,Away,,Ligue 1,Umbro,harve.png,havre_2.png,
-147,Lens,Home,,Ligue 1,Puma,lens.png,lens_1.png,
-148,Lens,Away,,Ligue 1,Puma,lens.png,lens_2.png,
-149,Lille,Home,,Ligue 1,New Balance,lille.png,lille_1.png,
-150,Lille,Away,,Ligue 1,New Balance,lille.png,lille_2.png,
-151,Lorient,Home,,Ligue 1,Joma,lorient.png,lorient_1.png,
-152,Lorient,Away,,Ligue 1,Joma,lorient.png,lorient_2.png,
-153,Lyon,Home,,Ligue 1,Adidas,lyon.psg,lyon_1.png,
-154,Lyon,Away,,Ligue 1,Adidas,lyon.psg,lyon_2.png,
-155,Marseille,Home,,Ligue 1,Puma,marseille.png,olympique_marseille_1.png,
-156,Marseille,Away,,Ligue 1,Puma,marseille.png,olympique_marseille_2.png,
-157,Metz,Home,,Ligue 1,Kappa,metz.png,metz_1.png,
-158,Metz,Away,,Ligue 1,Kappa,metz.png,metz_2.png,
-159,Nantes,Home,,Ligue 1,Macron,nantes.png,nantes_1.png,
-160,Nantes,Away,,Ligue 1,Macron,nantes.png,nantes_2.png,
-161,Nice,Home,,Ligue 1,Kappa,nice.png,nice_1.png,
-162,Nice,Away,,Ligue 1,Kappa,nice.png,nice_2.png,
-163,Paris FC,Home,,Ligue 1,Adidas,paris.png,paris_1.png,
-164,Paris FC,Away,,Ligue 1,Adidas,paris.png,paris_2.png,
-165,Paris Saint-Germain,Home,,Ligue 1,Nike,psg.png,psg_1.png,
-166,Paris Saint-Germain,Away,,Ligue 1,Nike,psg.png,psg_2.png,
-167,Stade Rennais,Home,,Ligue 1,Puma,rennais.png,rennes_1.png,
-168,Stade Rennais,Away,,Ligue 1,Puma,rennais.png,rennes_2.png,
-169,Strasbourg,Home,,Ligue 1,Adidas,strasbourg.png,strasbourg_1.png,
-170,Strasbourg,Away,,Ligue 1,Adidas,strasbourg.png,strasbourg_2.png,
-171,Toulouse,Home,,Ligue 1,Nike,toulouse.png,toulouse_1.png,
-172,Toulouse,Away,,Ligue 1,Nike,toulouse.png,toulouse_2.png,
-173,AC Milan,Home,,Serie A,Puma,milan.png,milan_1.png,
-174,AC Milan,Away,,Serie A,Puma,milan.png,milan_2.png,
-175,AS Roma,Home,,Serie A,Adidas,roma.png,roma_1.png,
-176,AS Roma,Away,,Serie A,Adidas,roma.png,roma_2.png,
-177,Atalanta,Home,,Serie A,New Balance,atalanta.png,atalanta_1.png,
-178,Atalanta,Away,,Serie A,New Balance,atalanta.png,atalanta_2.png,
-179,Bologna,Home,,Serie A,Macron,bologna.png,bologna_1.png,
-180,Bologna,Away,,Serie A,Macron,bologna.png,bologna_2.png,
-181,Cagliari,Home,,Serie A,Eye Sport,cagliari.png,cagliari_1.png,
-182,Cagliari,Away,,Serie A,Eye Sport,cagliari.png,cagliari_2.png,
-183,Como,Home,,Serie A,Adidas,como.png,como_1.png,
-184,Como,Away,,Serie A,Adidas,como.png,como_2.png,
-185,Cremonese,Home,,Serie A,Acerbis,cremonese.png,cremonese_1.png,
-186,Cremonese,Away,,Serie A,Acerbis,cremonese.png,cremonese_2.png,
-187,Fiorentina,Home,,Serie A,Kappa,fiorentina.png,fiorentina_1.png,
-188,Fiorentina,Away,,Serie A,Kappa,fiorentina.png,fiorentina_2.png,
-189,Genoa,Home,,Serie A,Kappa,genoa.png,genoa_1.png,
-190,Genoa,Away,,Serie A,Kappa,genoa.png,genoa_2.png,
-191,Hellas Verona,Home,,Serie A,Joma,hellas_verona.png,hellas_1.png,
-192,Hellas Verona,Away,,Serie A,Joma,hellas_verona.png,hellas_2.png,
-193,Internazionale,Home,,Serie A,Nike,inter.png,inter_1.png,
-194,Internazionale,Away,,Serie A,Nike,inter.png,inter_2.png,
-195,Juventus,Home,,Serie A,Adidas,juventus.png,juventus_1.png,
-196,Juventus,Away,,Serie A,Adidas,juventus.png,juventus_2.png,
-197,Lazio,Home,,Serie A,Mizuno,lazio.png,lazio_1.png,
-198,Lazio,Away,,Serie A,Mizuno,lazio.png,lazio_2.png,
-199,Leece,Home,,Serie A,M908,lecce.png,lecce_1.png,
-200,Leece,Away,,Serie A,M908,lecce.png,lecce_2.png,
-201,Napoli,Home,,Serie A,EA7,napoli.png,napoli_1.png,
-202,Napoli,Away,,Serie A,EA7,napoli.png,napoli_2.png,
-203,Parma,Home,,Serie A,Puma,parma.png,parma_1.png,
-204,Parma,Away,,Serie A,Puma,parma.png,parma_2.png,
-205,Pisa,Home,,Serie A,Adidas,pisa.png,pisa_1.png,
-206,Pisa,Away,,Serie A,Adidas,pisa.png,pisa_2.png,
-207,Sassuolo,Home,,Serie A,Puma,sassuolo.png,sassuolo_1.png,
-208,Sassuolo,Away,,Serie A,Puma,sassuolo.png,sassuolo_2.png,
-209,Torino,Home,,Serie A,Joma,torino.png,torino_1.png,
-210,Torino,Away,,Serie A,Joma,torino.png,torino_2.png,
-211,Udinese,Home,,Serie A,Macron,udinese.png,udinese_1.png,
-212,Udinese,Away,,Serie A,Macron,udinese.png,udinese_2.png,
-213,Ireland,Home,105,International,Castore,ireland.png,,
-214,Ireland,Away,100,International,Castore,ireland.png,,
-215,England,Home,110,International,Nike,england.png,,
-216,Scotland,Home,100,International,Adidas,scotland.png,,
-217,Wales,Home,100,International,Adidas,wales.png,,
-218,France,Home,110,International,Nike,france.png,,
-219,Spain,Home,110,International,Adidas,spain.png,,
-220,Germany,Home,110,International,Adidas,germany.png,,
-221,Italy,Home,110,International,Adidas,italy.png,,
-222,USA,Home,95,International,Nike,usa.png,,
-223,Brazil,Home,110,International,Nike,brazil.png,,
-224,Argentina,Home,115,International,Adidas,argentina.png,,
-225,Australia,Home,90,International,Nike,australia.png,,
-226,World Cup 2026,,34.99,Ball,Adidas,world_cup.png,,
-227,Premier League 25/26,,23,Ball,Puma,premier_league.png,,
-228,La Liga 25/26,,23,Ball,Puma,la_liga.png,,
-229,Serie A 25/26,,20,Ball,Puma,serie_a.png,,
-230,Ligue 1 25/26,,20,Ball,Kipsta,ligue_1.png,,
-231,Bundesliga 25/26,,20,Ball,Derbystar,bundesliga.png,,
-232,Champions League 25/26,,31.95,Ball,Adidas,champions_league.png,,
-233,Europa League 25/26,,24,Ball,Kipsta,europa_league.png,,
-234,League of Ireland 25/26,,19.99,Ball,Umbro,league_ireland.png,,
-235,Tiro Shin Pads ,,15.83,Shin Pads,Adidas,adidas.png,,
-236,Forza Club Shin Pads,,8.99,Shin Pads,Forza,forza.png,,
-237,Shadow Shin Pads,,7.5,Shin Pads,Under Armour,under_armour.png,,
-238,Vapor Grip 3,,40,Gloves,Nike,nike.png,,
-239,Phantom,,60,Gloves,Nike,nike.png,,
-240,Predator Pro,,50,Gloves,Adidas,adidas.png,,
-241,Copa Pro,,45,Gloves,Adidas,adidas.png,,
-242,8 x 4 Forza,,60,Goals,Forza,forza.png,,
-243,12 x 6 Forza,,140,Goals,Forza,forza.png,,
-244,12 x 6 Samba,,259,Goals,Hit Sport,hit_sport.png,, 
-245,8 x 5 Samba,,165,Goals,Hit Sport,hit_sport.png,,
+ID,Club,Version,Price,League,Manufacturer,Crest,Image
+1,Arsenal,Home,114.99,Premier League,Adidas,arsenal.png,arsenal_1.png
+2,Arsenal,Away,90,Premier League,Adidas,arsenal.png,arsenal_2.png
+3,Aston Villa,Home,100,Premier League,Adidas,aston_villa.png,aston_villa_1.png
+4,Aston Villa,Away,84.99,Premier League,Adidas,aston_villa.png,aston_villa_2.png
+5,Bournemouth,Home,94.99,Premier League,Umbro,bournemouth.png,bournemouth_1.png
+6,Bournemouth,Away,74.99,Premier League,Umbro,bournemouth.png,bournemouth_2.png
+7,Brentford,Home,90,Premier League,Joma,brentford.png,brentford_1.png
+8,Brentford,Away,69.99,Premier League,Joma,brentford.png,brentford_2.png
+9,Brighton,Home,100,Premier League,Nike,brighton.png,brighton_1.png
+10,Brighton,Away,84.99,Premier League,Nike,brighton.png,brighton_2.png
+11,Burnley,Home,90,Premier League,Castore,burnley.png,burnley_1.png
+12,Burnley,Away,70,Premier League,Castore,burnley.png,burnley_2.png
+13,Chelsea,Home,109.99,Premier League,Nike,chelsea.png,chelsea_1.png
+14,Chelsea,Away,90,Premier League,Nike,chelsea.png,chelsea_2.png
+15,Crystal Palace,Home,95,Premier League,Macron,crystal_palace.png,crystal_palace_1.png
+16,Crystal Palace,Away,75,Premier League,Macron,crystal_palace.png,crystal_palace_2.png
+17,Everton,Home,100,Premier League,Castore,everton.png,everton_1.png
+18,Everton,Away,84.99,Premier League,Castore,everton.png,everton_2.png
+19,Fulham,Home,95,Premier League,Adidas,fulham.png,fulham_1.png
+20,Fulham,Away,74.99,Premier League,Adidas,fulham.png,fulham_2.png
+21,Leeds,Home,90,Premier League,Adidas,leeds.png,leeds_1.png
+22,Leeds,Away,69.99,Premier League,Adidas,leeds.png,leeds_2.png
+23,Liverpool,Home,110,Premier League,Adidas,liverpool.png,liverpool_1.png
+24,Liverpool,Away,90,Premier League,Adidas,liverpool.png,liverpool_2.png
+25,Manchester City,Home,114.99,Premier League,Puma,man_city.png,man_city_1.png
+26,Manchester City,Away,90,Premier League,Puma,man_city.png,man_city_2.png
+27,Manchester United,Home,115,Premier League,Adidas,man_utd.png,manunited_1.png
+28,Manchester United,Away,89.99,Premier League,Adidas,man_utd.png,manunited_2.png
+29,Newcastle,Home,99.99,Premier League,Adidas,newcastle.png,newcastle_1.png
+30,Newcastle,Away,85,Premier League,Adidas,newcastle.png,newcastle_2.png
+31,Nottingham Forest,Home,94.99,Premier League,Adidas,forest.png,forest_1.png
+32,Nottingham Forest,Away,74.99,Premier League,Adidas,forest.png,forest_2.png
+33,Sunderland,Home,90,Premier League,Hummel,sunderland.png,sunderland_1.png
+34,Sunderland,Away,69.99,Premier League,Hummel,sunderland.png,sunderland_2.png
+35,Tottenham,Home,109.99,Premier League,Nike,spurs.png,tottenham_1.png
+36,Tottenham,Away,89.99,Premier League,Nike,spurs.png,tottenham_2.png
+37,West Ham,Home,95,Premier League,Umbro,west_ham.png,west_ham_1.png
+38,West Ham,Away,74.99,Premier League,Umbro,west_ham.png,west_ham_2.png
+39,Wolves,Home,90,Premier League,SUDU,wolves.png,wolves_1.png
+40,Wolves,Away,70,Premier League,SUDU,wolves.png,wolves_2.png
+41,Alavés,Home,64.99,La Liga,Puma,alaves.png,alaves1.png
+42,Alavés,Away,54.99,La Liga,Puma,alaves.png,alaves2.png
+43,Athletic Club,Home,75,La Liga,Castore,athletic.png,athletic_bilbao1.png
+44,Athletic Club,Away,70,La Liga,Castore,athletic.png,athletic_bilbao2.png
+45,Atlético Madrid,Home,99.99,La Liga,Nike,atletico_madrid.png,atletico_madrid1.png
+46,Atlético Madrid,Away,89.99,La Liga,Nike,atletico_madrid.png,atletico_madrid2.png
+47,Barcelona,Home,119.99,La Liga,Nike,barcelona.png,barcelona1.png
+48,Barcelona,Away,109.99,La Liga,Nike,barcelona.png,barcelona2.png
+49,Celta Vigo,Home,70,La Liga,Hummel,celta_vigo.png,celta1.png
+50,Celta Vigo,Away,65,La Liga,Hummel,celta_vigo.png,celta2.png
+51,Elche,Home,55,La Liga,Nike,elche.png,elche1.png
+52,Elche,Away,50,La Liga,Nike,elche.png,elche2.png
+53,Espanyol,Home,70,La Liga,Kelme,espanyol.png,espanol1.png
+54,Espanyol,Away,59.99,La Liga,Kelme,espanyol.png,espanol2.png
+55,Getafe,Home,65,La Liga,Joma,getafe.png,getafe1.png
+56,Getafe,Away,60,La Liga,Joma,getafe.png,getafe2.png
+57,Girona,Home,69.99,La Liga,Puma,girona.png,girona1.png
+58,Girona,Away,59.99,La Liga,Puma,girona.png,girona2.png
+59,Levante,Home,65,La Liga,Macron,levante.png,levante1.png
+60,Levante,Away,60,La Liga,Macron,levante.png,levante2.png
+61,Mallorca,Home,65,La Liga,Nike,mallorca.png,mallorca1.png
+62,Mallorca,Away,59.99,La Liga,Nike,mallorca.png,mallorca2.png
+63,Osasuna,Home,70,La Liga,Macron,osasuna.png,osasuna1.png
+64,Osasuna,Away,59.99,La Liga,Macron,osasuna.png,osasuna2.png
+65,Rayo Vallecano,Home,70,La Liga,Macron,rayo_vallecano.png,rayo_vallecano1.png
+66,Rayo Vallecano,Away,60,La Liga,Macron,rayo_vallecano.png,rayo_vallecano2.png
+67,Real Betis,Home,75,La Liga,Hummel,betis.png,betis1.png
+68,Real Betis,Away,64.99,La Liga,Hummel,betis.png,betis2.png
+69,Real Madrid,Home,119.99,La Liga,Adidas,madrid.png,real_madrid1.png
+70,Real Madrid,Away,115,La Liga,Adidas,madrid.png,real_madrid2.png
+71,Real Oviedo,Home,65,La Liga,Adidas,oviedo.png,oviedo1.png
+72,Real Oviedo,Away,55,La Liga,Adidas,oviedo.png,oviedo2.png
+73,Real Sociedad,Home,75,La Liga,Macron,sociedad.png,real_sociedad1.png
+74,Real Sociedad,Away,60,La Liga,Macron,sociedad.png,real_sociedad2.png
+75,Sevilla,Home,99.99,La Liga,Adidas,sevilla.png,sevilla1.png
+76,Sevilla,Away,85,La Liga,Adidas,sevilla.png,sevilla2.png
+77,Valencia,Home,99.99,La Liga,Puma,valencia.png,valencia1.png
+78,Valencia,Away,89.99,La Liga,Puma,valencia.png,valencia2.png
+79,Villarreal,Home,70,La Liga,Joma,villarreal.png,villarreal1.png
+80,Villarreal,Away,59.99,La Liga,Joma,villarreal.png,villarreal2.png
+81,FC Heidenheim 1846,Home,84.99,Bundesliga,Puma,heidenheim.png,heidenheim_1.png
+82,FC Heidenheim 1846,Away,74.95,Bundesliga,Puma,heidenheim.png,heidenheim_2.png
+83,FC Union Berlin,Home,94.95,Bundesliga,Adidas,union_berlin.png,union_berlin_1.png
+84,FC Union Berlin,Away,74.95,Bundesliga,Adidas,union_berlin.png,union_berlin_2.png
+85,Bayer 04 Leverkusen,Home,89.95,Bundesliga,New Balance,leverkusen.png,leverkusen_1.png
+86,Bayer 04 Leverkusen,Away,84.99,Bundesliga,New Balance,leverkusen.png,leverkusen_2.png
+87,Bayern Munich,Home,100,Bundesliga,Adidas,bayern_munich.png,bayern_1.png
+88,Bayern Munich,Away,89.99,Bundesliga,Adidas,bayern_munich.png,bayern_2.png
+89,Borussia Dortmund,Home,100,Bundesliga,Puma,dortmund.png,dortmund_1.png
+90,Borussia Dortmund,Away,84.99,Bundesliga,Puma,dortmund.png,dortmund_2.png
+91,Borussia Mönchengladbach ,Home,89.95,Bundesliga,Puma,borussia_gladbach.png,borussia_gladbach_1.png
+92,Borussia Mönchengladbach ,Away,69.95,Bundesliga,Puma,borussia_gladbach.png,borussia_gladbach_2.png
+93,Eintracht Frankfurt,Home,99.99,Bundesliga,Adidas,eintracht_frankfurt.png,eintracht_frankfurt_1.png
+94,Eintracht Frankfurt,Away,74.99,Bundesliga,Adidas,eintracht_frankfurt.png,eintracht_frankfurt_2.png
+95,FC Augsburg,Home,89.95,Bundesliga,Mizuno,augsburg.png,augsburg_1.png
+96,FC Augsburg,Away,69.99,Bundesliga,Mizuno,augsburg.png,augsburg_2.png
+97,FC Cologne,Home,99.95,Bundesliga,Hummel,cologne.png,koln_1.png
+98,FC Cologne,Away,80,Bundesliga,Hummel,cologne.png,koln_2.png
+99,Hamburg SV,Home,94.99,Bundesliga,Adidas,hamburg.png,hsv_1.png
+100,Hamburg SV,Away,79.95,Bundesliga,Adidas,hamburg.png,hsv_2.png
+101,FSV Mainz 05,Home,84.99,Bundesliga,Jako,mainz.png,mainz_1.png
+102,FSV Mainz 05,Away,64.95,Bundesliga,Jako,mainz.png,mainz_2.png
+103,RB Leipzig,Home,95,Bundesliga,Puma,rb_leipzig.png,rb_leipzig_1.png
+104,RB Leipzig,Away,74.99,Bundesliga,Puma,rb_leipzig.png,rb_leipzig_2.png
+105,SC Freiburg,Home,85,Bundesliga,Nike,freiburg.png,freiburg_1.png
+106,SC Freiburg,Away,70,Bundesliga,Nike,freiburg.png,freiburg_2.png
+107,St. Pauli,Home,79.95,Bundesliga,Puma,st_pauli.png,st_pauli_1.png
+108,St. Pauli,Away,59.95,Bundesliga,Puma,st_pauli.png,st_pauli_2.png
+109,TSG Hoffenheim,Home,79.95,Bundesliga,Joma,hoffenheim.png,hoffenheim_1.png
+110,TSG Hoffenheim,Away,64.99,Bundesliga,Joma,hoffenheim.png,hoffenheim_2.png
+111,VfB Stuttgart,Home,80,Bundesliga,Jako,stuttgart.png,stuttgart_1.png
+112,VfB Stuttgart,Away,63.99,Bundesliga,Jako,stuttgart.png,stuttgart_2.png
+113,VfL Wolfsburg,Home,90,Bundesliga,Nike,"wolfsburg,png",wolfsburg_1.png
+114,VfL Wolfsburg,Away,69.99,Bundesliga,Nike,"wolfsburg,png",wolfsburg_2.png
+115,Werder Bremen ,Home,70,Bundesliga,Hummel,werder_bremen.png,werder_bremen_1.png
+116,Werder Bremen ,Away,64.95,Bundesliga,Hummel,werder_bremen.png,werder_bremen_2.png
+117,Bohemians,Home,54.99,League of Ireland,O’Neill’s,bohemians.png,bohemian1.png
+118,Bohemians,Away,45,League of Ireland,O’Neill’s,bohemians.png,bohemian2.png
+119,Derry City,Home,54.99,League of Ireland,O’Neill’s,derry_city.png,derrycity1.png
+120,Derry City,Away,45,League of Ireland,O’Neill’s,derry_city.png,derrycity2.png
+121,Drogheda United,Home,54.99,League of Ireland,Macron,drogheda.png,drogheda1.png
+122,Drogheda United,Away,45,League of Ireland,Macron,drogheda.png,drogheda2.png
+123,Dundalk,Home,54.99,League of Ireland,Macron,dundalk.png,dundalk1.png
+124,Dundalk,Away,45,League of Ireland,Macron,dundalk.png,dundalk2.png
+125,Galway United,Home,54.99,League of Ireland,O’Neill’s,galway.png,galway1.png
+126,Galway United,Away,45,League of Ireland,O’Neill’s,galway.png,galway2.png
+127,Shamrock Rovers,Home,54.99,League of Ireland,Macron,shamrock.png,shamrock1.png
+128,Shamrock Rovers,Away,45,League of Ireland,Macron,shamrock.png,shamrock2.png
+129,Shelbourne,Home,54.99,League of Ireland,O’Neill’s,shelbourne.png,shelbourne1.png
+130,Shelbourne,Away,45,League of Ireland,O’Neill’s,shelbourne.png,shelbourne2.png
+131,Sligo Rovers,Home,54.99,League of Ireland,Umbro,sligo.png,sligorovers1.png
+132,Sligo Rovers,Away,45,League of Ireland,Umbro,sligo.png,sligorovers2.png
+133,St. Patrick’s Athletic,Home,54.99,League of Ireland,Umbro,st_pats.png,stpatrick1.png
+134,St. Patrick’s Athletic,Away,45,League of Ireland,Umbro,st_pats.png,stpatrick2.png
+135,Waterford,Home,54.99,League of Ireland,Puma,waterford.png,waterford1.png
+136,Waterford,Away,45,League of Ireland,Puma,waterford.png,waterford2.png
+137,AJ Auxerre ,Home,69.99,Ligue 1,Macron,auxerre.png,auxerre_1.png
+138,AJ Auxerre ,Away,59.99,Ligue 1,Macron,auxerre.png,auxerre_2.png
+139,AS Monaco,Home,89.99,Ligue 1,Mizuno,monaco.png,monaco_1.png
+140,AS Monaco,Away,84.99,Ligue 1,Mizuno,monaco.png,monaco_2.png
+141,Angers,Home,70,Ligue 1,Nike,angers.png,angers_1.png
+142,Angers,Away,65,Ligue 1,Nike,angers.png,angers_2.png
+143,Brest,Home,70,Ligue 1,Adidas,brest.png,brest_1.png
+144,Brest,Away,65,Ligue 1,Adidas,brest.png,brest_2.png
+145,Le Harve AC,Home,69.99,Ligue 1,Umbro,harve.png,havre_1.png
+146,Le Harve AC,Away,59.99,Ligue 1,Umbro,harve.png,havre_2.png
+147,Lens,Home,64.99,Ligue 1,Puma,lens.png,lens_1.png
+148,Lens,Away,60,Ligue 1,Puma,lens.png,lens_2.png
+149,Lille,Home,75,Ligue 1,New Balance,lille.png,lille_1.png
+150,Lille,Away,69.99,Ligue 1,New Balance,lille.png,lille_2.png
+151,Lorient,Home,64.99,Ligue 1,Joma,lorient.png,lorient_1.png
+152,Lorient,Away,60,Ligue 1,Joma,lorient.png,lorient_2.png
+153,Lyon,Home,89.99,Ligue 1,Adidas,lyon.psg,lyon_1.png
+154,Lyon,Away,84.99,Ligue 1,Adidas,lyon.psg,lyon_2.png
+155,Marseille,Home,89.99,Ligue 1,Puma,marseille.png,olympique_marseille_1.png
+156,Marseille,Away,84.99,Ligue 1,Puma,marseille.png,olympique_marseille_2.png
+157,Metz,Home,64.99,Ligue 1,Kappa,metz.png,metz_1.png
+158,Metz,Away,60,Ligue 1,Kappa,metz.png,metz_2.png
+159,Nantes,Home,75,Ligue 1,Macron,nantes.png,nantes_1.png
+160,Nantes,Away,69.99,Ligue 1,Macron,nantes.png,nantes_2.png
+161,Nice,Home,75,Ligue 1,Kappa,nice.png,nice_1.png
+162,Nice,Away,69.99,Ligue 1,Kappa,nice.png,nice_2.png
+163,Paris FC,Home,84.99,Ligue 1,Adidas,paris.png,paris_1.png
+164,Paris FC,Away,64.99,Ligue 1,Adidas,paris.png,paris_2.png
+165,Paris Saint-Germain,Home,100,Ligue 1,Nike,psg.png,psg_1.png
+166,Paris Saint-Germain,Away,94.99,Ligue 1,Nike,psg.png,psg_2.png
+167,Stade Rennais,Home,75,Ligue 1,Puma,rennais.png,rennes_1.png
+168,Stade Rennais,Away,69.99,Ligue 1,Puma,rennais.png,rennes_2.png
+169,Strasbourg,Home,64.99,Ligue 1,Adidas,strasbourg.png,strasbourg_1.png
+170,Strasbourg,Away,60,Ligue 1,Adidas,strasbourg.png,strasbourg_2.png
+171,Toulouse,Home,64.99,Ligue 1,Nike,toulouse.png,toulouse_1.png
+172,Toulouse,Away,60,Ligue 1,Nike,toulouse.png,toulouse_2.png
+173,AC Milan,Home,100,Serie A,Puma,milan.png,milan_1.png
+174,AC Milan,Away,89.99,Serie A,Puma,milan.png,milan_2.png
+175,AS Roma,Home,94.99,Serie A,Adidas,roma.png,roma_1.png
+176,AS Roma,Away,75,Serie A,Adidas,roma.png,roma_2.png
+177,Atalanta,Home,94.99,Serie A,New Balance,atalanta.png,atalanta_1.png
+178,Atalanta,Away,79.99,Serie A,New Balance,atalanta.png,atalanta_2.png
+179,Bologna,Home,84.99,Serie A,Macron,bologna.png,bologna_1.png
+180,Bologna,Away,64.99,Serie A,Macron,bologna.png,bologna_2.png
+181,Cagliari,Home,75,Serie A,Eye Sport,cagliari.png,cagliari_1.png
+182,Cagliari,Away,69.99,Serie A,Eye Sport,cagliari.png,cagliari_2.png
+183,Como,Home,75,Serie A,Adidas,como.png,como_1.png
+184,Como,Away,69.99,Serie A,Adidas,como.png,como_2.png
+185,Cremonese,Home,64.99,Serie A,Acerbis,cremonese.png,cremonese_1.png
+186,Cremonese,Away,60,Serie A,Acerbis,cremonese.png,cremonese_2.png
+187,Fiorentina,Home,84.99,Serie A,Kappa,fiorentina.png,fiorentina_1.png
+188,Fiorentina,Away,64.99,Serie A,Kappa,fiorentina.png,fiorentina_2.png
+189,Genoa,Home,75,Serie A,Kappa,genoa.png,genoa_1.png
+190,Genoa,Away,69.99,Serie A,Kappa,genoa.png,genoa_2.png
+191,Hellas Verona,Home,69.99,Serie A,Joma,hellas_verona.png,hellas_1.png
+192,Hellas Verona,Away,64.99,Serie A,Joma,hellas_verona.png,hellas_2.png
+193,Internazionale,Home,100,Serie A,Nike,inter.png,inter_1.png
+194,Internazionale,Away,89.99,Serie A,Nike,inter.png,inter_2.png
+195,Juventus,Home,100,Serie A,Adidas,juventus.png,juventus_1.png
+196,Juventus,Away,89.99,Serie A,Adidas,juventus.png,juventus_2.png
+197,Lazio,Home,94.99,Serie A,Mizuno,lazio.png,lazio_1.png
+198,Lazio,Away,80,Serie A,Mizuno,lazio.png,lazio_2.png
+199,Leece,Home,75,Serie A,M908,lecce.png,lecce_1.png
+200,Leece,Away,69.99,Serie A,M908,lecce.png,lecce_2.png
+201,Napoli,Home,100,Serie A,EA7,napoli.png,napoli_1.png
+202,Napoli,Away,89.99,Serie A,EA7,napoli.png,napoli_2.png
+203,Parma,Home,75,Serie A,Puma,parma.png,parma_1.png
+204,Parma,Away,69.99,Serie A,Puma,parma.png,parma_2.png
+205,Pisa,Home,64.99,Serie A,Adidas,pisa.png,pisa_1.png
+206,Pisa,Away,60,Serie A,Adidas,pisa.png,pisa_2.png
+207,Sassuolo,Home,69.99,Serie A,Puma,sassuolo.png,sassuolo_1.png
+208,Sassuolo,Away,64.99,Serie A,Puma,sassuolo.png,sassuolo_2.png
+209,Torino,Home,75,Serie A,Joma,torino.png,torino_1.png
+210,Torino,Away,69.99,Serie A,Joma,torino.png,torino_2.png
+211,Udinese,Home,75,Serie A,Macron,udinese.png,udinese_1.png
+212,Udinese,Away,69.99,Serie A,Macron,udinese.png,udinese_2.png
+213,Ireland,Home,105,International,Castore,ireland.png,ireland_1.png
+214,Ireland,Away,100,International,Castore,ireland.png,ireland_2.png
+215,England,Home,110,International,Nike,england.png,england_1.png
+216,Scotland,Home,100,International,Adidas,scotland.png,scotland_1.png
+217,Wales,Home,100,International,Adidas,wales.png,wales_1.png
+218,France,Home,110,International,Nike,france.png,france_1.png
+219,Spain,Home,110,International,Adidas,spain.png,spain_1.png
+220,Germany,Home,110,International,Adidas,germany.png,germany_1.png
+221,Italy,Home,110,International,Adidas,italy.png,italy_1.png
+222,USA,Home,95,International,Nike,usa.png,usa_1.png
+223,Brazil,Home,110,International,Nike,brazil.png,brazil_1.png
+224,Argentina,Home,115,International,Adidas,argentina.png,argentina_1.png
+225,Australia,Home,90,International,Nike,australia.png,australia_1.png
+226,World Cup 2026,,34.99,Ball,Adidas,world_cup_ball.png,world_cup.png
+227,Premier League 25/26,,23,Ball,Puma,premier_league_ball.png,premier_league1.png
+228,La Liga 25/26,,23,Ball,Puma,la_liga_ball.png,la_liga1.png
+229,Serie A 25/26,,20,Ball,Puma,serie_a_ball.png,serie_a1.png
+230,Ligue 1 25/26,,20,Ball,Kipsta,ligue_1_ball.png,Ligue_1_1.png
+231,Bundesliga 25/26,,20,Ball,Derbystar,bundesliga_ball.png,bundesliga1.png
+232,Champions League 25/26,,31.95,Ball,Adidas,champions_league_ball.png,champions_league1.png
+233,Europa League 25/26,,24,Ball,Kipsta,europa_league_ball.png,europa_league1.png
+234,League of Ireland 25/26,,19.99,Ball,Umbro,league_ireland_ball.png,league_ireland1.png
+235,Tango Glider,,14,Ball,Adidas,tangoGlider.png,adidas_logo.png
+236,Total 90,,18,Ball,Nike,total90.png,nike_logo.png
+237,Academy,,14.99,Ball,Forza,academyBall.png,forza_logo.png
+238,Tiro,,15.83,Shin Pads,Adidas,tiro.png,adidas_logo.png
+239,Club,,8.99,Shin Pads,Forza,club.png,forza_logo.png
+240,Shadow,,7.5,Shin Pads,Under Armour,shadow.png,under_armour_logo.png
+241,Academy,,13,Shin Pads,Nike,academy.png,nike_logo.png
+242,Charge,,25,Shin Pads,Nike,charge.png,nike_logo.png
+243,King,,7.5,Shin Pads,Puma,king.png,puma_logo.png
+244,Future,,100,Gloves,Puma,pumaFuture.png,puma_logo.png
+245,Vapor Grip 3,,40,Gloves,Nike,vaporGrip3.png,nike_logo.png
+246,Phantom,,60,Gloves,Nike,phantom.png,nike_logo.png
+247,Predator Pro,,50,Gloves,Adidas,predatorpro.png,adidas_logo.png
+248,Copa Pro,,45,Gloves,Adidas,copaPro.png,adidas_logo.png
+249,Lite,,13,Gloves,Forza,forzaLite.png,forza_logo.png
+250,8 x 4 Forza,,60,Goals,Forza,forza8x4.png,forza_logo.png
+251,12 x 6 Forza,,140,Goals,Forza,forza12x6.png,forza_logo.png
+252,16 x 7 Forza,,199.99,Goals,Forza,forza16x7.png,forza_logo.png
+253,12 x 6 Samba,,259,Goals,Hit Sport,samba12x6.png,hit_sport_logo.png
+254,8 x 5 Samba,,165,Goals,Hit Sport,samba8x5.png,hit_sport_logo.png
+255,Hit 6 x 4,,99,Goals,Hit Sport,hit6x4.png,hit_sport_logo.png
