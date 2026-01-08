@@ -20,7 +20,7 @@
 </head>
 
 <body>
-       <!--Navbar from Bootstrap-->
+    <!--Navbar from Bootstrap-->
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
         <div class="container">
@@ -84,7 +84,7 @@
     </nav>
 
 
-    
+
     <section id="home">
         <div class="container">
             <h1 class="contactTitle">CONTACT US</h1>
@@ -97,7 +97,8 @@
                         <h2>Get in Touch</h2>
                         <p><strong>Get in Touch</strong></p>
                         <p><strong>Phone:</strong> +353 (059) 00 12345</p>
-                        <p><strong>Email:</strong> <a href="mailto:robertsfootballshop@atu.ie">robertsfootballshop@atu.ie</a></p>
+                        <p><strong>Email:</strong> <a
+                                href="mailto:robertsfootballshop@atu.ie">robertsfootballshop@atu.ie</a></p>
                         <p><strong>Customer Support:</strong> Mon – Sat, 9am – 6pm</p>
                     </div>
                 </div>
@@ -111,30 +112,25 @@
                         <p>ATU, Galway, Ireland</p>
                     </div>
                 </div>
-            
-            
-                <!--Bottom row --> 
+
+
+                <!--Bottom row -->
                 <div class="row justify-content-center mt-4">
                     <div class="col-12 col-md-10">
                         <!--Map Location using embedded iframe link from Google Maps-->
                         <div class="map-box">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2385.6691007853437!2d-9.0106931!3d53.2775483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b9132cb2e133f%3A0x5a81260c20e02143!2sATU%20Galway%20City!5e0!3m2!1sen!2sie!4v1767821131460!5m2!1sen!2sie"
-                                width="900"
-                                height="550"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
+                                width="900" height="550" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                            <!--Button with link to location on Google Maps-->
-                            <a class="map-button"
-                                href="https://www.google.com/maps/place/ATU+Galway+City/@53.2775483,-9.013268,17z/data=!3m1!4b1!4m6!3m5!1s0x485b9132cb2e133f:0x5a81260c20e02143!8m2!3d53.2775483!4d-9.0106931!16zL20vMDJ4ZHF4?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
-                                target="_blank"
-                                class="btn btn-primary mt-3">
-                                Open in Google Maps
-                            </a>
+                        <!--Button with link to location on Google Maps-->
+                        <a class="map-button"
+                            href="https://www.google.com/maps/place/ATU+Galway+City/@53.2775483,-9.013268,17z/data=!3m1!4b1!4m6!3m5!1s0x485b9132cb2e133f:0x5a81260c20e02143!8m2!3d53.2775483!4d-9.0106931!16zL20vMDJ4ZHF4?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
+                            target="_blank" class="btn btn-primary mt-3">
+                            Open in Google Maps
+                        </a>
                     </div>
                 </div>
             </div>
@@ -142,7 +138,7 @@
     </section>
 
 
-     <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+    <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
     <section id="band" class="container">
         <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
@@ -169,28 +165,31 @@
 
 
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
-    <footer class="py-5">
+    <footer>
         <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
-        <div class="row container mx-auto pt-5">
+        <div class="row container mx-auto pt-3 align-items-stretch">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                    width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
-                <p>Shop with us to guarantee you</p>
-                <p><em>Score Your Next Victory</em></p>
+                <p> Shop with us to guarantee you<br>
+                    <em>Score Your Next Victory</em>
+                </p>
+
             </div>
             <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
                 <h5 class="pb-2">Featured</h5>
                 <!--list of featured items without bullet points and all in uppercase-->
                 <ul class="text-uppercase list-unstyled">
-                    <li><a href="#">Footballs</a></li>
-                    <li><a href="#">Boots</a></li>
-                    <li><a href="#">Jerseys</a></li>
-                    <li><a href="#">Goals</a></li>
-                    <li><a href="#">Miscellaneous</a></li>
+                    <li><a href="/shop-all#footballs">Footballs</a></li>
+                    <li><a href="/shop-all#gloves">Gloves</a></li>
+                    <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                    <li><a href="/shop-all#goals">Goals</a></li>
+                    <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -209,25 +208,25 @@
                     <p>robertsfootballshop@atu.ie</p>
                 </div>
             </div>
-            <!--Large logo section with the image at 100% height via bootstrap-->
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img class="img-fluid w-90 h-100 m-2" src="/public/images/logo/logo-red-transparent.png" alt="large logo">
+            <!--Large logo section with the image placed centrally and at 100% height via bootstrap-->
+            <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
+                <img class="img-fluid w-75 m-1" src="public/images/logo/logo-red-transparent.png" alt="large logo">
             </div>
         </div>
 
         <!--very bottom of footer with the copyright info-->
-        <div class="copyright mt-5 py-5">
+        <div class="copyright mt-3 py-3">
             <div class="row container mx-auto">
                 <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
+                    <img src="public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
                 </div>
                 <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
-                <div class="col-lg-4 col-md-6 col-12 text-nowrap">
-                    <p>Roberts Footall Shop &copy 2026. All Rights Reserved</p>
+                <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
+                    <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
                 </div>
                 <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
-                <div class="col-lg-4 col-md-6 col-12">
+                <div class="col-lg-4 col-12 text-lg-end text-center">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>

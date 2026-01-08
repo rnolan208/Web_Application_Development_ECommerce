@@ -426,29 +426,31 @@
 
 
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
-    <footer class="py-5">
+    <footer>
         <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
-        <div class="row container mx-auto pt-5">
+        <div class="row container mx-auto pt-3 align-items-stretch">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                <img id="footer_small_logo" src="public/images/logo/logo-grayscale-transparent.png" alt="logo"
                     width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
-                <p>Shop with us to guarantee you</p>
-                <p><em>Score Your Next Victory</em></p>
+                <p> Shop with us to guarantee you<br>
+                    <em>Score Your Next Victory</em>
+                </p>
+
             </div>
             <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
                 <h5 class="pb-2">Featured</h5>
                 <!--list of featured items without bullet points and all in uppercase-->
                 <ul class="text-uppercase list-unstyled">
-                    <li><a href="#">Footballs</a></li>
-                    <li><a href="#">Boots</a></li>
-                    <li><a href="#">Jerseys</a></li>
-                    <li><a href="#">Goals</a></li>
-                    <li><a href="#">Miscellaneous</a></li>
+                    <li><a href="/shop-all#footballs">Footballs</a></li>
+                    <li><a href="/shop-all#gloves">Gloves</a></li>
+                    <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                    <li><a href="/shop-all#goals">Goals</a></li>
+                    <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -467,26 +469,25 @@
                     <p>robertsfootballshop@atu.ie</p>
                 </div>
             </div>
-            <!--Large logo section with the image at 100% height via bootstrap-->
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img class="img-fluid w-90 h-100 m-2" src="/public/images/logo/logo-red-transparent.png"
-                    alt="large logo">
+            <!--Large logo section with the image placed centrally and at 100% height via bootstrap-->
+            <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
+                <img class="img-fluid w-75 m-1" src="public/images/logo/logo-red-transparent.png" alt="large logo">
             </div>
         </div>
 
         <!--very bottom of footer with the copyright info-->
-        <div class="copyright mt-5 py-5">
+        <div class="copyright mt-3 py-3">
             <div class="row container mx-auto">
                 <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+                <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
+                    <img src="public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
                 </div>
                 <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
-                <div class="col-lg-4 col-md-6 col-12 text-nowrap">
-                    <p>Roberts Footall Shop &copy 2026. All Rights Reserved</p>
+                <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
+                    <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
                 </div>
                 <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
-                <div class="col-lg-4 col-md-6 col-12">
+                <div class="col-lg-4 col-12 text-lg-end text-center">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>

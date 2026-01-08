@@ -227,19 +227,20 @@ button:hover {
 /*Footer style*/
 footer {
     background-color: #222222;
+    padding: 40px 0;
 }
 /*text colour and size for the footer, colour to match red elsewhere*/
-footer h5{
+footer h5 {
     color: #d8d8d8;
     font-weight: 700;
     font-size: 1.2rem;
 }
-footer h6{
+footer h6 {
     color: #d8d8d8;
     font-weight: 700;
     font-size: 1.1rem;
 }
-footer p{
+footer p {
     color: rgb(238, 21, 64);
     font-weight: 500;
     font-size: 0.9rem;
@@ -247,8 +248,9 @@ footer p{
 
 /*Padding to give spacing between items in the footer list*/
 footer li {
-    padding-bottom: 25px;    
+    padding-bottom: 22px;    
 }
+
 /*anchor tags in the FEATURED list - colour red and size*/
 footer li a {
     font-size: 0.9rem;
@@ -282,6 +284,12 @@ footer .copyright a:hover {
     height: 100px;
     background-color: white;
     border-radius: 25%;
+}
+
+
+.footer-one {
+    display: flex;
+    flex-direction: column;
 }
 
 /*featured items section for scaling and alignment to cover entire space with max-height and be centered*/
@@ -320,6 +328,9 @@ footer .copyright a:hover {
     transform: translateY(70px);
 }
 
+
+
+/*The Slogan Text settings*/
 #slogan {
     display: flex;
     flex-direction: column;
