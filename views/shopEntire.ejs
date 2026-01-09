@@ -84,386 +84,444 @@
         </div>
     </nav>
 
+    <!--Links to ShopEntire Page Sections Navbar-->
+    <div class="page-buttons shop-sticky-nav">
+        <a href="/shop-all#premierLeague">
+            <button class="my-button">PREMIER LEAGUE</button>
+        </a>
+        <a href="/shop-all#laLiga">
+            <button class="my-button">LA LIGA</button>
+        </a>
+        <a href="/shop-all#leagueOfIreland">
+            <button class="my-button">LEAGUE OF IRELAND</button>
+        </a>
+        <a href="/shop-all#serieA">
+            <button class="my-button">SERIE A</button>
+        </a>
+        <a href="/shop-all#bundesliga">
+            <button class="my-button">BUNDESLIGA</button>
+        </a>
+        <a href="/shop-all#ligue1">
+            <button class="my-button">LIGUE 1</button>
+        </a>
+        <a href="/shop-all#international">
+            <button class="my-button">INTERNATIONAL</button>
+        </a>
+        <a href="/shop-all#footballs">
+            <button class="my-button">FOOTBALLS</button>
+        </a>
+        <a href="/shop-all#goals">
+            <button class="my-button">GOALS</button>
+        </a>
+        <a href="/shop-all#gloves">
+            <button class="my-button">GOALKEEPER GLOVES</button>
+        </a>
+        <a href="/shop-all#shinPads">
+            <button class="my-button">SHIN PADS</button>
+        </a>
+    </div>
 
 
     <!-- Premier League -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="premierLeague">Premier League</h3>
-        <hr>
-    </div>
+    <section id="premierLeague">
+        <div class="container text-center mt-5 py-5">
+            <h3>Premier League</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Premier League" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Premier League" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- La Liga -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="laLiga">La Liga</h3>
-        <hr>
-    </div>
+    <section id="laLiga">
+        <div class="container text-center mt-5 py-5">
+            <h3>La Liga</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="La Liga" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="La Liga" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- League of Irealnd -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="leagueOfIreland">League of Ireland</h3>
-        <hr>
-    </div>
+    <section id="leagueOfIreland">
+        <div class="container text-center mt-5 py-5">
+            <h3>League of Ireland</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="League of Ireland" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="League of Ireland" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Serie A -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="serieA">Serie A</h3>
-        <hr>
-    </div>
+    <section id="serieA">
+        <div class="container text-center mt-5 py-5">
+            <h3>Serie A</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Serie A" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Serie A" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Bundesliga -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="bundesliga">Bundesliga</h3>
-        <hr>
-    </div>
+    <section id="bundesliga">
+        <div class="container text-center mt-5 py-5">
+            <h3>Bundesliga</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Bundesliga" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Bundesliga" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Ligue 1 -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="ligue1">Ligue 1</h3>
-        <hr>
-    </div>
+    <section id="ligue1">
+        <div class="container text-center mt-5 py-5">
+            <h3>Ligue 1</h3>
+            <hr>
+        </div>
 
-    <!-- For loop to get info and make 'Cards' for each item-->
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Ligue 1" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <!-- For loop to get info and make 'Cards' for each item-->
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Ligue 1" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- International -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="international">International Teams</h3>
-        <hr>
-    </div>
+    <section id="international">
+        <div class="container text-center mt-5 py-5">
+            <h3>International Teams</h3>
+            <hr>
+        </div>
 
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="International" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="International" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Footballs -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="footballs">Footballs</h3>
-        <hr>
-    </div>
+    <section id="footballs">
+        <div class="container text-center mt-5 py-5">
+            <h3>Footballs</h3>
+            <hr>
+        </div>
 
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Ball" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Ball" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Goals-->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="goals">Goals</h3>
-        <hr>
-    </div>
+    <section id="goals">
+        <div class="container text-center mt-5 py-5">
+            <h3>Goals</h3>
+            <hr>
+        </div>
 
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Goals" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Goals" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Gloves -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="gloves">Goalkeeper Gloves</h3>
-        <hr>
-    </div>
+    <section id="gloves">
+        <div class="container text-center mt-5 py-5">
+            <h3>Goalkeeper Gloves</h3>
+            <hr>
+        </div>
 
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Gloves" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Gloves" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
     <!-- Shin Pads -->
-    <div class="container text-center mt-5 py-5">
-        <h3 id="shinPads">Shin Pads</h3>
-        <hr>
-    </div>
+    <section id="shinPads">
+        <div class="container text-center mt-5 py-5">
+            <h3>Shin Pads</h3>
+            <hr>
+        </div>
 
-    <div class="row">
-        <% products.forEach(product=> { %>
-            <!-- Make sure the product is for the correct league -->
-            <% if (product.League==="Shin Pads" ) { %>
-                <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
-                    <!-- Product Image -->
-                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
+        <div class="row">
+            <% products.forEach(product=> { %>
+                <!-- Make sure the product is for the correct league -->
+                <% if (product.League==="Shin Pads" ) { %>
+                    <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
+                        <!-- Product Image -->
+                        <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
-                    <!-- Product Name and Version (example Arsenal Home)-->
-                    <h5>
-                        <%= product.Club %>
-                            <%= product.Version %>
-                    </h5>
+                        <!-- Product Name and Version (example Arsenal Home)-->
+                        <h5>
+                            <%= product.Club %>
+                                <%= product.Version %>
+                        </h5>
 
-                    <!-- Product Price-->
-                    <h4>€<%= product.Price %>
-                    </h4>
+                        <!-- Product Price-->
+                        <h4>€<%= product.Price %>
+                        </h4>
 
-                    <a href="/shop?rec=<%= product.ID %>">
-                        <button class="details">More Details</button>
-                    </a>
-                </div>
-                <!-- Close the for and forEach loops-->
-                <% } %>
-                    <% }) %>
-    </div>
+                        <a href="/shop?rec=<%= product.ID %>">
+                            <button class="details">More Details</button>
+                        </a>
+                    </div>
+                    <!-- Close the for and forEach loops-->
+                    <% } %>
+                        <% }) %>
+        </div>
+    </section>
 
 
 

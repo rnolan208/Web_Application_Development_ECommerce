@@ -90,6 +90,7 @@ button:hover {
     padding: 25px 0;       /* vertical height */
     text-align: center;
     font-size: 1.2rem;     /* slightly bigger if needed */
+    align-items: stretch;
 }
 
 /*Website Title*/
@@ -484,6 +485,43 @@ body {
 #backToTop:hover {
     background-color: black;
     color: rgb(238, 21, 64);
+}
+
+
+/* ShopEntire page for the Page Sections navbar */
+.shop-sticky-nav {
+  display: flex;
+  position: sticky;
+  top: 70px; /* height of your main navbar */
+  z-index: 900;
+  background-color: rgb(238, 21, 64);
+}
+
+/* Make all links stretch */
+.shop-sticky-nav a {
+  display: flex;
+  flex: 1;
+}
+
+/* Force uniform button height */
+.shop-sticky-nav .my-button {
+  height: 80px;
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+/*Prevent wrapping looking bad on smaller screens*/
+@media (max-width: 768px) {
+  .shop-sticky-nav .my-button {
+    font-size: 0.9rem;
+    height: 70px;
+  }
 }
 
 
