@@ -121,7 +121,8 @@ app.post("/shop", function(req, res){
 
 //NEEDS TO BE FIXED AND UPDATED WITH HOME PAGE
 //Route back to Home Page
-//app.get("/pages", function(req, res){    res.render("home.html");})
+app.get("/", function(req, res){    
+    res.render("home");})
 
 //Route to handle Login Form Submission - POST Method
 app.post("/login", function(req, res) {

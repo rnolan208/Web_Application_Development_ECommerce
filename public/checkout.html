@@ -31,7 +31,7 @@
                 <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
 
                 <!--Website Name-->
-                <a class="navbar-brand" href="#">Robert's Football Shop</a>
+                <a class="navbar-brand" href="/">Robert's Football Shop</a>
             </div>
 
             <!-- TOGGLER -->
@@ -47,7 +47,7 @@
                 <!-- CENTRE: Nav links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/views/home.ejs">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
@@ -88,11 +88,20 @@
 
 
 
-    <div class="container">
+    <div class="container mt-5">
         <h1>Checkout</h1>
         <!--Cart itmes-->
         <h2 id="cart_items"></h2>
         <h2 id="final_price"></h2>
+
+        <!--Items Currently in Cart Container-->
+        <div id="cart_items_box" class="border p-3 mb-3">
+            <p id="empty_cart">No Items In Cart</p>
+        </div>
+
+        <!--Final Price for Shopping Cart-->
+        <h3 id="final_price" class="text-right"></h3>
+
 
         <form>
             <label for="name">Name:</label>

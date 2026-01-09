@@ -34,7 +34,7 @@
                 <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
 
                 <!--Website Name-->
-                <a class="navbar-brand" href="/views/home.ejs">Robert's Football Shop</a>
+                <a class="navbar-brand" href="/">Robert's Football Shop</a>
             </div>
 
             <!-- TOGGLER -->
@@ -50,7 +50,7 @@
                 <!-- CENTRE: Nav links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/views/home.ejs">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
@@ -75,11 +75,11 @@
                         </button>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="checkout.html" class="nav-link">
+                    <a href="/public/checkout.html" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
                     <!--Buttion to Sign In-->
-                    <a href="login.html" class="nav-link">
+                    <a href="/public/login.html" class="nav-link">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </a>
                 </div>
@@ -96,7 +96,7 @@
                     <%= myClub %>
                 </h1>
                 <div class="product-image-wrapper">
-                    <img src="public/images/jerseys/<%= myImage %>" class="img-fluid mt-4 product-image"
+                    <img src="/public/images/jerseys/<%= myImage %>" class="img-fluid mt-4 product-image"
                         alt="Jersey Image">
                 </div>
             </div>
@@ -105,7 +105,7 @@
             <div class="col-md-4">
                 <!-- Crest / Logo -->
                 <div class="text-center mb-4">
-                    <img src="public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;"
+                    <img src="/public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;"
                         alt="Club Crest">
                 </div>
                 <!-- Product info -->
@@ -124,17 +124,46 @@
                         <%= myPrice %>
                     </span>
                 </h3>
-                <!--Size option-->
+
+                <!--Size option - Done with if loop based on the name given under the 'League' column in db -->
+                <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
                 <p><strong>Size: </strong>
                     <select id="size" name="size">
-                        <option value="Xtra Small">XS</option>
-                        <option value="Small">S</option>
-                        <option value="Medium">M</option>
-                        <option value="Large">L</option>
-                        <option value="Xtra Large">XL</option>
-                        <option value="Double Xtra Large">2XL</option>
+                        <%# Size options for Footballs using the else if %> 
+                        <% if (myLeague === "Ball") { %>
+                            <option value="Size 3">Size 3</option>
+                            <option value="Size 4">Size 4</option>
+                            <option value="Size 5">Size 5</option>
+                        
+                        <%# Size options for Goalkeeper Gloves using the else if %>
+                        <% } else if (myLeague === "Gloves") { %>
+                            <option value="Kids">Junior</option>
+                            <option value="Adult S">Adult Small</option>
+                            <option value="Adult M">Adult Medium</option>
+                            <option value="Adult L">Adult Large</option>
+                        
+                        <%# Size Options for Shin Pads using the else if %>
+                        <% } else if (myLeague === "Shin Pads") { %>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                         
+                        <%# Default Value for any uncategorised Items %>
+                        <% } else if (myLeague === "Goals") { %>
+                        <option value="Standard">Standard</option>
+
+                        <%# Size Options for Jerseys (different league names - Premier League, La Liga, etc) using if loop %>
+                        <% } else { %>
+                            <option value="Xtra Small">XS</option>
+                            <option value="Small">S</option>
+                            <option value="Medium">M</option>
+                            <option value="Large">L</option>
+                            <option value="Xtra Large">XL</option>
+                            <option value="Double Xtra Large">2XL</option>
+                        <% } %>
                     </select>
                 </p>
+
                 <!--Quantity option-->
                 <p><strong>Quantity: </strong>
                     <select id="quantity" name="quantity">
@@ -151,7 +180,9 @@
 
                 <!-- Back to home -->
                 <div class="mt-4 text-center">
-                    <a href="/views/home.ejs" class="text-muted"></a> ← Back to Home Page </a>
+                    <a href="/views/home.ejs" class="text-muted">
+                        <button>← Back to Home Page</button>
+                    </a>
                 </div>
             </div>
 
