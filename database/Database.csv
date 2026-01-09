@@ -214,43 +214,54 @@ ID,Club,Version,Price,League,Manufacturer,Crest,Image
 213,Ireland,Home,105,International,Castore,ireland.png,ireland_1.png
 214,Ireland,Away,100,International,Castore,ireland.png,ireland_2.png
 215,England,Home,110,International,Nike,england.png,england_1.png
-216,Scotland,Home,100,International,Adidas,scotland.png,scotland_1.png
-217,Wales,Home,100,International,Adidas,wales.png,wales_1.png
-218,France,Home,110,International,Nike,france.png,france_1.png
-219,Spain,Home,110,International,Adidas,spain.png,spain_1.png
-220,Germany,Home,110,International,Adidas,germany.png,germany_1.png
-221,Italy,Home,110,International,Adidas,italy.png,italy_1.png
-222,USA,Home,95,International,Nike,usa.png,usa_1.png
-223,Brazil,Home,110,International,Nike,brazil.png,brazil_1.png
-224,Argentina,Home,115,International,Adidas,argentina.png,argentina_1.png
-225,Australia,Home,90,International,Nike,australia.png,australia_1.png
-226,World Cup 2026,,34.99,Ball,Adidas,world_cup_ball.png,world_cup.png
-227,Premier League 25/26,,23,Ball,Puma,premier_league_ball.png,premier_league1.png
-228,La Liga 25/26,,23,Ball,Puma,la_liga_ball.png,la_liga1.png
-229,Serie A 25/26,,20,Ball,Puma,serie_a_ball.png,serie_a1.png
-230,Ligue 1 25/26,,20,Ball,Kipsta,ligue_1_ball.png,Ligue_1_1.png
-231,Bundesliga 25/26,,20,Ball,Derbystar,bundesliga_ball.png,bundesliga1.png
-232,Champions League 25/26,,31.95,Ball,Adidas,champions_league_ball.png,champions_league1.png
-233,Europa League 25/26,,24,Ball,Kipsta,europa_league_ball.png,europa_league1.png
-234,League of Ireland 25/26,,19.99,Ball,Umbro,league_ireland_ball.png,league_ireland1.png
-235,Tango Glider,,14,Ball,Adidas,tangoGlider.png,adidas_logo.png
-236,Total 90,,18,Ball,Nike,total90.png,nike_logo.png
-237,Academy,,14.99,Ball,Forza,academyBall.png,forza_logo.png
-238,Tiro,,15.83,Shin Pads,Adidas,tiro.png,adidas_logo.png
-239,Club,,8.99,Shin Pads,Forza,club.png,forza_logo.png
-240,Shadow,,7.5,Shin Pads,Under Armour,shadow.png,under_armour_logo.png
-241,Academy,,13,Shin Pads,Nike,academy.png,nike_logo.png
-242,Charge,,25,Shin Pads,Nike,charge.png,nike_logo.png
-243,King,,7.5,Shin Pads,Puma,king.png,puma_logo.png
-244,Future,,100,Gloves,Puma,pumaFuture.png,puma_logo.png
-245,Vapor Grip 3,,40,Gloves,Nike,vaporGrip3.png,nike_logo.png
-246,Phantom,,60,Gloves,Nike,phantom.png,nike_logo.png
-247,Predator Pro,,50,Gloves,Adidas,predatorpro.png,adidas_logo.png
-248,Copa Pro,,45,Gloves,Adidas,copaPro.png,adidas_logo.png
-249,Lite,,13,Gloves,Forza,forzaLite.png,forza_logo.png
-250,8 x 4 Forza,,60,Goals,Forza,forza8x4.png,forza_logo.png
-251,12 x 6 Forza,,140,Goals,Forza,forza12x6.png,forza_logo.png
-252,16 x 7 Forza,,199.99,Goals,Forza,forza16x7.png,forza_logo.png
-253,12 x 6 Samba,,259,Goals,Hit Sport,samba12x6.png,hit_sport_logo.png
-254,8 x 5 Samba,,165,Goals,Hit Sport,samba8x5.png,hit_sport_logo.png
-255,Hit 6 x 4,,99,Goals,Hit Sport,hit6x4.png,hit_sport_logo.png
+216,England,Away,,International,Nike,england.png,england_2.png
+217,Scotland,Home,100,International,Adidas,scotland.png,scotland_1.png
+218,Scotland,Away,,International,Adidas,scotland.png,scotland_2.png
+219,Wales,Home,100,International,Adidas,wales.png,wales_1.png
+220,Wales,Away,,International,Adidas,wales.png,wales_2.png
+221,France,Home,110,International,Nike,france.png,france_1.png
+222,France,Away,,International,Nike,france.png,france_2.png
+223,Spain,Home,110,International,Adidas,spain.png,spain_1.png
+224,Spain,Away,,International,Adidas,spain.png,spain_2.png
+225,Germany,Home,110,International,Adidas,germany.png,germany_1.png
+226,Germany,Away,,International,Adidas,germany.png,germany_2.png
+227,Italy,Home,110,International,Adidas,italy.png,italy_1.png
+228,Italy,Away,,International,Adidas,italy.png,italy_2.png
+229,USA,Home,95,International,Nike,usa.png,usa_1.png
+230,USA,Away,,International,Nike,usa.png,usa_2.png
+231,Brazil,Home,110,International,Nike,brazil.png,brazil_1.png
+232,Brazil,Away,100,International,Nike,brazil.png,brazil_2.png
+233,Argentina,Home,115,International,Adidas,argentina.png,argentina_1.png
+234,Argentina,Away,100,International,Adidas,argentina.png,argentina_2.png
+235,Australia,Home,90,International,Nike,australia.png,australia_1.png
+236,Australia,Away,90,International,Nike,australia.png,australia_2.png
+237,World Cup 2026,,34.99,Ball,Adidas,world_cup.png,world_cup_ball.png
+238,Premier League 25/26,,23,Ball,Puma,premier_league1.png,premier_league_ball.png
+239,La Liga 25/26,,23,Ball,Puma,la_liga1.png,la_liga_ball.png
+240,Serie A 25/26,,20,Ball,Puma,serie_a1.png,serie_a_ball.png
+241,Ligue 1 25/26,,20,Ball,Kipsta,ligue_1_1.png,ligue_1_ball.png
+242,Bundesliga 25/26,,20,Ball,Derbystar,bundesliga1.png,bundesliga_ball.png
+243,Champions League 25/26,,31.95,Ball,Adidas,champions_league1.png,champions_league_ball.png
+244,Europa League 25/26,,24,Ball,Kipsta,europa_league1.png,europa_league_ball.png
+245,League of Ireland 25/26,,19.99,Ball,Umbro,league_ireland1.png,league_ireland_ball.png
+246,Tango Glider,,14,Ball,Adidas,adidas_logo.png,tangoGlider.png
+247,Total 90,,18,Ball,Nike,nike_logo.png,total90.png
+248,Academy,,14.99,Ball,Forza,forza_logo.png,academyBall.png
+249,Tiro,,15.83,.,Adidas,adidas_logo.png,tiro.png
+250,Club,,8.99,Shin Pads,Forza,forza_logo.png,club.png
+251,Shadow,,7.5,Shin Pads,Under Armour,under_armour_logo.png,shadow.png
+252,Academy,,13,Shin Pads,Nike,nike_logo.png,academy.png
+253,Charge,,25,Shin Pads,Nike,nike_logo.png,charge.png
+254,King,,7.5,Shin Pads,Puma,puma_logo.png,king.png
+255,Future,,100,Gloves,Puma,puma_logo.png,pumaFuture.png
+256,Vapor Grip 3,,40,Gloves,Nike,nike_logo.png,vaporGrip3.png
+257,Phantom,,60,Gloves,Nike,nike_logo.png,phantom.png
+258,Predator Pro,,50,Gloves,Adidas,adidas_logo.png,predatorpro.png
+259,Copa Pro,,45,Gloves,Adidas,adidas_logo.png,copaPro.png
+260,Lite,,13,Gloves,Forza,forza_logo.png,forzaLite.png
+261,8 x 4 Forza,,60,Goals,Forza,forza_logo.png,forza8x4.png
+262,12 x 6 Forza,,140,Goals,Forza,forza_logo.png,forza12x6.png
+263,16 x 7 Forza,,199.99,Goals,Forza,forza_logo.png,forza16x7.png
+264,12 x 6 Samba,,259,Goals,Hit Sport,hit_sport_logo.png,samba12x6.png
+265,8 x 5 Samba,,165,Goals,Hit Sport,hit_sport_logo.png,samba8x5.png
+266,Hit 6 x 4,,99,Goals,Hit Sport,hit_sport_logo.png,hit6x4.png
