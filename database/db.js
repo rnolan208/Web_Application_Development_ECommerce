@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'proddata',
+    database: 'product_data',
 });
 
 //Connect to database

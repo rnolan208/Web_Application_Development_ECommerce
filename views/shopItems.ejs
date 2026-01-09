@@ -95,11 +95,36 @@
                 <h1 id="product">
                     <%= myClub %>
                 </h1>
+
+
+                <!--For Loop using myLeague from app.js to get the image from the correct folder-->
+                <!--Jesrseys are in images/jerseys/ and everything else is in images/misc_items-->
+                <!--Make the array miscProducts-->
+                <!--If the League column in db matches any of the miscProducts array, use the misc_items folder-->
+                <!--Otherwise jerseys is the standard folder to use for the images-->
+                <!--Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague-->
+                <%
+                const miscProducts = ['Ball', 'Shin Pads', 'Gloves', 'Goals'];
+                let imageFolder = 'jerseys';
+                let leagueLabel = 'League:';
+
+                for (let i = 0; i < miscProducts.length; i++) {
+                    if (myLeague === miscProducts[i]) {
+                    imageFolder = 'misc_items';
+                    leagueLabel = 'Product:';
+                    break;
+                    }
+                }
+                %>
+
+                <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
                 <div class="product-image-wrapper">
-                    <img src="/public/images/jerseys/<%= myImage %>" class="img-fluid mt-4 product-image"
-                        alt="Jersey Image">
+                    <img src="/public/images/<%= imageFolder %>/<%= myImage %>" class="img-fluid mt-4 product-image"
+                        alt="Product Image">
                 </div>
             </div>
+
+
 
             <!--Right side of the column - Crest at Top above Information-->
             <div class="col-md-4">
@@ -113,7 +138,8 @@
                     <%= myClub %>
                         <%= myVersion %>
                 </h2>
-                <p><strong>League: </strong>
+                <!-- The leagueLable was defined in the for loop with const miscProducts -->
+                <p><strong><%= leagueLabel %></strong>
                     <%= myLeague %>
                 </p>
                 <p><strong>Manufacturer: </strong>
@@ -180,7 +206,7 @@
 
                 <!-- Back to home -->
                 <div class="mt-4 text-center">
-                    <a href="/views/home.ejs" class="text-muted">
+                    <a href="/" class="text-muted">
                         <button>← Back to Home Page</button>
                     </a>
                 </div>

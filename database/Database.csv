@@ -214,27 +214,27 @@ ID,Club,Version,Price,League,Manufacturer,Crest,Image
 213,Ireland,Home,105,International,Castore,ireland.png,ireland_1.png
 214,Ireland,Away,100,International,Castore,ireland.png,ireland_2.png
 215,England,Home,110,International,Nike,england.png,england_1.png
-216,England,Away,,International,Nike,england.png,england_2.png
+216,England,Away,104.99,International,Nike,england.png,england_2.png
 217,Scotland,Home,100,International,Adidas,scotland.png,scotland_1.png
-218,Scotland,Away,,International,Adidas,scotland.png,scotland_2.png
+218,Scotland,Away,84.99,International,Adidas,scotland.png,scotland_2.png
 219,Wales,Home,100,International,Adidas,wales.png,wales_1.png
-220,Wales,Away,,International,Adidas,wales.png,wales_2.png
+220,Wales,Away,89.99,International,Adidas,wales.png,wales_2.png
 221,France,Home,110,International,Nike,france.png,france_1.png
-222,France,Away,,International,Nike,france.png,france_2.png
+222,France,Away,100,International,Nike,france.png,france_2.png
 223,Spain,Home,110,International,Adidas,spain.png,spain_1.png
-224,Spain,Away,,International,Adidas,spain.png,spain_2.png
-225,Germany,Home,110,International,Adidas,germany.png,germany_1.png
-226,Germany,Away,,International,Adidas,germany.png,germany_2.png
+224,Spain,Away,99.99,International,Adidas,spain.png,spain_2.png
+225,Germany,Home,105,International,Adidas,germany.png,germany_1.png
+226,Germany,Away,84.99,International,Adidas,germany.png,germany_2.png
 227,Italy,Home,110,International,Adidas,italy.png,italy_1.png
-228,Italy,Away,,International,Adidas,italy.png,italy_2.png
+228,Italy,Away,99.99,International,Adidas,italy.png,italy_2.png
 229,USA,Home,95,International,Nike,usa.png,usa_1.png
-230,USA,Away,,International,Nike,usa.png,usa_2.png
+230,USA,Away,90,International,Nike,usa.png,usa_2.png
 231,Brazil,Home,110,International,Nike,brazil.png,brazil_1.png
 232,Brazil,Away,100,International,Nike,brazil.png,brazil_2.png
 233,Argentina,Home,115,International,Adidas,argentina.png,argentina_1.png
 234,Argentina,Away,100,International,Adidas,argentina.png,argentina_2.png
 235,Australia,Home,90,International,Nike,australia.png,australia_1.png
-236,Australia,Away,90,International,Nike,australia.png,australia_2.png
+236,Australia,Away,89.99,International,Nike,australia.png,australia_2.png
 237,World Cup 2026,,34.99,Ball,Adidas,world_cup.png,world_cup_ball.png
 238,Premier League 25/26,,23,Ball,Puma,premier_league1.png,premier_league_ball.png
 239,La Liga 25/26,,23,Ball,Puma,la_liga1.png,la_liga_ball.png
@@ -247,7 +247,7 @@ ID,Club,Version,Price,League,Manufacturer,Crest,Image
 246,Tango Glider,,14,Ball,Adidas,adidas_logo.png,tangoGlider.png
 247,Total 90,,18,Ball,Nike,nike_logo.png,total90.png
 248,Academy,,14.99,Ball,Forza,forza_logo.png,academyBall.png
-249,Tiro,,15.83,.,Adidas,adidas_logo.png,tiro.png
+249,Tiro,,15.83,Shin Pads,Adidas,adidas_logo.png,tiro.png
 250,Club,,8.99,Shin Pads,Forza,forza_logo.png,club.png
 251,Shadow,,7.5,Shin Pads,Under Armour,under_armour_logo.png,shadow.png
 252,Academy,,13,Shin Pads,Nike,nike_logo.png,academy.png

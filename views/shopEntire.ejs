@@ -197,11 +197,6 @@
         <hr>
     </div>
 
-    <div class="container text-center mt-5 py-5">
-        <h3 id="leagueOfIreland">League of Ireland</h3>
-        <hr>
-    </div>
-
     <!-- For loop to get info and make 'Cards' for each item-->
     <div class="row">
         <% products.forEach(product=> { %>
@@ -347,7 +342,7 @@
             <% if (product.League==="Ball" ) { %>
                 <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
                     <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
                     <!-- Product Name and Version (example Arsenal Home)-->
                     <h5>
@@ -381,7 +376,7 @@
             <% if (product.League==="Goals" ) { %>
                 <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
                     <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
                     <!-- Product Name and Version (example Arsenal Home)-->
                     <h5>
@@ -415,7 +410,7 @@
             <% if (product.League==="Gloves" ) { %>
                 <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
                     <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
                     <!-- Product Name and Version (example Arsenal Home)-->
                     <h5>
@@ -449,7 +444,7 @@
             <% if (product.League==="Shin Pads" ) { %>
                 <div class="product col-lg-2 col-md-4 col-12 text-center mb-4">
                     <!-- Product Image -->
-                    <img src="/public/images/jerseys/<%= product.Image %>" class="img-fluid mb-3">
+                    <img src="/public/images/misc_items/<%= product.Image %>" class="img-fluid mb-3">
 
                     <!-- Product Name and Version (example Arsenal Home)-->
                     <h5>
