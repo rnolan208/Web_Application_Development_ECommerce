@@ -66,7 +66,7 @@
                 <!-- RIGHT: Search + Icons-->
                 <div class="navbar-icons d-flex align-items-center ml-3">
                     <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
-                        <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
+                        <input type="text" name="rec" placeholder="Search..." class="search-input" aria-label="Search">
                         <button type="submit" class="icon-button" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -90,17 +90,26 @@
 
     <div class="container mt-5">
         <h1>Checkout</h1>
-        <!--Cart itmes-->
-        <h2 id="cart_items"></h2>
-        <h2 id="final_price"></h2>
 
-        <!--Items Currently in Cart Container-->
-        <div id="cart_items_box" class="border p-3 mb-3">
-            <p id="empty_cart">No Items In Cart</p>
-        </div>
+        <!-- Cart header-->
+        <section>
+            <div class="cart-header d-flex font-weight-bold border-bottom pb-2 mb-2">
+                <div class="col-image">Image</div>
+                <div class="col-name">Product</div>
+                <div class="col-size">Size</div>
+                <div class="col-quantity">Quantity</div>
+                <div class="col-total">Total</div>
+            </div>
 
-        <!--Final Price for Shopping Cart-->
-        <h3 id="final_price" class="text-right"></h3>
+            <!--Items Currently in Cart Container-->
+            <!--empty_cart is handled by the script if no items in cart-->
+            <div id="cart_items" class="border p-3 mb-3">
+                <p id="empty_cart"></p>
+            </div>
+
+            <!--Final Price for Shopping Cart-->
+            <h3 id="final_price" class="text-right"></h3>
+        </section>
 
 
         <form>
@@ -122,7 +131,9 @@
             </select>
 
             <button type="submit">Place Order</button>
-            <a href="home.html">Continue Shopping</a>
+            <a href="/">
+                <button>Continue Shopping</button>
+            </a>
         </form>
     </div>
 
@@ -131,15 +142,18 @@
     <section id="band" class="container">
         <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png" alt="nike">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
+                alt="nike">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/adidas-logo-black-and-white.png"
                 alt="addidas">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png" alt="puma">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
+                alt="puma">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/umbro-logo-black-and-white.png"
                 alt="umbro">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/Oneills-logo-black-and-white.png"
                 alt="o'neills">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png" alt="macron">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
+                alt="macron">
         </div>
     </section>
 
@@ -230,29 +244,61 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            //store cost of all items
+            let cost_allItems = 0;
+            let cartContainer = document.getElementById("cart_items");
+            let emptyMessage = document.getElementById("empty_cart");
+
+            let hasItems = false;
+
+
+
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                //console.log(key);
+                let content = JSON.parse(localStorage.getItem(key));
+
+                let total_cost = content.quan * content.p;
+                cost_allItems += total_cost;
+
+                //console.log(content);
+                if (content.quan > 0) {
+                    hasItems = true;
+
+                    //output of the image, the key (product name and type), the quantity, the size, and the overall cost
+                    cartContainer.innerHTML += `
+                <div class="cart-item">
+                    <div class="col-image"><img src="${content.img}" alt="${content.name}" /></div>
+                    <div class="col-name">${content.type}</div>
+                    <div class="col-size">${content.s}</div>
+                    <div class="col-quantity">${content.quan}</div>
+                    <div class="col-total">€${total_cost.toFixed(2)}</div>
+                </div>
+            `;
+                }
+            }
+
+            //if loop to apply "No Items In Cart" message if no items have been selected,  
+            //and apply it to the emptyMessage variable defined at top of script
+            if (!hasItems) {
+                emptyMessage.textContent = "No Items In Cart";
+            } else {
+                emptyMessage.textContent = "";
+            }
+
+
+            document.getElementById("final_price").textContent = "Total: " + cost_allItems;
+
+            
+        });
+
+
+    </script>
+
+
 </body>
 
 </html>
-
-<script>
-    //store cost of all items
-    let cost_allItems = 0;
-
-
-    for (i = 0; i < localStorage.length; i++) {
-        let product = JSON.parse(localStorage.key(i));
-        //console.log(product);
-        let content = JSON.parse(localStorage.getItem(product));
-
-        let total_cost = content.quan * content.p;
-        cost_allItems += total_cost;
-
-        //console.log(content);
-        if (content.quan > 0) {
-            document.getElementById("cart_items").innerHTML += product + " x " + content.quan + " = " + total_cost + "<br>";
-        }
-        document.getElementById("final_price").innerHTML = cost_allItems;
-    }
-
-
-</script>

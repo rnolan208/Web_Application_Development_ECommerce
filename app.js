@@ -48,7 +48,50 @@ app.get("/", (req, res) => {
 });
 
 
-//Shop function GET Method
+//Shop function GET Method using LIKE search for product names
+app.get("/shop", function (req, res) {
+    const searchTerm = req.query.rec;
+    db.query("SELECT * FROM product_data.database WHERE Club LIKE ?", [`%${searchTerm}%`], function (err, rows, fields) {
+        if (err) {
+            console.error("Error getting data from database.", err);
+            res.status(500).send("Error retreiving data from database.");
+        }
+        else if (rows.length === 0) {
+            console.error("No rows found for ${searchTerm}");
+            res.status(404).send("Product not found");
+        }
+        else {
+            //To monitor the application while developing it
+            console.log("Data retreived from the database.");
+            console.log(rows[0].Club);
+            console.log(rows[0].Version);
+            console.log(rows[0].Price);
+            console.log(rows[0].League);
+
+            //Variables from Database
+            const clubName = rows[0].Club;
+            const versionName = rows[0].Version;
+            const price = rows[0].Price;
+            const league = rows[0].League;
+            const manufact = rows[0].Manufacturer;
+            const images = rows[0].Image;
+            const crest = rows[0].Crest;
+
+            res.render("shopItems.ejs", {
+                myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league,
+                myManufacturer: manufact, myImage: images, myCrest: crest
+            });
+        }
+
+        //Inject data into a HTML page
+    })
+});
+
+
+
+
+
+/* OLDER METHOD USED FROM CLASS WHICH ONLY SEARCHES BY ID
 app.get("/shop", function(req, res){
     const ID = req.query.rec;
     db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function(err, rows, fields) {
@@ -119,13 +162,16 @@ app.post("/shop", function(req, res){
     })
 });
 
-//NEEDS TO BE FIXED AND UPDATED WITH HOME PAGE
+*/
+
+
 //Route back to Home Page
-app.get("/", function(req, res){    
-    res.render("home");})
+app.get("/", function (req, res) {
+    res.render("home");
+})
 
 //Route to handle Login Form Submission - POST Method
-app.post("/login", function(req, res) {
+app.post("/login", function (req, res) {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -133,7 +179,7 @@ app.post("/login", function(req, res) {
     const authenticated = auth.authenticateUser(username, password);
     console.log(authenticated);
 
-    if(authenticated) {
+    if (authenticated) {
         console.log("Successful Authentication");
         res.render("home");
     }

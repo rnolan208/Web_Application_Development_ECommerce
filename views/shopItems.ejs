@@ -119,7 +119,7 @@
 
                 <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
                 <div class="product-image-wrapper">
-                    <img src="/public/images/<%= imageFolder %>/<%= myImage %>" class="img-fluid mt-4 product-image"
+                    <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>" class="img-fluid mt-4 product-image"
                         alt="Product Image">
                 </div>
             </div>
@@ -336,13 +336,38 @@
 <script>
     function addToCart() {
         //alert("This is from the function!");
+        //storing all the information from the db to store in local storage / memory
         let product = document.getElementById("product").innerHTML;
         let type = document.getElementById("type").innerHTML;
         let quantity = document.getElementById("quantity").value;
         let size = document.getElementById("size").value;
         let price = document.getElementById("price").innerHTML;
-        let type_quan_size_price = { t: type, quan: quantity, s: size, p: price };
+        let image = document.getElementById("product_image").src;
+        //information above combined into one array
+        let itemData = { 
+            name: product,
+            type: type,
+            quan: quantity,
+            s: size,
+            p: price,
+            img: image };
 
-        localStorage.setItem(product, JSON.stringify(type_quan_size_price));
+        //save the key with the product name and type (example: Arsenal Away M. Fulham Home XL, etc)
+        let key = type + "" + size;
+        localStorage.setItem(key, JSON.stringify(itemData));
+
+        //alert on screen
+        //if the quantity option 0 is selected
+        if (quantity === "0"){
+            alert("No item added to the cart");
+            return;
+        } else if (quantity === "1"){
+            //if the quanity is 1
+            alert(quantity + " item added to cart");
+        } else {
+            //if the quanity is more than 1
+            alert(quantity + " items added to cart");
+        }
+        
     }
 </script>

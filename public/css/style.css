@@ -93,6 +93,21 @@ button:hover {
     align-items: stretch;
 }
 
+/*Icon Buttons in Navbar*/
+.icon-button {
+    background-color: transparent;
+    color: rgb(238, 21, 64);
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.icon-button:hover {
+    color: black;
+    background-color: transparent;
+}
+
 /*Website Title*/
 .navbar-brand {
     padding: 0 7px;
@@ -505,7 +520,7 @@ body {
 
 /* Force uniform button height */
 .shop-sticky-nav .my-button {
-  height: 80px;
+  height: 60px;
   width: 100%;
   padding: 0 10px;
   display: flex;
@@ -514,6 +529,7 @@ body {
   text-align: center;
   white-space: normal;
   line-height: 1.2;
+  font-size: small;
 }
 
 /*Prevent wrapping looking bad on smaller screens*/
@@ -524,4 +540,32 @@ body {
   }
 }
 
+/*CHECKOUT PAGE LAYOUT FOR ITEMS IN CART*/
+/* Flex container for each row */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Column widths */
+.col-image {
+    flex: 0 0 80px; /* fixed width for image */
+}
+.col-name {
+    flex: 2;       /* product name takes more space */
+    padding: 0 20px;
+}
+.col-size,
+.col-quantity,
+.col-total {
+    flex: 1;
+    text-align: center;
+}
+
+.cart-item img {
+    width: 80px;
+    height: auto;
+}
 
