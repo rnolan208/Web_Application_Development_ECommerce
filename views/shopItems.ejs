@@ -164,10 +164,10 @@
 
                                     <%# Size options for Goalkeeper Gloves using the else if %>
                                         <% } else if (myLeague==="Gloves" ) { %>
-                                            <option value="Kids">Junior</option>
-                                            <option value="Adult S">Adult Small</option>
-                                            <option value="Adult M">Adult Medium</option>
-                                            <option value="Adult L">Adult Large</option>
+                                            <option value="Xtra Small">Junior</option>
+                                            <option value="Small">Adult Small</option>
+                                            <option value="Medium">Adult Medium</option>
+                                            <option value="Large">Adult Large</option>
 
                                             <%# Size Options for Shin Pads using the else if %>
                                                 <% } else if (myLeague==="Shin Pads" ) { %>
@@ -394,11 +394,12 @@
     function addToCart() {
         //alert("This is from the function!");
         //storing all the information from the db to store in local storage / memory
+        //Price and Quantity needs to be Ints for Checkout so converted via Number
         let product = document.getElementById("product").innerHTML;
         let type = document.getElementById("type").innerHTML;
-        let quantity = document.getElementById("quantity").value;
+        let quantity = Number(document.getElementById("quantity").value);
         let size = document.getElementById("size").value;
-        let price = document.getElementById("price").innerHTML;
+        let price = Number(document.getElementById("price").innerHTML);
         let image = document.getElementById("product_image").src;
         let ID = document.getElementById("type").dataset.id
         //information above combined into one array

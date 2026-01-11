@@ -203,8 +203,8 @@
                     </div>
 
                     <div class="col d-flex justify-content-end align-items-center gap-2">
-                        <a href="/" class="mr-4">
-                            <button>Continue Shopping</button>
+                        <a href="/shop-all" class="mr-4">
+                            <button type="button">Continue Shopping</button>
                         </a>
                         <button type="submit">Place Order</button>
                     </div>
@@ -339,24 +339,69 @@
                 //console.log(key);
                 let content = JSON.parse(localStorage.getItem(key));
 
-                let total_cost = content.quan * content.p;
-                cost_allItems += total_cost;
+                //Make sure both price and quantity are type int
+                if (
+                    !content ||
+                    typeof content.p !== "number" ||
+                    typeof content.quan !== "number" ||
+                    !content.s
+                ) {
+                    continue;
+                }
+
+                //Store the price and quantity as variables
+                let price = content.p;
+                let quantity = content.quan;
+                let discountRate = 0;
+                let discountSize = content.s;
+
+                if (discountSize === "Xtra Small") {
+                    discountRate = 0.20;
+                } else if (discountSize === "Small") {
+                    discountRate = 0.10;
+                }
+
+                let discountedPrice = price * (1 - discountRate);
+                let total_cost = discountedPrice * content.quan;
 
                 //console.log(content);
                 if (content.quan > 0) {
                     hasItems = true;
+                    cost_allItems += total_cost;
+
 
                     //output of the image, the key (product name and type), the quantity, the size, and the overall cost
+                    //Apply a banner 'alert' of the discount only if a discount is applied - ${discountRate > 0 ?
+                    //Then insert the image, name, size, quantity,
+                    //price (with discount if applied and using <del> to strikthrough original)
+                    //Sum the overall cost from the total row (toFixed(2)) ensures discounted prices are in this row
                     cartContainer.innerHTML += `
+                    
+                    ${discountRate > 0 ? `
+                            <div class="alert alert-warning w-100 mb-3">
+                                The <strong>${content.type}</strong> got a 
+                                <strong>${discountRate * 100}% discount</strong>
+                                from its original price of 
+                                <strong>€${price.toFixed(2)}</strong>
+                                because it is size <strong>${discountSize}</strong>.
+                            </div>
+                        ` : ""}
+
                 <div class="cart-item">
                     <div class="col-image"><img src="${content.img}" alt="${content.name}" /></div>
                     <div class="col-name"><a href="/shop?rec=${content.id}">${content.type}</a></div>
-                    <div class="col-size">${content.s}</div>
-                    <div class="col-price">€${Number(content.p).toFixed(2)}</div>
+                    <div class="col-size">${content.s}</div>          
+                    <div class="col-price">${discountRate > 0 ? `<del>€${price.toFixed(2)}</del><br>€${discountedPrice.toFixed(2)}`
+                            : `€${price.toFixed(2)}`
+                        }
+                            </div>
+
                     <div class="col-quantity">${content.quan}</div>
                     <div class="col-total">€${total_cost.toFixed(2)}</div>
                     <div class="col-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
                 </div>
+
+                
             `;
                 }
             }
