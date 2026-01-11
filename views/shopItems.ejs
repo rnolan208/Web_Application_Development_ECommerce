@@ -103,25 +103,15 @@
                 <!--If the League column in db matches any of the miscProducts array, use the misc_items folder-->
                 <!--Otherwise jerseys is the standard folder to use for the images-->
                 <!--Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague-->
-                <%
-                const miscProducts = ['Ball', 'Shin Pads', 'Gloves', 'Goals'];
-                let imageFolder = 'jerseys';
-                let leagueLabel = 'League:';
+                <% const miscProducts=['Ball', 'Shin Pads' , 'Gloves' , 'Goals' ]; let imageFolder='jerseys' ; let
+                    leagueLabel='League:' ; for (let i=0; i < miscProducts.length; i++) { if
+                    (myLeague===miscProducts[i]) { imageFolder='misc_items' ; leagueLabel='Product:' ; break; } } %>
 
-                for (let i = 0; i < miscProducts.length; i++) {
-                    if (myLeague === miscProducts[i]) {
-                    imageFolder = 'misc_items';
-                    leagueLabel = 'Product:';
-                    break;
-                    }
-                }
-                %>
-
-                <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
-                <div class="product-image-wrapper">
-                    <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>" class="img-fluid mt-4 product-image"
-                        alt="Product Image">
-                </div>
+                    <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
+                    <div class="product-image-wrapper">
+                        <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>"
+                            class="img-fluid mt-4 product-image" alt="Product Image">
+                    </div>
             </div>
 
 
@@ -139,7 +129,9 @@
                         <%= myVersion %>
                 </h2>
                 <!-- The leagueLable was defined in the for loop with const miscProducts -->
-                <p><strong><%= leagueLabel %></strong>
+                <p><strong>
+                        <%= leagueLabel %>
+                    </strong>
                     <%= myLeague %>
                 </p>
                 <p><strong>Manufacturer: </strong>
@@ -155,40 +147,44 @@
                 <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
                 <p><strong>Size: </strong>
                     <select id="size" name="size">
-                        <%# Size options for Footballs using the else if %> 
-                        <% if (myLeague === "Ball") { %>
-                            <option value="Size 3">Size 3</option>
-                            <option value="Size 4">Size 4</option>
-                            <option value="Size 5">Size 5</option>
-                        
-                        <%# Size options for Goalkeeper Gloves using the else if %>
-                        <% } else if (myLeague === "Gloves") { %>
-                            <option value="Kids">Junior</option>
-                            <option value="Adult S">Adult Small</option>
-                            <option value="Adult M">Adult Medium</option>
-                            <option value="Adult L">Adult Large</option>
-                        
-                        <%# Size Options for Shin Pads using the else if %>
-                        <% } else if (myLeague === "Shin Pads") { %>
-                            <option value="Small">Small</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Large">Large</option>
-                         
-                        <%# Default Value for any uncategorised Items %>
-                        <% } else if (myLeague === "Goals") { %>
-                        <option value="Standard">Standard</option>
+                        <%# Size options for Footballs using the else if %>
+                            <% if (myLeague==="Ball" ) { %>
+                                <option value="Size 3">Size 3</option>
+                                <option value="Size 4">Size 4</option>
+                                <option value="Size 5">Size 5</option>
 
-                        <%# Size Options for Jerseys (different league names - Premier League, La Liga, etc) using if loop %>
-                        <% } else { %>
-                            <option value="Xtra Small">XS</option>
-                            <option value="Small">S</option>
-                            <option value="Medium">M</option>
-                            <option value="Large">L</option>
-                            <option value="Xtra Large">XL</option>
-                            <option value="Double Xtra Large">2XL</option>
-                        <% } %>
+                                <%# Size options for Goalkeeper Gloves using the else if %>
+                                    <% } else if (myLeague==="Gloves" ) { %>
+                                        <option value="Kids">Junior</option>
+                                        <option value="Adult S">Adult Small</option>
+                                        <option value="Adult M">Adult Medium</option>
+                                        <option value="Adult L">Adult Large</option>
+
+                                        <%# Size Options for Shin Pads using the else if %>
+                                            <% } else if (myLeague==="Shin Pads" ) { %>
+                                                <option value="Small">Small</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Large">Large</option>
+
+                                                <%# Default Value for any uncategorised Items %>
+                                                    <% } else if (myLeague==="Goals" ) { %>
+                                                        <option value="Standard">Standard</option>
+
+                                                        <%# Size Options for Jerseys (different league names - Premier
+                                                            League, La Liga, etc) using if loop %>
+                                                            <% } else { %>
+                                                                <option value="Xtra Small">XS</option>
+                                                                <option value="Small">S</option>
+                                                                <option value="Medium">M</option>
+                                                                <option value="Large">L</option>
+                                                                <option value="Xtra Large">XL</option>
+                                                                <option value="Double Xtra Large">2XL</option>
+                                                                <% } %>
                     </select>
                 </p>
+
+                <!-- Alert Message Appears On Screen Noting Items Added to Cart -->
+                <div id="alertPlaceholder" class="mt-3"></div>
 
                 <!--Quantity option-->
                 <p><strong>Quantity: </strong>
@@ -201,10 +197,13 @@
                         <option value="5">5</option>
                     </select>
                 </p>
-
+                
+                <!--Button for adding items to Cart-->
                 <button class="btn btn-danger btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
 
-                <!-- Back to home -->
+                
+
+                <!-- Back to home Button -->
                 <div class="mt-4 text-center">
                     <a href="/" class="text-muted">
                         <button>← Back to Home Page</button>
@@ -334,6 +333,32 @@
 </html>
 
 <script>
+
+//For the code structure from Bootstrap to apply the alert colour
+//https://getbootstrap.com/docs/5.0/components/alerts/
+
+    let alertTimeout;
+
+    function showAlert(message, type) {
+        const alertPlaceholder = document.getElementById("alertPlaceholder");
+
+        // Clear previous alert & timeout
+        clearTimeout(alertTimeout);
+        alertPlaceholder.innerHTML = `
+        <div class="alert alert-${type} fade show" role="alert">
+            ${message}
+        </div>
+    `;
+
+        // Make the Alert within the addToCart function disappear after 3 seconds on screen
+        alertTimeout = setTimeout(() => {
+            alertPlaceholder.innerHTML = "";
+        }, 3000);
+    }
+
+
+
+
     function addToCart() {
         //alert("This is from the function!");
         //storing all the information from the db to store in local storage / memory
@@ -344,30 +369,31 @@
         let price = document.getElementById("price").innerHTML;
         let image = document.getElementById("product_image").src;
         //information above combined into one array
-        let itemData = { 
+        let itemData = {
             name: product,
             type: type,
             quan: quantity,
             s: size,
             p: price,
-            img: image };
+            img: image
+        };
 
         //save the key with the product name and type (example: Arsenal Away M. Fulham Home XL, etc)
         let key = type + "" + size;
         localStorage.setItem(key, JSON.stringify(itemData));
 
         //alert on screen
-        //if the quantity option 0 is selected
-        if (quantity === "0"){
-            alert("No item added to the cart");
+        //if the quantity selected is 0 the warning (yellow) colour is used
+        if (quantity === "0") {
+            showAlert("No item added to the cart", "warning");
             return;
-        } else if (quantity === "1"){
-            //if the quanity is 1
-            alert(quantity + " item added to cart");
+        } else if (quantity === "1") {
+            //if the quanity selected is 1 the success colour (green) is used
+            showAlert(quantity + " item added to cart", "success");
         } else {
-            //if the quanity is more than 1
-            alert(quantity + " items added to cart");
+            //if the quanity selected is more than 1 the primary colour (blue) is used
+            showAlert(quantity + " items added to cart", "primary");
         }
-        
+
     }
 </script>
