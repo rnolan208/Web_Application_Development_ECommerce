@@ -48,6 +48,7 @@ app.get("/", (req, res) => {
 });
 
 
+/*
 //Shop function GET Method using LIKE search for product names
 app.get("/shop", function (req, res) {
     const searchTerm = req.query.rec;
@@ -86,12 +87,12 @@ app.get("/shop", function (req, res) {
         //Inject data into a HTML page
     })
 });
+*/
 
 
 
 
-
-/* OLDER METHOD USED FROM CLASS WHICH ONLY SEARCHES BY ID
+//GET METHOD USED FROM CLASS WHICH DIRECT SHOP SEARCHES BY ID
 app.get("/shop", function(req, res){
     const ID = req.query.rec;
     db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function(err, rows, fields) {
@@ -128,7 +129,7 @@ app.get("/shop", function(req, res){
     })
 });
 
-
+/*
 //Shop function POST Method
 app.post("/shop", function(req, res){
     const ID = req.body.rec2;

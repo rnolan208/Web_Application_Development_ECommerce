@@ -569,3 +569,13 @@ body {
     height: auto;
 }
 
+.col-cancel {
+    flex: 0 0 50px;
+    text-align: center;
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+}
+

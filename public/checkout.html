@@ -89,7 +89,8 @@
 
 
     <div class="container mt-5">
-        <h1>Checkout</h1>
+        <h1>Shopping Cart</h1>
+        <br>
 
         <!-- Cart header-->
         <section>
@@ -99,6 +100,7 @@
                 <div class="col-size">Size</div>
                 <div class="col-quantity">Quantity</div>
                 <div class="col-total">Total</div>
+                <div class="col-cancel">Remove</div>
             </div>
 
             <!--Items Currently in Cart Container-->
@@ -112,33 +114,103 @@
         </section>
 
 
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
 
-            <label for="address">Address:</label>
-            <textarea type="text" id="address" name="address" required></textarea>
+        <!-- CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
+        <div class="container mt-5" style="max-width: 900px;">
+            <h1 class="mb-4">Checkout</h1>
 
-            <label for="payment">Payment Method:</label>
-            <select id="payment" name="payment">
-                <option value="credit-card">Credit Card</option>
-                <option value="paypal">Paypal</option>
-                <option value="stripe">Stripe</option>
-                <option value="crypto">Cryptocurrency</option>
-            </select>
+            <form>
+                <!-- TOP ROW: Shipping Address (full width) -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label">First Name: </label>
+                        <input type="text" class="form-control" required>
+                    </div>
 
-            <button type="submit">Place Order</button>
-            <a href="/">
-                <button>Continue Shopping</button>
-            </a>
-        </form>
+                    <div class="col-md-6">
+                        <label class="form-label">Last Name: </label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Address Line 1: </label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Address Line 2: </label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">City: </label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">ZIP / Eircode: </label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                </div>
+
+
+
+                <!-- SECOND ROW: Payment -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <label for="payment">Payment Method:</label>
+                        <select id="payment" name="payment">
+                            <option value="credit-card">Credit Card</option>
+                            <option value="paypal">Paypal</option>
+                            <option value="stripe">Stripe</option>
+                        </select>
+                    </div>
+
+                    <!-- Input Payment Details Row -->
+                    <div class="col-md-8">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="Name on Card">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" placeholder="CVV">
+                            </div>
+                            <br><br>
+                            <div class="col-12">
+                                <input class="form-control" placeholder="Card Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
+
+                <!-- Total Cost & Bottom Row: Buttons -->
+                <div class="row align-items-center mb-4">
+                    <div class="col d-flex align-items-center">
+                        <h3 class="mb-0">
+                            Total Cost: <span id="checkout_total"></span>
+                        </h3>
+                    </div>
+
+                    <div class="col d-flex justify-content-end align-items-center gap-2">
+                        <a href="/" class="mr-4">
+                            <button>Continue Shopping</button>
+                        </a>
+                        <button type="submit">Place Order</button>
+                    </div>
+                </div>
+                <hr>
+            </form>
+        </div>
     </div>
 
 
-    s<!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+    <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
     <section id="band" class="container">
         <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
@@ -174,7 +246,8 @@
                 <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
                     width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
-                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
+                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need
+                    it!!
                 </p>
                 <p> Shop with us to guarantee you<br>
                     <em>Score Your Next Victory</em>
@@ -276,6 +349,7 @@
                     <div class="col-size">${content.s}</div>
                     <div class="col-quantity">${content.quan}</div>
                     <div class="col-total">€${total_cost.toFixed(2)}</div>
+                    <div class="col-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
                 </div>
             `;
                 }
@@ -290,9 +364,13 @@
             }
 
 
-            document.getElementById("final_price").textContent = "Total: " + cost_allItems;
+            const totalText = "€" + cost_allItems.toFixed(2);
 
-            
+            //To get the price to show beneath the checkout part after entering card details
+            document.getElementById("final_price").textContent = "Total: " + totalText;
+            document.getElementById("checkout_total").textContent = totalText;
+
+
         });
 
 
