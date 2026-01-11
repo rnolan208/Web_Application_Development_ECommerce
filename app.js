@@ -92,7 +92,7 @@ app.get("/shop", function (req, res) {
 
 
 
-//GET METHOD USED FROM CLASS WHICH DIRECT SHOP SEARCHES BY ID
+//GET METHOD /shop USED TO CREATE SHOP LAYOUT PAGES USING ID FROM DATABASE
 app.get("/shop", function(req, res){
     const ID = req.query.rec;
     db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function(err, rows, fields) {
@@ -128,6 +128,37 @@ app.get("/shop", function(req, res){
         //Inject data into a HTML page
     })
 });
+
+
+//GET METHOD /search FOR SEARCHING BY PRODUCT NAME OR CLUB NAME / ITEM TYPE AS PER Club and League FROM DATABASE
+app.get("/search", function(req, res) {
+    const searchTerm = req.query.q;
+
+    const sql = `
+        SELECT ID
+        FROM product_data.database
+        WHERE Club LIKE ? OR League LIKE ?
+        LIMIT 1
+    `;
+
+    db.query(
+        sql,
+        [`%${searchTerm}%`, `%${searchTerm}%`],
+        function(err, rows) {
+            if (err) {
+                console.error("Search error:", err);
+                return res.status(500).send("Search failed");
+            }
+
+            if (rows.length === 0) {
+                return res.status(404).send("No products found");
+            }
+
+            res.redirect(`/shop?rec=${rows[0].ID}`);
+        }
+    );
+});
+
 
 /*
 //Shop function POST Method

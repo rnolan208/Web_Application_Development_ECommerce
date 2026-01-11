@@ -66,13 +66,17 @@
                     </li>
                 </ul>
 
+
                 <!-- RIGHT: Search + Icons-->
-                <div class="navbar-icons d-flex align-items-center ml-3">
-                    <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
-                        <input type="text" name="rec" value="1" class="search-input" aria-label="Record number">
-                        <button type="submit" class="icon-button" aria-label="Search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="navbar-icons d-flex align-items-center mr-3">
+                    <form class="d-flex align-items-center mr-3 search-form" action="/search" method="get">
+                    <input type="text" name="q" class="search-input" placeholder="Search..." aria-label="Record name">
+                    <button type="submit" class="icon-button" aria-label="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>                        
                         </button>
+                        <!-- Results dropdown -->
+                        <div id="searchResults" class="search-results"></div>
+                    </form>
                     </form>
                     <!--Button to Checkout-->
                     <a href="/public/checkout.html" class="nav-link">
@@ -145,63 +149,73 @@
 
                 <!--Size option - Done with if loop based on the name given under the 'League' column in db -->
                 <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
-                <p><strong>Size: </strong>
-                    <select id="size" name="size">
-                        <%# Size options for Footballs using the else if %>
-                            <% if (myLeague==="Ball" ) { %>
-                                <option value="Size 3">Size 3</option>
-                                <option value="Size 4">Size 4</option>
-                                <option value="Size 5">Size 5</option>
+                <div class="row mb-3 align-items-center">
+                    <div class="col-4 col-md-3">
+                        <strong>Size: </strong>
+                    </div>
+                    <div class="col-8 col-md-4">
+                        <select id="size" name="size">
+                            <%# Size options for Footballs using the else if %>
+                                <% if (myLeague==="Ball" ) { %>
+                                    <option value="Size 3">Size 3</option>
+                                    <option value="Size 4">Size 4</option>
+                                    <option value="Size 5">Size 5</option>
 
-                                <%# Size options for Goalkeeper Gloves using the else if %>
-                                    <% } else if (myLeague==="Gloves" ) { %>
-                                        <option value="Kids">Junior</option>
-                                        <option value="Adult S">Adult Small</option>
-                                        <option value="Adult M">Adult Medium</option>
-                                        <option value="Adult L">Adult Large</option>
+                                    <%# Size options for Goalkeeper Gloves using the else if %>
+                                        <% } else if (myLeague==="Gloves" ) { %>
+                                            <option value="Kids">Junior</option>
+                                            <option value="Adult S">Adult Small</option>
+                                            <option value="Adult M">Adult Medium</option>
+                                            <option value="Adult L">Adult Large</option>
 
-                                        <%# Size Options for Shin Pads using the else if %>
-                                            <% } else if (myLeague==="Shin Pads" ) { %>
-                                                <option value="Small">Small</option>
-                                                <option value="Medium">Medium</option>
-                                                <option value="Large">Large</option>
+                                            <%# Size Options for Shin Pads using the else if %>
+                                                <% } else if (myLeague==="Shin Pads" ) { %>
+                                                    <option value="Small">Small</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="Large">Large</option>
 
-                                                <%# Default Value for any uncategorised Items %>
-                                                    <% } else if (myLeague==="Goals" ) { %>
-                                                        <option value="Standard">Standard</option>
+                                                    <%# Default Value for any uncategorised Items %>
+                                                        <% } else if (myLeague==="Goals" ) { %>
+                                                            <option value="Standard">Standard</option>
 
-                                                        <%# Size Options for Jerseys (different league names - Premier
-                                                            League, La Liga, etc) using if loop %>
-                                                            <% } else { %>
-                                                                <option value="Xtra Small">XS</option>
-                                                                <option value="Small">S</option>
-                                                                <option value="Medium">M</option>
-                                                                <option value="Large">L</option>
-                                                                <option value="Xtra Large">XL</option>
-                                                                <option value="Double Xtra Large">2XL</option>
-                                                                <% } %>
-                    </select>
-                </p>
+                                                            <%# Size Options for Jerseys (different league names -
+                                                                Premier League, La Liga, etc) using if loop %>
+                                                                <% } else { %>
+                                                                    <option value="Xtra Small">XS</option>
+                                                                    <option value="Small">S</option>
+                                                                    <option value="Medium">M</option>
+                                                                    <option value="Large">L</option>
+                                                                    <option value="Xtra Large">XL</option>
+                                                                    <option value="Double Xtra Large">2XL</option>
+                                                                    <% } %>
+                        </select>
+                    </div>
+                </div>
 
                 <!-- Alert Message Appears On Screen Noting Items Added to Cart -->
                 <div id="alertPlaceholder" class="mt-3"></div>
 
                 <!--Quantity option-->
-                <p><strong>Quantity: </strong>
-                    <select id="quantity" name="quantity">
-                        <option value="0">0</option>
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </p>
-                
-                <!--Button for adding items to Cart-->
-                <button class="btn btn-danger btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
+                <div class="row mb-3 align-items-center">
+                    <div class="col-4 col-md-3">
+                        <strong>Quantity: </strong>
+                    </div>
+                    <div class="col-8 col-md-4">
+                        <select id="quantity" name="quantity">
+                            <option value="0">0</option>
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
 
-                
+                <!--Button for adding items to Cart-->
+                <button class="btn btn-dark btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
+
+
 
                 <!-- Back to home Button -->
                 <div class="mt-4 text-center">
@@ -247,6 +261,9 @@
         </div>
     </section>
 
+
+    <!--Link JAVASCRIPT FILE-->
+    <script src="/public/script.js"></script>
 
 
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
@@ -334,8 +351,8 @@
 
 <script>
 
-//For the code structure from Bootstrap to apply the alert colour
-//https://getbootstrap.com/docs/5.0/components/alerts/
+    //For the code structure from Bootstrap to apply the alert colour
+    //https://getbootstrap.com/docs/5.0/components/alerts/
 
     let alertTimeout;
 
