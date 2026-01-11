@@ -129,7 +129,7 @@
                         alt="Club Crest">
                 </div>
                 <!-- Product info -->
-                <h2 id="type">
+                <h2 id="type" data-id="<%= myID %>">
                     <%= myClub %>
                         <%= myVersion %>
                 </h2>
@@ -231,15 +231,10 @@
 
     <!--Link to alternative product (exampe Arsenal away if on Arsenal home page) -->
     <% if (altLink) { %>
-        <div class="text-center my-5">
-            <p>
-                View the <strong>
-                    <%= myClub %>
-                        <%= altVersion %> Jersey
-                </strong>
-            </p>
-            <a href="<%= altLink %>" class="btn btn-outline-dark">
-                Go to <%= altVersion %> →
+        <div class="d-flex justify-content-center align-items-center gap-4 my-3">
+            <a class="btn btn-outline-dark" href="<%= altLink %>">
+                Go to <%= myClub %>
+                    <%= altVersion %> →
             </a>
         </div>
         <% } %>
@@ -257,6 +252,8 @@
                     <button class="my-button">SHOP ALL</button>
                 </a>
             </div>
+
+
 
             <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
             <section id="band" class="container">
@@ -403,14 +400,17 @@
         let size = document.getElementById("size").value;
         let price = document.getElementById("price").innerHTML;
         let image = document.getElementById("product_image").src;
+        let ID = document.getElementById("type").dataset.id
         //information above combined into one array
         let itemData = {
+            id: ID,
             name: product,
             type: type,
             quan: quantity,
             s: size,
             p: price,
-            img: image
+            img: image,
+            
         };
 
         //save the key with the product name and type (example: Arsenal Away M. Fulham Home XL, etc)

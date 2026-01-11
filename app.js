@@ -109,6 +109,7 @@ app.get("/shop", function (req, res) {
             console.log(rows[0].Version);
             console.log(rows[0].Price);
             console.log(rows[0].League);
+            console.log(rows[0].ID);
 
             //Variables from Database 
             const clubName = rows[0].Club;
@@ -118,6 +119,7 @@ app.get("/shop", function (req, res) {
             const manufact = rows[0].Manufacturer;
             const images = rows[0].Image;
             const crest = rows[0].Crest;
+            const ID = rows[0].ID;
 
 
             //QUERY: will look in the database for teh alternate version (Home ↔ Away)
@@ -146,7 +148,7 @@ app.get("/shop", function (req, res) {
             res.render("shopItems.ejs", {
                 myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league,
                 myManufacturer: manufact, myImage: images, myCrest: crest, altLink: altLink,
-                altVersion: altVersion
+                altVersion: altVersion, myID: ID,
             });
                 }
             );

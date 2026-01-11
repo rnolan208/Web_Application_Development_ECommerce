@@ -583,3 +583,14 @@ body {
     display: flex;
     align-items: center;
 }
+
+/*The name of the product in the cart, no decoration removes underline and change colour back to standard*/
+.col-name a {
+    color: inherit;          
+    text-decoration: none;        
+}
+
+/*Adds cursor when over the product name, showing its a link */
+.col-name a:hover {
+    cursor: pointer;
+}

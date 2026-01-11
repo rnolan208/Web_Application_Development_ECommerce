@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <!--Navbar from Bootstrap-->
     <!--Navbar class with padding at top and bottom of 3-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
@@ -63,20 +62,25 @@
                     </li>
                 </ul>
 
+
                 <!-- RIGHT: Search + Icons-->
-                <div class="navbar-icons d-flex align-items-center ml-3">
-                    <form class="d-flex align-items-center mr-3 search-form" action="/shop" method="get">
-                        <input type="text" name="rec" placeholder="Search..." class="search-input" aria-label="Search">
+                <div class="navbar-icons d-flex align-items-center mr-3">
+                    <form class="d-flex align-items-center mr-3 search-form" action="/search" method="get">
+                        <input type="text" name="q" class="search-input" placeholder="Search..."
+                            aria-label="Record name">
                         <button type="submit" class="icon-button" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
+                        <!-- Results dropdown -->
+                        <div id="searchResults" class="search-results"></div>
+                    </form>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="checkout.html" class="nav-link">
+                    <a href="/public/checkout.html" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
                     <!--Buttion to Sign In-->
-                    <a href="login.html" class="nav-link">
+                    <a href="/public/login.html" class="nav-link">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                     </a>
                 </div>
@@ -95,9 +99,10 @@
         <!-- Cart header-->
         <section>
             <div class="cart-header d-flex font-weight-bold border-bottom pb-2 mb-2">
-                <div class="col-image">Image</div>
-                <div class="col-name">Product</div>
+                <div class="col-image">Product</div>
+                <div class="col-name"></div>
                 <div class="col-size">Size</div>
+                <div class="col-price">Price</div>
                 <div class="col-quantity">Quantity</div>
                 <div class="col-total">Total</div>
                 <div class="col-cancel">Remove</div>
@@ -345,8 +350,9 @@
                     cartContainer.innerHTML += `
                 <div class="cart-item">
                     <div class="col-image"><img src="${content.img}" alt="${content.name}" /></div>
-                    <div class="col-name">${content.type}</div>
+                    <div class="col-name"><a href="/shop?rec=${content.id}">${content.type}</a></div>
                     <div class="col-size">${content.s}</div>
+                    <div class="col-price">€${Number(content.p).toFixed(2)}</div>
                     <div class="col-quantity">${content.quan}</div>
                     <div class="col-total">€${total_cost.toFixed(2)}</div>
                     <div class="col-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
