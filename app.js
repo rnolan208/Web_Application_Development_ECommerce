@@ -122,7 +122,7 @@ app.get("/shop", function (req, res) {
             const ID = rows[0].ID;
 
 
-            //QUERY: will look in the database for teh alternate version (Home ↔ Away)
+            //QUERY: will look in the database for the alternate version (Home ↔ Away)
             db.query(
                 "SELECT ID, Version FROM product_data.database WHERE Club = ? AND Version != ? LIMIT 1",
                 [clubName, versionName],
@@ -231,24 +231,6 @@ app.get("/", function (req, res) {
     res.render("home");
 })
 
-//Route to handle Login Form Submission - POST Method
-app.post("/login", function (req, res) {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    //authenticate the username and password
-    const authenticated = auth.authenticateUser(username, password);
-    console.log(authenticated);
-
-    if (authenticated) {
-        console.log("Successful Authentication");
-        res.render("home");
-    }
-    else {
-        console.log("Failed Authentication");
-        res.render("failed");
-    }
-});
 
 //Route for the entire shopEntire page
 app.get("/shop-all", (req, res) => {
@@ -265,21 +247,55 @@ app.get("/shop-all", (req, res) => {
 });
 
 
-// Server
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
-});
-
-
-//Import authentication module
+//Import authentication custom module
 const auth = require("./auth.js");
 
 //Users for the application
 auth.createUser("John", "secret123");
 auth.createUser("Robert", "helloworld");
 auth.createUser("Mary", "pass456");
+auth.createUser("user@123.ie", "pass")
 
 //test users work
 console.log(auth.authenticateUser("John", "secret123"));
 console.log(auth.authenticateUser("John", "secret456"));
+
+//Route to hand Login Page (GET METHOD)
+app.get("/login", (req, res) => {
+    res.render("login", { error: null });
+});
+
+//Route to handle Login Form Submission - (POST METHOD)
+app.post("/login", function (req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    //authenticate the username and password
+    const authenticated = auth.authenticateUser(username, password);
+    console.log(authenticated);
+
+    if (authenticated) {
+        //If login is successful then directed to the home page (/)
+        console.log("Successful Authentication");
+        res.render("/");
+    }
+    else {
+        //If login fails the login page renders again
+        console.log("Failed Authentication");
+        res.render("login", {error: "Invalid username or password" });
+    }
+});
+
+
+// Server
+app.listen(3000, () => {
+    console.log("Server started on port 3000");
+});
+
+
+
+
+
+
+
 
