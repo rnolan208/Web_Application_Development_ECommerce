@@ -92,27 +92,25 @@ app.get("/shop", function (req, res) {
 
 
 
-//GET METHOD /shop USED TO CREATE SHOP LAYOUT PAGES USING ID FROM DATABASE
-app.get("/shop", function(req, res){
+//GET METHOD /shop USED TO CREATE SHOP LAYOUT PAGES USING ID FROM DATABASE 
+app.get("/shop", function (req, res) {
     const ID = req.query.rec;
-    db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function(err, rows, fields) {
-        if(err) {
+    db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function (err, rows, fields) {
+        if (err) {
             console.error("Error getting data from database.", err);
             res.status(500).send("Error retreiving data from database.");
-        }
-        else if(rows.length === 0) {
+        } else if (rows.length === 0) {
             console.error("No rows found for ID $[ID]");
             res.status(404).send("Product not found");
-        }
-        else {
-            //To monitor the application while developing it
+        } else {
+            //To monitor the application while developing it 
             console.log("Data retreived from the database.");
             console.log(rows[0].Club);
             console.log(rows[0].Version);
             console.log(rows[0].Price);
             console.log(rows[0].League);
 
-            //Variables from Database
+            //Variables from Database 
             const clubName = rows[0].Club;
             const versionName = rows[0].Version;
             const price = rows[0].Price;
@@ -121,17 +119,46 @@ app.get("/shop", function(req, res){
             const images = rows[0].Image;
             const crest = rows[0].Crest;
 
-            res.render("shopItems.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league, 
-                                    myManufacturer: manufact ,myImage: images, myCrest: crest});
-        }
 
-        //Inject data into a HTML page
-    })
+            //QUERY: will look in the database for teh alternate version (Home ↔ Away)
+            db.query(
+                "SELECT ID, Version FROM product_data.database WHERE Club = ? AND Version != ? LIMIT 1",
+                [clubName, versionName],
+                function (err2, altRows) {
+
+                    if (err2) {
+                        console.error("Error fetching alternate version", err2);
+                        res.status(500).send("Error retreiving alternate product.");
+                        return;
+                    }
+
+                    // Build link if alternate exists
+                    const altLink = altRows.length > 0
+                        ? `/shop?rec=${altRows[0].ID}`
+                        : null;
+
+                    const altVersion = altRows.length > 0
+                        ? altRows[0].Version
+                        : null;
+
+
+
+            res.render("shopItems.ejs", {
+                myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league,
+                myManufacturer: manufact, myImage: images, myCrest: crest, altLink: altLink,
+                altVersion: altVersion
+            });
+                }
+            );
+        }
+    });
 });
+//Inject data into a HTML page 
+
 
 
 //GET METHOD /search FOR SEARCHING BY PRODUCT NAME OR CLUB NAME / ITEM TYPE AS PER Club and League FROM DATABASE
-app.get("/search", function(req, res) {
+app.get("/search", function (req, res) {
     const searchTerm = req.query.q;
 
     const sql = `
@@ -144,7 +171,7 @@ app.get("/search", function(req, res) {
     db.query(
         sql,
         [`%${searchTerm}%`, `%${searchTerm}%`],
-        function(err, rows) {
+        function (err, rows) {
             if (err) {
                 console.error("Search error:", err);
                 return res.status(500).send("Search failed");
@@ -180,20 +207,20 @@ app.post("/shop", function(req, res){
             console.log(rows[0].Version);
             console.log(rows[0].Price);
             console.log(rows[0].League);
-
+ 
             //Variables from Database
             const clubName = rows[0].Club;
             const versionName = rows[0].Version;
             const price = rows[0].Price;
             const league = rows[0].League;
-
+ 
             res.render("test.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league});
         }
-
+ 
         //Inject data into a HTML page
     })
 });
-
+ 
 */
 
 
