@@ -81,7 +81,7 @@
                     </a>
                     <!--Buttion to Sign In-->
                     <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
-                    <!--Checks if user is logged in via sessions-->        
+                    <!--Checks if user is logged in via sessions-->
                     <% if (!user) { %>
                         <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
                         <a href="/login" class="nav-link" title="Login">
@@ -128,6 +128,7 @@
             <!--Final Price for Shopping Cart-->
             <h3 id="final_price" class="text-right"></h3>
         </section>
+        <hr>
 
 
 
@@ -186,50 +187,56 @@
                             <option value="credit-card">Credit Card</option>
                             <option value="paypal">Paypal</option>
                             <option value="stripe">Stripe</option>
+                            <option value="crypto">Cryptocurrency</option>
                         </select>
                     </div>
 
-                    <!-- Input Payment Details Row -->
+                    <!-- Input Payment Details Containers (from custom module) -->
                     <div class="col-md-8">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input class="form-control" placeholder="Name on Card">
-                            </div>
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="MM/YY">
-                            </div>
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="CVV">
-                            </div>
-                            <br><br>
-                            <div class="col-12">
-                                <input class="form-control" placeholder="Card Number / Paypal Number / Stripe Number">
-                            </div>
+                        <div id="credit-card-stripe-fields" class="payment-fields">
+                            <%- creditCardFields %>
+                        </div>
+
+                        <div id="paypal-fields" class="payment-fields" style="display: none;">
+                            <%- paypalFields %>
+                        </div>
+
+                        <div id="crypto-fields" class="payment-fields" style="display: none;">
+                            <%- cryptoFields %>
                         </div>
                     </div>
                 </div>
-                <br>
-                <hr>
 
-                <!-- Total Cost & Bottom Row: Buttons -->
-                <div class="row align-items-center mb-4">
-                    <div class="col d-flex align-items-center">
-                        <h3 class="mb-0">
-                            Total Cost: <span id="checkout_total"></span>
-                        </h3>
-                    </div>
 
-                    <div class="col d-flex justify-content-end align-items-center gap-2">
-                        <a href="/shop-all" class="mr-4">
-                            <button type="button">Continue Shopping</button>
-                        </a>
-                        <button type="submit">Place Order</button>
-                    </div>
-                </div>
-                <hr>
-            </form>
+
+
         </div>
+
+        <br>
+        <hr>
+
+        <!-- Total Cost & Bottom Row: Buttons -->
+        <div class="row align-items-center mb-4">
+            <div class="col d-flex align-items-center">
+                <h3 class="mb-0">
+                    Total Cost: <span id="checkout_total"></span>
+                </h3>
+            </div>
+
+            <div class="col d-flex justify-content-end align-items-center gap-2">
+                <a href="/shop-all" class="mr-3">
+                    <button type="button">Continue Shopping</button>
+                </a>
+                <a href="/paymentSuccess">
+                    <button id="placeOrderBtn" type="submit">Place Order</button>
+                </a>
+            </div>
+        </div>
+
+        </form>
     </div>
+    <hr>
+
 
 
     <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
@@ -285,7 +292,7 @@
                     <li><a href="/shop-all#gloves">Gloves</a></li>
                     <li><a href="/jerseyShop">Jerseys</a></li>
                     <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/miscShopPage">Miscellaneous</a></li>
+                    <li><a href="/miscShop">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -372,13 +379,18 @@
                 let discountRate = 0;
                 let discountSize = content.s;
 
+                //apply the discount logic 
                 if (discountSize === "Xtra Small") {
+                    //20% off for size Xtra Small
                     discountRate = 0.20;
                 } else if (discountSize === "Small") {
+                    //10% off for size Small
                     discountRate = 0.10;
                 }
 
+                //Calculate the final price by taking the discount amount from the original price
                 let discountedPrice = price * (1 - discountRate);
+                //Update the total cost for the items
                 let total_cost = discountedPrice * content.quan;
 
                 //console.log(content);
@@ -392,34 +404,36 @@
                     //Then insert the image, name, size, quantity,
                     //price (with discount if applied and using <del> to strikthrough original)
                     //Sum the overall cost from the total row (toFixed(2)) ensures discounted prices are in this row
+                    //Everything is wrapped in the div "cart-item-container" with data-key so I can remove items from cart
                     cartContainer.innerHTML += `
-                    
-                    ${discountRate > 0 ? `
-                            <div class="alert alert-warning w-100 mb-3">
-                                The <strong>${content.type}</strong> got a 
-                                <strong>${discountRate * 100}% discount</strong>
-                                from its original price of 
-                                <strong>€${price.toFixed(2)}</strong>
-                                because it is size <strong>${discountSize}</strong>.
-                            </div>
-                        ` : ""}
+                        <div class="cart-item-container" data-key="${key}">
+                            ${discountRate > 0 ? `
+                                <div class="alert alert-warning w-100 mb-3">
+                                    The <strong>${content.type}</strong> got a 
+                                    <strong>${discountRate * 100}% discount</strong>
+                                    from its original price of 
+                                    <strong>€${price.toFixed(2)}</strong>
+                                    because it is size <strong>${discountSize}</strong>.
+                                </div>
+                            ` : ""}
 
-                <div class="cart-item">
-                    <div class="col-image"><img src="${content.img}" alt="${content.name}" /></div>
-                    <div class="col-name"><a href="/shop?rec=${content.id}">${content.type}</a></div>
-                    <div class="col-size">${content.s}</div>          
-                    <div class="col-price">${discountRate > 0 ? `<del>€${price.toFixed(2)}</del><br>€${discountedPrice.toFixed(2)}`
+                            <div class="cart-item">
+                            <div class="col-image"><img src="${content.img}" alt="${content.name}" /></div>
+                            <div class="col-name"><a href="/shop?rec=${content.id}">${content.type}</a></div>
+                            <div class="col-size">${content.s}</div>          
+                            <div class="col-price">${discountRate > 0 ? `<del>€${price.toFixed(2)}</del><br>€${discountedPrice.toFixed(2)}`
                             : `€${price.toFixed(2)}`
                         }
-                            </div>
+                                    </div>
 
-                    <div class="col-quantity">${content.quan}</div>
-                    <div class="col-total">€${total_cost.toFixed(2)}</div>
-                    <div class="col-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
-                </div>
-
+                            <div class="col-quantity">${content.quan}</div>
+                            <div class="col-total">€${total_cost.toFixed(2)}</div>
+                            
+                            <div class="col-cancel"><i class="fa-regular fa-circle-xmark"></i></div>
+                        </div>
+                    </div>
                 
-            `;
+                 `;
                 }
             }
 
@@ -432,11 +446,73 @@
             }
 
 
+            // Remove item from cart
+            const cancelIcons = document.querySelectorAll(".col-cancel i");
+            cancelIcons.forEach(icon => {
+                icon.addEventListener("click", (e) => {
+                    const container = e.target.closest(".cart-item-container");
+                    const key = container.getAttribute("data-key");
+                    localStorage.removeItem(key); // Remove the saved Item from Local Storage via its data-key
+                    location.reload(); // Refresh the cart
+                });
+            });
+
+
             const totalText = "€" + cost_allItems.toFixed(2);
 
-            //To get the price to show beneath the checkout part after entering card details
+            //To get the price to show beneath the checkout part after the enter card details part
             document.getElementById("final_price").textContent = "Total: " + totalText;
             document.getElementById("checkout_total").textContent = totalText;
+
+
+            // Check if user is logged in before placing order 
+            const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+            // This variable comes from your EJS res.locals.user
+            const loggedInUser = "<%= user ? user : '' %>";
+
+            // If user is logged in then they can proceed, if not the alert pops up and then cannot proceed via preventDefault
+            placeOrderBtn.addEventListener("click", (e) => {
+                if (!loggedInUser) {
+                    e.preventDefault(); // Stop form submission
+                    alert("Please Login before you can proceed");
+                }
+
+            });
+
+            //--------------------------
+            // Payment switching options
+            //--------------------------
+            const paymentSelect = document.getElementById("payment");
+            const creditCardStripeFields = document.getElementById("credit-card-stripe-fields");
+            const paypalFields = document.getElementById("paypal-fields");
+            const cryptoFields = document.getElementById("crypto-fields");
+
+            function showPaymentFields(method) {
+                creditCardStripeFields.style.display = "none";
+                paypalFields.style.display = "none";
+                cryptoFields.style.display = "none";
+
+                if (method === "credit-card" || method === "stripe") {
+                    creditCardStripeFields.style.display = "block";
+                } else if (method === "paypal") {
+                    paypalFields.style.display = "block";
+                } else if (method === "crypto") {
+                    cryptoFields.style.display = "block";
+                }
+            }
+
+            // Show correct form on page load
+            showPaymentFields(paymentSelect.value);
+
+            // Change form when user selects a different payment method
+            paymentSelect.addEventListener("change", (e) => {
+                showPaymentFields(e.target.value);
+            });
+
+            //--------------------------------
+            //End of Payment switching options
+            //--------------------------------
 
 
         });

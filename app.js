@@ -30,6 +30,11 @@ const fs = require("fs");
 const db = require("./database/db");
 
 
+//Import authentication custom module
+const auth = require("./auth.js");
+
+
+
 // View engine - uses __dirname for absolute path in directory
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -66,49 +71,6 @@ app.get("/", (req, res) => {
 
     res.render("home", { images });
 });
-
-
-/*
-//Shop function GET Method using LIKE search for product names
-app.get("/shop", function (req, res) {
-    const searchTerm = req.query.rec;
-    db.query("SELECT * FROM product_data.database WHERE Club LIKE ?", [`%${searchTerm}%`], function (err, rows, fields) {
-        if (err) {
-            console.error("Error getting data from database.", err);
-            res.status(500).send("Error retreiving data from database.");
-        }
-        else if (rows.length === 0) {
-            console.error("No rows found for ${searchTerm}");
-            res.status(404).send("Product not found");
-        }
-        else {
-            //To monitor the application while developing it
-            console.log("Data retreived from the database.");
-            console.log(rows[0].Club);
-            console.log(rows[0].Version);
-            console.log(rows[0].Price);
-            console.log(rows[0].League);
-
-            //Variables from Database
-            const clubName = rows[0].Club;
-            const versionName = rows[0].Version;
-            const price = rows[0].Price;
-            const league = rows[0].League;
-            const manufact = rows[0].Manufacturer;
-            const images = rows[0].Image;
-            const crest = rows[0].Crest;
-
-            res.render("shopItems.ejs", {
-                myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league,
-                myManufacturer: manufact, myImage: images, myCrest: crest
-            });
-        }
-
-        //Inject data into a HTML page
-    })
-});
-*/
-
 
 
 
@@ -255,10 +217,6 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
-//Route to the Checkout page (GET Method)
-app.get("/checkout", (req, res) => {
-    res.render("checkout");
-});
 
 //Route to the Contact Us page (GET Method)
 app.get("/contactUs", (req, res) => {
@@ -276,7 +234,7 @@ app.get("/miscShop", (req, res) => {
 });
 
 
-//Route for the entire shopEntire page
+//Route for the entire shopEntire page (GET Method)
 app.get("/shop-all", (req, res) => {
     //No need for the const ID = req.query.rec as this will be using all items from db on the one page
     db.query("SELECT * FROM product_data.database", (err, rows) => {
@@ -290,19 +248,34 @@ app.get("/shop-all", (req, res) => {
     });
 });
 
+//Route to Payment / Order Successful after Checkout Page
+app.get("paymentSuccess", (req, res) => {
+    res.render("paymentSuccess");
+})
 
-//Import authentication custom module
-const auth = require("./auth.js");
+//For the payment options in Checkout
+//Uses Custom Node Module payment.js
+const { getPaymentHTML } = require('./custom_node_modules/payment');
+
+//Get the switch case options from the custom module
+app.get('/checkout', (req, res) => {
+    res.render('checkout', {
+        user: req.user || null,
+        creditCardFields: getPaymentHTML('credit-card'),
+        paypalFields: getPaymentHTML('paypal'),
+        stripeFields: getPaymentHTML('stripe'),
+        cryptoFields: getPaymentHTML('crypto')
+    });
+});
 
 
-//Users for the application
-
+//Create Users for the application
 auth.createUser("user@123.ie", "pass")
 
 //test users work
 console.log(auth.authenticateUser("user@123.ie", "pass"));
 
-//Route to hand Login Page (GET METHOD)
+//Route to Login Page (GET METHOD)
 app.get("/login", (req, res) => {
     res.render("login", { error: null, username: "" });
 });
@@ -320,14 +293,18 @@ app.post("/login", function (req, res) {
         // store user in session
         req.session.user = username;
 
+        //Logs to the console that the login was a success
         //If login is successful then directed to the home page (/)
         console.log("Successful Authentication");
         res.redirect("/");
     }
     else {
         //If login fails the login page renders again
+        //Logs to the console that the login failed
+        //Redirects to the login page with the previously input username still shown
+        //Gives an alert message saying invalid username or passowrd
         console.log("Failed Authentication");
-        res.render("login", {error: "Invalid username or password" });
+        res.render("login", {error: "Invalid username or password", username: username });
     }
 });
 
