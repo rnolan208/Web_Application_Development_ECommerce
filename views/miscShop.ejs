@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Robert's Sports Shop - Jesery's</title>
+    <title>Robert's Sports Shop - Miscellaneous</title>
 
     <!--Importing Bootstrap for CSS-->
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
@@ -50,16 +50,16 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
+                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
+                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/about.html">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
+                        <a class="nav-link" href="/contactUs">Contact</a>
                     </li>
                 </ul>
 
@@ -77,13 +77,23 @@
                     </form>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="/public/checkout.html" class="nav-link">
+                    <a href="/checkout" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
-                    <!--Button to Sign In-->
-                    <a href="/login" class="nav-link">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
+                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
+                    <!--Checks if user is logged in via sessions-->        
+                    <% if (!user) { %>
+                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
+                        <a href="/login" class="nav-link" title="Login">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        </a>
+                        <% } else { %>
+                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
+                            <a href="#" class="nav-link" title="Already logged in"
+                                onclick="alert('User already logged in'); return false;">
+                                <i class="fa-solid fa-user-check"></i>
+                            </a>
+                            <% } %>
                 </div>
             </div>
         </div>
@@ -92,147 +102,55 @@
 
     <!--Links to Other Shop Pages-->
     <div class="page-buttons">
-        <a href="/public/miscShopPage.html">
-            <button class="my-button">MISCELLANEOUS</button>
+        <a href="/jerseyShop">
+            <button class="my-button">JERSEYS</button>
         </a>
         <a href="/shop-all">
             <button class="my-button">SHOP ALL</button>
         </a>
     </div>
 
-
-    <!--FFEATURED SECTIONS-->
+    <!--FEATURED SECTIONS-->
     <!-- Card like layout with image reference, item name, price, and button leading to shop page of product-->
-    <!--Premier League Section-->
+    <!--Footballs Section-->
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
-            <h3>Premier League</h3>
+            <h3>Footballs</h3>
             <hr>
-            <a href="/shop-all#premierLeague">
-                <button class="my-button">All Premier League Jerseys</button>
+            <a href="/shop-all#footballs">
+                <button class="my-button">All Footballs</button>
             </a>
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/arsenal_1.png" alt="Arsenal Home">
-                <h5 class="p-name">Arsenal Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/world_cup_ball.png" alt="World Cup 2026">
+                <h5 class="p-name">World Cup 2026</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=1">
+                <a href="/shop?rec=237">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/chelsea_1.png" alt="Chelsea Home">
-                <h5 class="p-name">Chelsea Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/premier_league_ball.png" alt="Premier League 25/26">
+                <h5 class="p-name">Premier League 25/26</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=13">
+                <a href="/shop?rec=238">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/liverpool_1.png" alt="Liverpool Home">
-                <h5 class="p-name">Liverpool Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/champions_league_ball.png" alt="Champions League 25/26">
+                <h5 class="p-name">Champions League 25/26</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=23">
+                <a href="/shop?rec=243">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/man_city_1.png" alt="Man City Home">
-                <h5 class="p-name">Man City Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/europa_league_ball.png" alt="Europa League 25/26">
+                <h5 class="p-name">Europa League 25/26</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=25">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!--La Liga Section-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>La Liga</h3>
-            <hr>
-            <a href="/shop-all#laLiga">
-                <button class="my-button">All La Liga Jerseys</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/atletico_madrid1.png" alt="Atletico Home">
-                <h5 class="p-name">Atletico Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=45">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/barcelona1.png" alt="Barcelona Home">
-                <h5 class="p-name">Barcelona Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=47">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/barcelona2.png" alt="Barcelona Away">
-                <h5 class="p-name">Barcelona Away</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=48">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/real_madrid1.png" alt="Real Madrid Home">
-                <h5 class="p-name">Real Madrid Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=69">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!--League of Ireland Section-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>League of Ireland</h3>
-            <hr>
-            <a href="/shop-all#leagueOfIreland">
-                <button class="my-button">All League of Ireland Jerseys</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/bohemian1.png" alt="Bohemians Home">
-                <h5 class="p-name">Bohemians Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=117">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/shamrock1.png" alt="Shamrock Rovers Home">
-                <h5 class="p-name">Shamrock Rovers Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=127">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/shelbourne1.png" alt="Shelbourne Home">
-                <h5 class="p-name">Shelbourne Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=129">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/stpatrick1.png"
-                    alt="St. Patricks ALthletic Home">
-                <h5 class="p-name">St. Pats Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=133">
+                <a href="/shop?rec=244">
                     <button class="details">More Details</button>
                 </a>
             </div>
@@ -240,45 +158,45 @@
     </section>
 
 
-    <!--Internation Teams Section-->
+    <!--Football Goals-->
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
-            <h3>International</h3>
+            <h3>Football Goals</h3>
             <hr>
-            <a href="/shop-all#international">
-                <button class="my-button">All International Jerseys</button>
+            <a href="/shop-all#goals">
+                <button class="my-button">All Football Goals</button>
             </a>
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/ireland_1.png" alt="Ireland Home">
-                <h5 class="p-name">Ireland Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/forza8x4.png" alt="8 x 4 Forza">
+                <h5 class="p-name">8 x 4 Forza</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=213">
+                <a href="/shop?rec=261">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/ireland_2.png" alt="Ireland Away">
-                <h5 class="p-name">Ireland Away</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/samba8x5.png" alt="8 x 5 Samba">
+                <h5 class="p-name">8 x 5 Samba</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=214">
+                <a href="/shop?rec=265">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/argentina_1.png" alt="Argentina Home">
-                <h5 class="p-name">Argentina Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/forza12x6.png" alt="12 x 6 Forza">
+                <h5 class="p-name">12 x 6 Forza</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=233">
+                <a href="/shop?rec=262">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/spain_1.png" alt="Spain Home">
-                <h5 class="p-name">Spain Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/samba12x6.png" alt="12 x 6 Samba">
+                <h5 class="p-name">12 x 6 Samba</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=223">
+                <a href="/shop?rec=264">
                     <button class="details">More Details</button>
                 </a>
             </div>
@@ -286,45 +204,46 @@
     </section>
 
 
-    <!--Serie A Section-->
+
+    <!--Goalkeeper Gloves-->
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
-            <h3>Serie A</h3>
+            <h3>Goalkeeper Gloves</h3>
             <hr>
-            <a href="/shop-all#serieA">
-                <button class="my-button">All Serie A Jerseys</button>
+            <a href="/shop-all#gloves">
+                <button class="my-button">All Goalkeeper Gloves</button>
             </a>
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/milan_1.png" alt="AC Milan Home">
-                <h5 class="p-name">AC Milan Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/vaporGrip3.png" alt="Vapor Grip 3">
+                <h5 class="p-name">Vapor Grip 3</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=173">
+                <a href="/shop?rec=256">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/inter_1.png" alt="Internazionale Home">
-                <h5 class="p-name">Internazionale Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/phantom.png" alt="Phantom">
+                <h5 class="p-name">Phantom</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=193">
+                <a href="/shop?rec=257">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/juventus_1.png" alt="Juventus Home">
-                <h5 class="p-name">Juventus Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/predatorpro.png" alt="Predator Pro">
+                <h5 class="p-name">Predator Pro</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=195">
+                <a href="/shop?rec=258">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/napoli_1.png" alt="Napoli Home">
-                <h5 class="p-name">Napoli Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/copaPro.png" alt="Copa Pro">
+                <h5 class="p-name">Copa Pro</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=201">
+                <a href="/shop?rec=259">
                     <button class="details">More Details</button>
                 </a>
             </div>
@@ -332,91 +251,45 @@
     </section>
 
 
-    <!--Bundesliga Section-->
+    <!--Shin Pads-->
     <section id="featured" class="my-5 pb-5">
         <div class="container text-center mt-5 py-5">
-            <h3>Bundesliga</h3>
+            <h3>Shin Pads</h3>
             <hr>
-            <a href="/shop-all#bundesliga">
-                <button class="my-button">All Bundesliga Jerseys</button>
+            <a href="/shop-all#shinPads">
+                <button class="my-button">All Shin Pads</button>
             </a>
         </div>
         <div class="row mx-auto container-fluid">
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/bayern_1.png" alt="Bayern Munich Home">
-                <h5 class="p-name">Bayern Munich Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/tiro.png" alt="Tiro">
+                <h5 class="p-name">Tiro</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=87">
+                <a href="/shop?rec=249">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/bayern_2.png" alt="Bayern Munich Away">
-                <h5 class="p-name">Bayern Munich Away</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/club.png" alt="Club">
+                <h5 class="p-name">Club</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=88">
+                <a href="/shop?rec=250">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/dortmund_1.png" alt="Dortmund Home">
-                <h5 class="p-name">Dortmund Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/shadow.png" alt="Shadow">
+                <h5 class="p-name">Shadow</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=89">
+                <a href="/shop?rec=251">
                     <button class="details">More Details</button>
                 </a>
             </div>
             <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/rb_leipzig_1.png" alt="RB Leipzig Home">
-                <h5 class="p-name">RB Leipzig Home</h5>
+                <img class="img-fluid mb-3" src="/public/images/misc_items/king.png" alt="King">
+                <h5 class="p-name">King</h5>
                 <h4 class="p-price"></h4>
-                <a href="/shop?rec=103">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!--Ligue 1 Section-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Ligue 1</h3>
-            <hr>
-            <a href="/shop-all#ligue1">
-                <button class="my-button">All Ligue 1 Jerseys</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/psg_1.png" alt="PSG Home">
-                <h5 class="p-name">PSG Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=165">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/psg_2.png" alt="PSG Away">
-                <h5 class="p-name">PSG Away</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=166">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/lyon_1.png" alt="Lyon Home">
-                <h5 class="p-name">Lyon Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=153">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/jerseys/olympique_marseille_1.png" alt="Marseille Home">
-                <h5 class="p-name">Marseille Home</h5>
-                <h4 class="p-price"></h4>
-                <a href="/shop?rec=155">
+                <a href="/shop?rec=254">
                     <button class="details">More Details</button>
                 </a>
             </div>
@@ -454,9 +327,9 @@
                 <ul class="text-uppercase list-unstyled">
                     <li><a href="/shop-all#footballs">Footballs</a></li>
                     <li><a href="/shop-all#gloves">Gloves</a></li>
-                    <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                    <li><a href="/jerseyShop">Jerseys</a></li>
                     <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
+                    <li><a href="/miscShop">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -510,6 +383,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
+
+
 </body>
+
 
 </html>

@@ -49,16 +49,16 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
+                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
+                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/about.html">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
+                        <a class="nav-link" href="/contactUs">Contact</a>
                     </li>
                 </ul>
 
@@ -76,13 +76,23 @@
                     </form>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="/public/checkout.html" class="nav-link">
+                    <a href="/checkout" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
-                    <!--Buttion to Sign In-->
-                    <a href="/login" class="nav-link">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
+                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
+                    <!--Checks if user is logged in via sessions-->        
+                    <% if (!user) { %>
+                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
+                        <a href="/login" class="nav-link" title="Login">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        </a>
+                        <% } else { %>
+                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
+                            <a href="#" class="nav-link" title="Already logged in"
+                                onclick="alert('User already logged in'); return false;">
+                                <i class="fa-solid fa-user-check"></i>
+                            </a>
+                            <% } %>
                 </div>
             </div>
         </div>
@@ -101,7 +111,7 @@
                         <button>Shop Now</button>
                     </a>
                 </div>
-                <!--Right side - Image Carousel which picks Random Image from folder (using )-->
+                <!--Right side - Image Carousel which picks Random Image from folder-->
                 <div class="col-md-7">
                     <div class="car">
                         <div class="img-wrap">
@@ -110,6 +120,7 @@
                                     class="carousel-img <%= index === 0 ? 'active' : '' %>" alt="Product image">
                                 <% }) %>
                         </div>
+                        <!--Buttons to click next or previous image from the Carousel-->
                         <button class="btn prev">‹</button>
                         <button class="btn next">›</button>
                     </div>
@@ -133,7 +144,7 @@
                 <!--title and button to store section-->
                 <div class="details">
                     <h2>Jerseys</h2>
-                    <a href="/public/jerseyShopPage.html">
+                    <a href="/jerseyShop">
                         <button class="text-uppercase">Shop Now</button>
                     </a>
                 </div>
@@ -143,7 +154,7 @@
                 <!--title and button to store section-->
                 <div class="details">
                     <h2>Miscellaneous</h2>
-                    <a href="/public/miscShopPage.html">
+                    <a href="/miscShop">
                         <button class="text-uppercase">Shop Now</button>
                     </a>
                 </div>
@@ -156,15 +167,18 @@
     <section id="band" class="container">
         <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/nike-logo-black-and-white.png" alt="nike">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/nike-logo-black-and-white.png"
+                alt="nike">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/adidas-logo-black-and-white.png"
                 alt="addidas">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/puma-logo-black-and-white.png" alt="puma">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/puma-logo-black-and-white.png"
+                alt="puma">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/umbro-logo-black-and-white.png"
                 alt="umbro">
             <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/Oneills-logo-black-and-white.png"
                 alt="o'neills">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/macron-black-and-white.png" alt="macron">
+            <img class="img-fluid col-lg-2 col-md-4 col-6" src="public/images/brands/macron-black-and-white.png"
+                alt="macron">
         </div>
     </section>
 
@@ -181,14 +195,15 @@
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
         <div class="row container mx-auto pt-3 align-items-stretch">
             <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="public/images/logo/logo-grayscale-transparent.png" alt="logo" width="100px">
+                <img id="footer_small_logo" src="public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                    width="100px">
                 <!--text below has padding added via bootstrap for spacing above it-->
                 <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
                 </p>
                 <p> Shop with us to guarantee you<br>
                     <em>Score Your Next Victory</em>
                 </p>
-                
+
             </div>
             <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -197,9 +212,9 @@
                 <ul class="text-uppercase list-unstyled">
                     <li><a href="/shop-all#footballs">Footballs</a></li>
                     <li><a href="/shop-all#gloves">Gloves</a></li>
-                    <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                    <li><a href="/jerseyShop">Jerseys</a></li>
                     <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
+                    <li><a href="/miscShop">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
@@ -256,28 +271,6 @@
 
 </body>
 
-
-<!--GET AND POST METHOD CODE-->
-<!--
-    <h2>GET METHOD</h2>
-        <form action="/shop" method="get">
-            <label for="red">Record number:</label>
-            <br>
-            <input type="text" id="rec" name="rec" value="1">
-            <br>
-            <input type="submit">
-        </form>
-
-
-    <h2>POST METHOD</h2>
-        <form action="/shop" method="post">
-            <label for="red">Record number:</label>
-            <br>
-            <input type="text" id="rec" name="rec" value="1">
-            <br>
-            <input type="submit">
-        </form>
-    -->
 
 </html>
 

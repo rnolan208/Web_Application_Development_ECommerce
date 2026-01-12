@@ -1,6 +1,26 @@
 const express = require("express");
 const app = express();
 
+//Uses express-session (for custom modules such as login)
+const session = require("express-session");
+
+app.use(session({
+    secret: "your-secret-key", // use a long random string in real projects
+    resave: false,
+    saveUninitialized: true
+}));
+
+// Makes user available to all page if logged in
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+});
+
+// Parse form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 //Uses absolute path if project folder is loaded on different system - not hard-coding file paths
 const path = require("path");
 //Allows Node to browse backend folders such as for carousel images
@@ -134,7 +154,7 @@ app.get("/shop", function (req, res) {
                         return;
                     }
 
-                    // Build link if alternate exists
+                    // Build link if alternate exists (back to shopItems via the ID)
                     const altLink = altRows.length > 0
                         ? `/shop?rec=${altRows[0].ID}`
                         : null;
@@ -144,7 +164,7 @@ app.get("/shop", function (req, res) {
                         : null;
 
 
-
+            //Inject data into a HTML page - Render the shopItems page with the information stored 
             res.render("shopItems.ejs", {
                 myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league,
                 myManufacturer: manufact, myImage: images, myCrest: crest, altLink: altLink,
@@ -155,7 +175,6 @@ app.get("/shop", function (req, res) {
         }
     });
 });
-//Inject data into a HTML page 
 
 
 
@@ -226,10 +245,35 @@ app.post("/shop", function(req, res){
 */
 
 
-//Route back to Home Page
+//Route back to Home Page (GET Method)
 app.get("/", function (req, res) {
     res.render("home");
 })
+
+//Route to the About page (GET Method)
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
+//Route to the Checkout page (GET Method)
+app.get("/checkout", (req, res) => {
+    res.render("checkout");
+});
+
+//Route to the Contact Us page (GET Method)
+app.get("/contactUs", (req, res) => {
+    res.render("contactUs");
+});
+
+//Route to the Jersey Shop Page (GET Method)
+app.get("/jerseyShop", (req, res) => {
+    res.render("jerseyShop");
+});
+
+//Route to the Misc Items Shop Page (GET Method)
+app.get("/miscShop", (req, res) => {
+    res.render("miscShop");
+});
 
 
 //Route for the entire shopEntire page
@@ -250,19 +294,17 @@ app.get("/shop-all", (req, res) => {
 //Import authentication custom module
 const auth = require("./auth.js");
 
+
 //Users for the application
-auth.createUser("John", "secret123");
-auth.createUser("Robert", "helloworld");
-auth.createUser("Mary", "pass456");
+
 auth.createUser("user@123.ie", "pass")
 
 //test users work
-console.log(auth.authenticateUser("John", "secret123"));
-console.log(auth.authenticateUser("John", "secret456"));
+console.log(auth.authenticateUser("user@123.ie", "pass"));
 
 //Route to hand Login Page (GET METHOD)
 app.get("/login", (req, res) => {
-    res.render("login", { error: null });
+    res.render("login", { error: null, username: "" });
 });
 
 //Route to handle Login Form Submission - (POST METHOD)
@@ -275,9 +317,12 @@ app.post("/login", function (req, res) {
     console.log(authenticated);
 
     if (authenticated) {
+        // store user in session
+        req.session.user = username;
+
         //If login is successful then directed to the home page (/)
         console.log("Successful Authentication");
-        res.render("/");
+        res.redirect("/");
     }
     else {
         //If login fails the login page renders again

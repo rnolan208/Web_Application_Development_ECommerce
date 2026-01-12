@@ -53,16 +53,16 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
+                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
+                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/about.html">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
+                        <a class="nav-link" href="/contactUs">Contact</a>
                     </li>
                 </ul>
 
@@ -80,13 +80,24 @@
                     </form>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="/public/checkout.html" class="nav-link">
+                    <a href="/checkout" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
                     <!--Buttion to Sign In-->
-                    <a href="/login" class="nav-link">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
+                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
+                    <!--Checks if user is logged in via sessions-->        
+                    <% if (!user) { %>
+                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
+                        <a href="/login" class="nav-link" title="Login">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        </a>
+                        <% } else { %>
+                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
+                            <a href="#" class="nav-link" title="Already logged in"
+                                onclick="alert('User already logged in'); return false;">
+                                <i class="fa-solid fa-user-check"></i>
+                            </a>
+                            <% } %>
                 </div>
             </div>
         </div>
@@ -133,7 +144,7 @@
                     <%= myClub %>
                         <%= myVersion %>
                 </h2>
-                <!-- The leagueLable was defined in the for loop with const miscProducts -->
+                <!-- The leagueLabel was defined in the for loop with const miscProducts -->
                 <p><strong>
                         <%= leagueLabel %>
                     </strong>
@@ -160,20 +171,20 @@
                                 <% if (myLeague==="Ball" ) { %>
                                     <option value="Size 3">Size 3</option>
                                     <option value="Size 4">Size 4</option>
-                                    <option value="Size 5">Size 5</option>
+                                    <option value="Size 5" selected>Size 5</option>
 
                                     <%# Size options for Goalkeeper Gloves using the else if %>
                                         <% } else if (myLeague==="Gloves" ) { %>
                                             <option value="Xtra Small">Junior</option>
                                             <option value="Small">Adult Small</option>
-                                            <option value="Medium">Adult Medium</option>
+                                            <option value="Medium" selected>Adult Medium</option>
                                             <option value="Large">Adult Large</option>
 
                                             <%# Size Options for Shin Pads using the else if %>
                                                 <% } else if (myLeague==="Shin Pads" ) { %>
                                                     <option value="Small">Small</option>
                                                     <option value="Medium">Medium</option>
-                                                    <option value="Large">Large</option>
+                                                    <option value="Large" selected>Large</option>
 
                                                     <%# Default Value for any uncategorised Items %>
                                                         <% } else if (myLeague==="Goals" ) { %>
@@ -184,7 +195,7 @@
                                                                 <% } else { %>
                                                                     <option value="Xtra Small">XS</option>
                                                                     <option value="Small">S</option>
-                                                                    <option value="Medium">M</option>
+                                                                    <option value="Medium" selected>M</option>
                                                                     <option value="Large">L</option>
                                                                     <option value="Xtra Large">XL</option>
                                                                     <option value="Double Xtra Large">2XL</option>
@@ -242,10 +253,10 @@
 
             <!--Links to Other Shop Pages-->
             <div class="page-buttons">
-                <a href="/public/jerseyShopPage.html">
+                <a href="/jerseyShop">
                     <button class="my-button">JERSEYS</button>
                 </a>
-                <a href="/public/miscShopPage.html">
+                <a href="/miscShop">
                     <button class="my-button">MISCELLANEOUS</button>
                 </a>
                 <a href="/shop-all">
@@ -303,9 +314,9 @@
                         <ul class="text-uppercase list-unstyled">
                             <li><a href="/shop-all#footballs">Footballs</a></li>
                             <li><a href="/shop-all#gloves">Gloves</a></li>
-                            <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                            <li><a href="/jerseyShop">Jerseys</a></li>
                             <li><a href="/shop-all#goals">Goals</a></li>
-                            <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
+                            <li><a href="/miscShop">Miscellaneous</a></li>
                         </ul>
                     </div>
                     <div class="footer-one col-lg-3 col-md-6 col-12">

@@ -49,16 +49,16 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/jerseyShopPage.html">Jerseys</a>
+                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/miscShopPage.html">Miscellaneous</a>
+                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/about.html">About</a>
+                        <a class="nav-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/public/contactUs.html">Contact</a>
+                        <a class="nav-link" href="/contactUs">Contact</a>
                     </li>
                 </ul>
 
@@ -76,13 +76,24 @@
                     </form>
                     </form>
                     <!--Button to Checkout-->
-                    <a href="/public/checkout.html" class="nav-link">
+                    <a href="/checkout" class="nav-link">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </a>
                     <!--Buttion to Sign In-->
-                    <a href="/login" class="nav-link">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
+                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
+                    <!--Checks if user is logged in via sessions-->        
+                    <% if (!user) { %>
+                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
+                        <a href="/login" class="nav-link" title="Login">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        </a>
+                        <% } else { %>
+                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
+                            <a href="#" class="nav-link" title="Already logged in"
+                                onclick="alert('User already logged in'); return false;">
+                                <i class="fa-solid fa-user-check"></i>
+                            </a>
+                            <% } %>
                 </div>
             </div>
         </div>
@@ -156,6 +167,12 @@
                     <div class="col-md-6">
                         <label class="form-label">ZIP / Eircode: </label>
                         <input type="text" class="form-control" required>
+                    </div>
+
+                    <!--Ensure the user puts an email address in with the type=email command-->
+                    <div class="col-md-12">
+                        <label class="form-label">E-mail: </label>
+                        <input type="email" class="form-control" required placeholder="you@example.com">
                     </div>
                 </div>
 
@@ -266,9 +283,9 @@
                 <ul class="text-uppercase list-unstyled">
                     <li><a href="/shop-all#footballs">Footballs</a></li>
                     <li><a href="/shop-all#gloves">Gloves</a></li>
-                    <li><a href="/public/jerseyShopPage.html">Jerseys</a></li>
+                    <li><a href="/jerseyShop">Jerseys</a></li>
                     <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/public/miscShopPage.html">Miscellaneous</a></li>
+                    <li><a href="/miscShopPage">Miscellaneous</a></li>
                 </ul>
             </div>
             <div class="footer-one col-lg-3 col-md-6 col-12">
