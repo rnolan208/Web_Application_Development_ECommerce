@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 
-//Uses express-session (for custom modules such as login)
+//Uses express-session (for custom modules such as authentication of user and payment)
 const session = require("express-session");
 
 app.use(session({
-    secret: "your-secret-key", // use a long random string in real projects
+    secret: "your-secret-key",
     resave: false,
     saveUninitialized: true
 }));
@@ -29,11 +29,8 @@ const fs = require("fs");
 //Connect to the db.js file
 const db = require("./database/db");
 
-
 //Import authentication custom module
-const auth = require("./auth.js");
-
-
+const auth = require("./custom_node_modules/auth.js");
 
 // View engine - uses __dirname for absolute path in directory
 app.set("view engine", "ejs");
@@ -42,7 +39,9 @@ app.set("views", path.join(__dirname, "views"));
 // Static files - uses __dirname for absolute path in directory (CSS, JS, images, etc.)
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-// For Home Page and Carousel Images
+
+//------------------------------
+// For Home Page Carousel Images
 app.get("/", (req, res) => {
     const imagesDir = path.join(__dirname, "public/images/jerseys");
 
@@ -67,13 +66,18 @@ app.get("/", (req, res) => {
         console.error("Error reading images folder:", err);
     }
 
+    //Prints to the console the selected images
     console.log("Images selected for carousel:", images);
 
+    //renders the home page with the carousel images
     res.render("home", { images });
 });
 
+//End of carousel
+//---------------
 
 
+//------------------------------------------------------------------------
 //GET METHOD /shop USED TO CREATE SHOP LAYOUT PAGES USING ID FROM DATABASE 
 app.get("/shop", function (req, res) {
     const ID = req.query.rec;
@@ -138,8 +142,11 @@ app.get("/shop", function (req, res) {
     });
 });
 
+// End of SHOP LAYOUT GET Method
+//------------------------------
 
 
+//--------------------------------------------------------------------------------------------------------------
 //GET METHOD /search FOR SEARCHING BY PRODUCT NAME OR CLUB NAME / ITEM TYPE AS PER Club and League FROM DATABASE
 app.get("/search", function (req, res) {
     const searchTerm = req.query.q;
@@ -169,48 +176,18 @@ app.get("/search", function (req, res) {
     );
 });
 
+// End of GET METHOD /search
+//--------------------------
 
-/*
-//Shop function POST Method
-app.post("/shop", function(req, res){
-    const ID = req.body.rec2;
-    db.query("SELECT * FROM product_data.database WHERE ID = ?", [ID], function(err, rows, fields) {
-        if(err) {
-            console.error("Error getting data from database.", err);
-            res.status(500).send("Error retreiving data from database.");
-        }
-        else if(rows.length === 0) {
-            console.error("No rows found for ID $[ID]");
-            res.status(404).send("Product not found");
-        }
-        else {
-            //To monitor the application while developing it
-            console.log("Data retreived from the database.");
-            console.log(rows[0].Club);
-            console.log(rows[0].Version);
-            console.log(rows[0].Price);
-            console.log(rows[0].League);
- 
-            //Variables from Database
-            const clubName = rows[0].Club;
-            const versionName = rows[0].Version;
-            const price = rows[0].Price;
-            const league = rows[0].League;
- 
-            res.render("test.ejs", {myClub: clubName, myVersion: versionName, myPrice: price, myLeague: league});
-        }
- 
-        //Inject data into a HTML page
-    })
-});
- 
-*/
 
+//-------------------------------
+// Routes to Pages in the website
 
 //Route back to Home Page (GET Method)
 app.get("/", function (req, res) {
     res.render("home");
 })
+
 
 //Route to the About page (GET Method)
 app.get("/about", (req, res) => {
@@ -223,10 +200,12 @@ app.get("/contactUs", (req, res) => {
     res.render("contactUs");
 });
 
+
 //Route to the Jersey Shop Page (GET Method)
 app.get("/jerseyShop", (req, res) => {
     res.render("jerseyShop");
 });
+
 
 //Route to the Misc Items Shop Page (GET Method)
 app.get("/miscShop", (req, res) => {
@@ -248,11 +227,23 @@ app.get("/shop-all", (req, res) => {
     });
 });
 
-//Route to Payment / Order Successful after Checkout Page
-app.get("paymentSuccess", (req, res) => {
-    res.render("paymentSuccess");
-})
 
+//Route to Payment / Order Successful after Checkout Page (POST METHOD)
+app.post("/paymentSuccess", (req, res) => {
+    // Generate a random number
+    const orderNumber = Math.floor(Math.random() * 900000 + 100000); // 6-digit number
+
+    //Generates the order number when page is rendered
+    res.render("paymentSuccess", { 
+        orderNumber // pass as object to avoid error
+    });
+});
+
+// End of Routes to Pages in the website
+//--------------------------------------
+
+
+//-----------------------------------
 //For the payment options in Checkout
 //Uses Custom Node Module payment.js
 const { getPaymentHTML } = require('./custom_node_modules/payment');
@@ -260,7 +251,7 @@ const { getPaymentHTML } = require('./custom_node_modules/payment');
 //Get the switch case options from the custom module
 app.get('/checkout', (req, res) => {
     res.render('checkout', {
-        user: req.user || null,
+        user: req.session.user || null,
         creditCardFields: getPaymentHTML('credit-card'),
         paypalFields: getPaymentHTML('paypal'),
         stripeFields: getPaymentHTML('stripe'),
@@ -268,13 +259,22 @@ app.get('/checkout', (req, res) => {
     });
 });
 
+// End of Payment Options
+//-----------------------
 
+
+//--------------------------------
 //Create Users for the application
 auth.createUser("user@123.ie", "pass")
 
 //test users work
 console.log(auth.authenticateUser("user@123.ie", "pass"));
 
+// End of application users
+//-------------------------
+
+
+//--------------------------------
 //Route to Login Page (GET METHOD)
 app.get("/login", (req, res) => {
     res.render("login", { error: null, username: "" });
@@ -307,6 +307,9 @@ app.post("/login", function (req, res) {
         res.render("login", {error: "Invalid username or password", username: username });
     }
 });
+
+// End of Login Route Methods
+//---------------------------
 
 
 // Server

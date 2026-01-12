@@ -15,8 +15,8 @@ https://getbootstrap.com/docs/5.0/examples/cheatsheet/#typography
 
 /*Body font style using the imported Lora font*/
 body {
-  font-family: "Lora", serif;
-  font-style: normal;
+    font-family: "Lora", serif;
+    font-style: normal;
 }
 
 /*Header font style - size and weights*/
@@ -69,6 +69,7 @@ button {
     text-transform: uppercase;
     transition: 0.3 ease;
 }
+
 /*button change colour when over*/
 button:hover {
     background-color: black;
@@ -89,12 +90,17 @@ button:hover {
 
 .page-buttons .my-button {
     width: 100%;
-    flex: 1;               /* each button takes equal space */
-    margin: 0;             /* remove default spacing */
-    border-radius: 0;      /* remove button rounding for flush edges */
-    padding: 25px 0;       /* vertical height */
+    flex: 1;
+    /* each button takes equal space */
+    margin: 0;
+    /* remove default spacing */
+    border-radius: 0;
+    /* remove button rounding for flush edges */
+    padding: 25px 0;
+    /* vertical height */
     text-align: center;
-    font-size: 1.2rem;     /* slightly bigger if needed */
+    font-size: 1.2rem;
+    /* slightly bigger if needed */
     align-items: stretch;
 }
 
@@ -136,6 +142,7 @@ button:hover {
 .navbar-light .navbar-nav .nav-link.active {
     color: black;
 }
+
 .navbar i.active {
     color: black;
 }
@@ -154,7 +161,8 @@ button:hover {
 }*/
 
 .navbar .container {
-    max-width: 1140px; /* matches Bootstrap container */
+    max-width: 1140px;
+    /* matches Bootstrap container */
 }
 
 /* Stop brand from shrinking 
@@ -205,26 +213,30 @@ button:hover {
 /*Below is all done from browser by clicking Inspet -> Elemets -> Selector -> Copy -> Copy Selector*/
 /*Media Query to change background colour over nav icon when screen is resized*/
 @media only screen and (max-width: 991px) {
-    body > nav > div > button:hover,
-    body > nav > div > button:focus{
+
+    body>nav>div>button:hover,
+    body>nav>div>button:focus {
         background-color: white;
     }
-/*make the navbar at the top of page white*/
-    body > nav > div > button:hover #bar,
-    body > nav > div > button:focus #bar{
+
+    /*make the navbar at the top of page white*/
+    body>nav>div>button:hover #bar,
+    body>nav>div>button:focus #bar {
         background-color: white;
     }
-/*when screen is resized make the links appear on the right hand side, under the icon*/
-#navbarSupportedContent > ul{
-    margin: 1rem;
-    justify-content: flex-end;
-    align-items: flex-end;
-    text-align: right;
+
+    /*when screen is resized make the links appear on the right hand side, under the icon*/
+    #navbarSupportedContent>ul {
+        margin: 1rem;
+        justify-content: flex-end;
+        align-items: flex-end;
+        text-align: right;
     }
-/*apply padding at top to bottom for the links in list on resized screen*/
-#navbarSupportedContent > ul > li:nth-child(n) > a{
-    padding: 10px 0;
-}
+
+    /*apply padding at top to bottom for the links in list on resized screen*/
+    #navbarSupportedContent>ul>li:nth-child(n)>a {
+        padding: 10px 0;
+    }
 }
 
 
@@ -238,7 +250,8 @@ button:hover {
     background-size: cover;
     background-position: top center;
     /*text and button on homepage*/
-    padding-top: 120px; /* space for fixed navbar */
+    padding-top: 120px;
+    /* space for fixed navbar */
     padding-bottom: 80px;
 }
 
@@ -250,17 +263,20 @@ footer {
     background-color: #222222;
     padding: 40px 0;
 }
+
 /*text colour and size for the footer, colour to match red elsewhere*/
 footer h5 {
     color: #d8d8d8;
     font-weight: 700;
     font-size: 1.2rem;
 }
+
 footer h6 {
     color: #d8d8d8;
     font-weight: 700;
     font-size: 1.1rem;
 }
+
 footer p {
     color: rgb(238, 21, 64);
     font-weight: 500;
@@ -269,7 +285,7 @@ footer p {
 
 /*Padding to give spacing between items in the footer list*/
 footer li {
-    padding-bottom: 22px;    
+    padding-bottom: 22px;
 }
 
 /*anchor tags in the FEATURED list - colour red and size*/
@@ -277,10 +293,12 @@ footer li a {
     font-size: 0.9rem;
     color: rgb(238, 21, 64);
 }
+
 /*hover over feature for the tags in the FEATURED LIST, colour to match the FEATURED and CONTACT US colour of white*/
 footer li a:hover {
     color: #d8d8d8;
 }
+
 /*Social Media icons in the copyright section placed in round blocks with colour, width/height, margin for spacing, and transition*/
 footer .copyright a {
     color: rgb(238, 21, 64);
@@ -294,8 +312,9 @@ footer .copyright a {
     transition: 0.3s ease;
     margin: 0 5px;
 }
+
 footer .copyright a:hover {
-    color:black;
+    color: black;
     background-color: rgb(238, 21, 64);
 }
 
@@ -314,7 +333,7 @@ footer .copyright a:hover {
 }
 
 /*featured items section for scaling and alignment to cover entire space with max-height and be centered*/
-#feat_items .one img{
+#feat_items .one img {
     width: 100%;
     max-height: 600px;
     background-position: center center;
@@ -400,7 +419,8 @@ img {
 
 /*hover over the product image*/
 .product-image-wrapper {
-    overflow: hidden; /* prevents image spilling out */
+    overflow: hidden;
+    /* prevents image spilling out */
 }
 
 .product-image:hover {
@@ -410,7 +430,8 @@ img {
 
 /*Stop navbar overlapping on pages*/
 body {
-    padding-top:70px; /* adjusted for navbar height */
+    padding-top: 70px;
+    /* adjusted for navbar height */
 }
 
 
@@ -421,9 +442,11 @@ body {
 
 .carousel-img {
     display: none;
-    max-height: 500px;   /* adjust as needed */
+    max-height: 500px;
+    /* adjust as needed */
     width: 100%;
-    object-fit: contain; /* keeps the whole image visible */
+    object-fit: contain;
+    /* keeps the whole image visible */
 }
 
 .carousel-img.active {
@@ -432,11 +455,11 @@ body {
 
 
 /*About page - create white background with 85% transparency behind text*/
-.aboutUS  {
+.aboutUS {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .aboutUS ul li {
@@ -449,11 +472,11 @@ body {
 
 /*Contact US page - create white background with 85% transparency behind text*/
 
-.contactUS  {
+.contactUS {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .contactTitle {
@@ -479,6 +502,7 @@ body {
     text-transform: uppercase;
     transition: 0.3 ease;
 }
+
 /*button change colour when over*/
 .map-button:hover {
     background-color: black;
@@ -487,14 +511,20 @@ body {
 
 /*Back to Top Button*/
 #backToTop {
-    position: fixed;      /* stays in the same place when scrolling */
-    bottom: 50px;         /* distance from bottom */
-    right: 20px;          /* distance from right */
-    display: none;        /* hidden by default */
-    z-index: 1000;        /* on top of other content */
+    position: fixed;
+    /* stays in the same place when scrolling */
+    bottom: 50px;
+    /* distance from bottom */
+    right: 20px;
+    /* distance from right */
+    display: none;
+    /* hidden by default */
+    z-index: 1000;
+    /* on top of other content */
     padding: 12px 20px;
     font-size: 0.9rem;
-    border-radius: 5px;   /* optional rounding */
+    border-radius: 5px;
+    /* optional rounding */
     cursor: pointer;
     background-color: rgb(238, 21, 64);
     color: black;
@@ -510,39 +540,40 @@ body {
 
 /* ShopEntire page for the Page Sections navbar */
 .shop-sticky-nav {
-  display: flex;
-  position: sticky;
-  top: 70px; /* height of your main navbar */
-  z-index: 900;
-  background-color: rgb(238, 21, 64);
+    display: flex;
+    position: sticky;
+    top: 70px;
+    /* height of your main navbar */
+    z-index: 900;
+    background-color: rgb(238, 21, 64);
 }
 
 /* Make all links stretch */
 .shop-sticky-nav a {
-  display: flex;
-  flex: 1;
+    display: flex;
+    flex: 1;
 }
 
 /* Force uniform button height */
 .shop-sticky-nav .my-button {
-  height: 60px;
-  width: 100%;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: normal;
-  line-height: 1.2;
-  font-size: small;
+    height: 60px;
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    font-size: small;
 }
 
 /*Prevent wrapping looking bad on smaller screens*/
 @media (max-width: 768px) {
-  .shop-sticky-nav .my-button {
-    font-size: 0.9rem;
-    height: 70px;
-  }
+    .shop-sticky-nav .my-button {
+        font-size: 0.9rem;
+        height: 70px;
+    }
 }
 
 /*CHECKOUT PAGE LAYOUT FOR ITEMS IN CART*/
@@ -556,12 +587,16 @@ body {
 
 /* Column widths */
 .col-image {
-    flex: 0 0 80px; /* fixed width for image */
+    flex: 0 0 80px;
+    /* fixed width for image */
 }
+
 .col-name {
-    flex: 2;       /* product name takes more space */
+    flex: 2;
+    /* product name takes more space */
     padding: 0 20px;
 }
+
 .col-size,
 .col-quantity,
 .col-total {
@@ -586,11 +621,44 @@ body {
 
 /*The name of the product in the cart, no decoration removes underline and change colour back to standard*/
 .col-name a {
-    color: inherit;          
-    text-decoration: none;        
+    color: inherit;
+    text-decoration: none;
 }
 
 /*Adds cursor when over the product name, showing its a link */
 .col-name a:hover {
     cursor: pointer;
 }
+
+
+/*----------------------------------------------*/
+/* Style for Printing from Payment Success page */
+
+/*initially hides everything in the body for the print function*/
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    /*Only shows the elements within receipt */
+    #receipt,
+    #receipt * {
+        visibility: visible;
+    }
+
+    #receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /*hides the buttons when printing*/
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* End of Style for Printing from Payment Success page */
+/*-----------------------------------------------------*/

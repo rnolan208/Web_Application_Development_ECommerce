@@ -101,13 +101,14 @@
 
 
 
-
+    <!-------------------------->
+    <!-- Shopping Cart Section-->
 
     <div class="container mt-5">
         <h1>Shopping Cart</h1>
         <br>
 
-        <!-- Cart header-->
+        <!-- Cart headers-->
         <section>
             <div class="cart-header d-flex font-weight-bold border-bottom pb-2 mb-2">
                 <div class="col-image">Product</div>
@@ -132,58 +133,68 @@
 
 
 
-
+        <!------------------------------------------------>
         <!-- CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
         <div class="container mt-5" style="max-width: 900px;">
             <h1 class="mb-4">Checkout</h1>
 
-            <form>
+            <!--A Post method for submitting the form, redirects to paymentSuccess page-->
+            <form action="/paymentSuccess" method="POST">
+
+                <!-------------------------------------------->
                 <!-- TOP ROW: Shipping Address (full width) -->
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <label class="form-label">First Name: </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="firstName" class="form-control" required>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">Last Name: </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="lastName" class="form-control" required>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">Address Line 1: </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="addressLine1" class="form-control" required>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">Address Line 2: </label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="addressLine2" class="form-control">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">City: </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="city" class="form-control" required>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label">ZIP / Eircode: </label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="zip" class="form-control" required>
                     </div>
 
                     <!--Ensure the user puts an email address in with the type=email command-->
                     <div class="col-md-12">
                         <label class="form-label">E-mail: </label>
-                        <input type="email" class="form-control" required placeholder="you@example.com">
+                        <input type="email" name="email" class="form-control" required placeholder="you@example.com">
                     </div>
                 </div>
 
+                <!-- End of TOP ROW: Shipping Address -->
+                <!-------------------------------------->
 
 
+                <!------------------------->
                 <!-- SECOND ROW: Payment -->
                 <div class="row g-3 mb-4">
+
+                    <!-- col-md-4 will take up 1/3 of container width on screen-->
                     <div class="col-md-4">
                         <label for="payment">Payment Method:</label>
+                        <!-- Dropdown menu using select-->
                         <select id="payment" name="payment">
+                            <!-- The different payment options to choose-->
                             <option value="credit-card">Credit Card</option>
                             <option value="paypal">Paypal</option>
                             <option value="stripe">Stripe</option>
@@ -191,12 +202,16 @@
                         </select>
                     </div>
 
+                    <!----------------------------------------------------------->
                     <!-- Input Payment Details Containers (from custom module) -->
+
+                    <!-- col-md-8 will take up 2/3 of container width on screen-->
                     <div class="col-md-8">
                         <div id="credit-card-stripe-fields" class="payment-fields">
                             <%- creditCardFields %>
                         </div>
 
+                        <!-- display none is used so that these are not initially shown when page loads-->
                         <div id="paypal-fields" class="payment-fields" style="display: none;">
                             <%- paypalFields %>
                         </div>
@@ -205,16 +220,26 @@
                             <%- cryptoFields %>
                         </div>
                     </div>
+
+                    <!-- End of Input Payment Details Containers (from custom module) -->
+                    <!------------------------------------------------------------------>
+
                 </div>
 
+                <!-- End of SECOND ROW: Payment -->
+                <!-------------------------------->
 
 
 
         </div>
 
+        <!-- End of CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
+        <!------------------------------------------------------->
+
         <br>
         <hr>
 
+        <!-------------------------------------->
         <!-- Total Cost & Bottom Row: Buttons -->
         <div class="row align-items-center mb-4">
             <div class="col d-flex align-items-center">
@@ -227,9 +252,9 @@
                 <a href="/shop-all" class="mr-3">
                     <button type="button">Continue Shopping</button>
                 </a>
-                <a href="/paymentSuccess">
+                
                     <button id="placeOrderBtn" type="submit">Place Order</button>
-                </a>
+                
             </div>
         </div>
 
@@ -237,9 +262,13 @@
     </div>
     <hr>
 
+    <!-- End of Shopping Cart Section-->
+    <!--------------------------------->
 
 
+    <!--------------------------------------------------------------------------------------------------------------------------------->
     <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+
     <section id="band" class="container">
         <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
         <div class="row">
@@ -258,15 +287,32 @@
         </div>
     </section>
 
+    <!-- End of logos band across screen-->
+    <!------------------------------------>
 
+
+    <!---------------------->
     <!--Back to Top Button-->
+    <!-- Works from the scipt.js file-->
+
     <button id="backToTop" title="Go to top">↑ Top</button>
 
-    <!--Link JAVASCRIPT FILE-->
+    <!-- End of Back to Top Button-->
+    <!------------------------------>
+
+
+    <!-------------------------->
+    <!--Import JAVASCRIPT FILE-->
+
     <script src="/public/script.js"></script>
 
+    <!-- End of JavaScript Import-->
+    <!----------------------------->
 
+
+    <!------------------------------------------------------------------------->
     <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
+
     <footer>
         <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
         <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
@@ -338,6 +384,9 @@
         </div>
 
     </footer>
+
+    <!-- End of footer section-->
+    <!-------------------------->
 
 
     <!--Importing Bootstrap for JS and Popper-->
