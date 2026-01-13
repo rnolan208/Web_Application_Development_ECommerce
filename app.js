@@ -184,9 +184,9 @@ app.get("/search", function (req, res) {
 // Routes to Pages in the website
 
 //Route back to Home Page (GET Method)
-app.get("/", function (req, res) {
-    res.render("home");
-})
+//app.get("/", function (req, res) {
+//   res.render("home");
+//})
 
 
 //Route to the About page (GET Method)

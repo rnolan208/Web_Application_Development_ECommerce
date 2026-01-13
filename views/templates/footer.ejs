@@ -1,0 +1,129 @@
+<!-- Footer Section-->
+
+<!--Main footer container-->
+<footer>
+
+    <!-- 
+            - Footer Top Row: Bootstrap grid container for the footer content:
+            - row + container keeps layout aligned with the rest of the site
+            - mx-auto = centers the footer content
+            - pt-3 = padding top which adds spacing at the top
+            - align-items-stretch = this ensures all columns match each others height
+        -->
+    <div class="row container mx-auto pt-3 align-items-stretch">
+
+        <!-- Column 1: Brand logo (fixed size) and short description -->
+        <!-- Responsive sizing: Large = 3 cols, Medium = 6, Small = full width -->
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+            <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
+                width="100px">
+            <!--Padding top adds spacing between logo and text via bootstrap -->
+            <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
+            </p>
+            <p> Shop with us to guarantee you<br>
+                <em>Score Your Next Victory</em>
+            </p>
+        </div>
+        <!-- End of Column 1: Brand logo -->
+
+
+        <!-- Column 2: Featured product links -->
+        <!-- 
+                - Links jump to specific sections of the shop page (via app.js)
+                - class of footer-one for setting display and flex-direction in CSS
+             -->
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+            <!-- pb-2 = adds padding bottom with bootstrap size 2-->
+            <h5 class="pb-2">Featured</h5>
+            <!--list of featured items
+                    - list-unstyled = no bullet points 
+                    - text-uppercase = all in uppercase 
+                -->
+            <ul class="text-uppercase list-unstyled">
+                <li><a href="/shop-all#footballs">Footballs</a></li>
+                <li><a href="/shop-all#gloves">Gloves</a></li>
+                <li><a href="/jerseyShop">Jerseys</a></li>
+                <li><a href="/shop-all#goals">Goals</a></li>
+                <li><a href="/miscShop">Miscellaneous</a></li>
+            </ul>
+        </div>
+        <!-- End of Column 2 -->
+
+
+        <!-- Column 3: Contact information -->
+        <!-- 
+                - class of footer-one for setting display and flex-direction in CSS 
+                - Responsive sizing: Large = 3 cols, Medium = 6, Small = full width                
+            -->
+        <div class="footer-one col-lg-3 col-md-6 col-12">
+            <!-- pb-2 = adds padding bottom with bootstrap size 2-->
+            <!-- text-uppercase = makes the text uppercase -->
+            <h5 class="pb-2">Contact Us</h5>
+            <div>
+                <h6 class="text-uppercase">Address</h6>
+                <p>123 STREET NAME, ATU, GALWAY, IRELAND</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Phone</h6>
+                <p>(059) 00 12345</p>
+            </div>
+            <div>
+                <h6 class="text-uppercase">Email</h6>
+                <p>robertsfootballshop@atu.ie</p>
+            </div>
+        </div>
+        <!-- End of Column 3 -->
+
+
+        <!-- Column 4: Large logo -->
+        <!-- 
+                - d-flex = Flexbox 
+                - align-items-center = centres the logo horizontally
+                - justify-content-center = centres the logo vertically
+            -->
+        <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
+            <!--
+                    - img-fluid = makes image responsive in bootstrap
+                    - w-75 = sets image to 75% of its parent container width
+                    - m-1 = adds margin on all sides (0.25 rem of spacing for value of 1)
+                -->
+            <img class="img-fluid w-75 m-1" src="/public/images/logo/logo-red-transparent.png" alt="large logo">
+        </div>
+        <!-- End of Column 4 -->
+    </div>
+    <!-- End of Footer Top Row -->
+
+
+    <!--Footer Bottom Row (payment types, copyright, socials) -->
+    <div class="copyright mt-3 py-3">
+        <div class="row container mx-auto">
+            <!-- Payment method image -->
+            <!--
+                    - Responsive sizing: Large = 4 cols, Small = full width
+                    - text-lg-start = large screens text is left-aligned
+                    - text-cener = smaller screens text is centred 
+                    - mb-3 = adds bootstrap margin of 3 at bottom on all screen sizes
+                    - mb-lg-0 = removes the bottom margin on large screen sizes                    
+                -->
+            <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
+                <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+            </div>
+            <!-- Copyright text -->
+            <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
+                <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
+            </div>
+            <!-- Social Media Icons from Font Awesome -->
+            <!-- Placeholder links for this project -->
+            <!-- text-lg-end = aligns the icons to the right on large screens -->
+            <div class="col-lg-4 col-12 text-lg-end text-center">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>
+            </div>
+        </div>
+    </div>
+    <!--End of Footer Bottom row -->
+
+</footer>
+
+<!-- End of Footer Section-->

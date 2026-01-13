@@ -119,6 +119,11 @@ button:hover {
     background-color: transparent;
 }
 
+
+
+/*--------------*/
+/*Navbar Section*/
+
 /*Website Title*/
 .navbar-brand {
     padding: 0 7px;
@@ -155,20 +160,11 @@ button:hover {
     color: rgb(238, 21, 64);
 }
 
-/* Prevent navbar overflow 
-.navbar {
-    overflow: hidden;
-}*/
 
 .navbar .container {
-    max-width: 1140px;
-    /* matches Bootstrap container */
+    max-width: 1140px; /* matches Bootstrap container */
 }
 
-/* Stop brand from shrinking 
-.navbar-left {
-    flex-shrink: 0;
-}*/
 
 /* Ensure icons stay inside container */
 .navbar-icons {
@@ -192,10 +188,6 @@ button:hover {
     align-items: center;
 }
 
-/* Keep nav links on one line and prevent overlap 
-.navbar-nav {
-    white-space: nowrap;
-}*/
 
 #bar:hover,
 #bar.active {
@@ -240,8 +232,15 @@ button:hover {
 }
 
 
+/*End of Navbar Section*/
+/*---------------------*/
 
-/*Background Image and Text / Button for Homepage*/
+
+
+/*------------------------------*/
+/*Background Image for Home Page*/
+
+/*Link for image, set as the background*/
 #home {
     /*Image from: https://www.freepik.com/free-vector/abstract-background-with-dark-blue-watercolors_1068165.htm#fromView=search&page=2&position=37&uuid=3ab4d93f-8048-4496-a416-6b5f69966f1b&query=sports+background*/
     background-image: url("/public/images/background/abstract.jpg");
@@ -251,12 +250,17 @@ button:hover {
     background-position: top center;
     /*text and button on homepage*/
     padding-top: 120px;
-    /* space for fixed navbar */
+    /* space for fixed navbar above */
     padding-bottom: 80px;
 }
 
+/*End of Background Image for Home Page*/
+/*-------------------------------------*/
 
 
+
+/*--------------*/
+/*Footer Section*/
 
 /*Footer style*/
 footer {
@@ -331,6 +335,10 @@ footer .copyright a:hover {
     display: flex;
     flex-direction: column;
 }
+
+/*End of Footer Section*/
+/*---------------------*/
+
 
 /*featured items section for scaling and alignment to cover entire space with max-height and be centered*/
 #feat_items .one img {
@@ -435,7 +443,9 @@ body {
 }
 
 
-/*Casousel on Home Page to hide inactive images*/
+/*---------------------*/
+/*Casousel on Home Page*/
+
 .img-wrap {
     position: relative;
 }
@@ -443,7 +453,6 @@ body {
 .carousel-img {
     display: none;
     max-height: 500px;
-    /* adjust as needed */
     width: 100%;
     object-fit: contain;
     /* keeps the whole image visible */
@@ -452,6 +461,9 @@ body {
 .carousel-img.active {
     display: block;
 }
+
+/*End of Casousel on Home Page*/
+/*----------------------------*/
 
 
 /*About page - create white background with 85% transparency behind text*/
@@ -509,33 +521,35 @@ body {
     color: rgb(238, 21, 64);
 }
 
-/*Back to Top Button*/
+
+/*----------------------------------------------*/
+/*Back to Top Button (applied on multiple pages)*/
+
 #backToTop {
-    position: fixed;
-    /* stays in the same place when scrolling */
-    bottom: 50px;
-    /* distance from bottom */
-    right: 20px;
-    /* distance from right */
-    display: none;
-    /* hidden by default */
-    z-index: 1000;
-    /* on top of other content */
-    padding: 12px 20px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    /* optional rounding */
-    cursor: pointer;
-    background-color: rgb(238, 21, 64);
-    color: black;
-    border: none;
-    transition: 0.3s ease;
+    position: fixed; /* button stays in the same place when scrolling */
+    bottom: 50px; /* distance from bottom on the screen */
+    right: 20px; /* distance from right on the screen */
+    display: none; /* button is hidden by default, it only appears after scrolling down the page (via script.js file) */
+    z-index: 1000; /* makes sure the button appears on top of other content */
+    padding: 12px 20px; /* applies padding 12px to top and bottom, and 20px to left and right of the button */
+    font-size: 0.9rem; /* sets the font-size for the button text*/
+    border-radius: 5px; /* applies corner rounding on the button */
+    cursor: pointer; /* changes the cursor to a pointer when the mouse goes over the button */
+    background-color: rgb(238, 21, 64); /*sets the background colour*/
+    color: black; /*sets the text colours*/
+    border: none; /* makes sure there is no border around the button */
+    transition: 0.3s ease; /*applies a minimal tranisition delay*/
 }
 
+/*change colours when hover over, inverse from original colours to give visual feedback the button is active */
 #backToTop:hover {
     background-color: black;
     color: rgb(238, 21, 64);
 }
+
+/*End of Back to Top Button*/
+/*-------------------------*/
+
 
 
 /* ShopEntire page for the Page Sections navbar */
@@ -640,12 +654,13 @@ body {
         visibility: hidden;
     }
 
-    /*Only shows the elements within receipt */
+    /*Only shows the elements (including child elements) within receipt */
     #receipt,
     #receipt * {
         visibility: visible;
     }
 
+    /*changes the position when printing so it begins at top left of page and uses the full-width of the page*/
     #receipt {
         position: absolute;
         left: 0;
@@ -654,7 +669,7 @@ body {
         padding: 20px;
     }
 
-    /*hides the buttons when printing*/
+    /*hides the buttons and links when printing*/
     .no-print {
         display: none !important;
     }

@@ -1,0 +1,119 @@
+<!-- Navbar Section -->
+
+<!-- Navbar class from Bootstrap
+        - navbar-expand-lg = makes the navbar responsive depedning on screen size
+        - navbar-light = gives the light colour scheme for text (which I changed in CSS
+        - bg-light = applies a light background colour on the navbar
+        - py-3 = p is padding, y is top and bottom, so applies Bootstrap spacing size of 3
+        - fixed-top = makes sure the navbar is sticky and visible even when scrolling down the page 
+     -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
+
+
+    <!-- the container centres the content within a fixed width, staying aligned with rest of page -->
+    <div class="container">
+
+
+        <!-- LEFT SIDE: Logo from logo.com and brand name -->
+        <!-- d-flex = makes into a flexbox container for aligning child elements (from Bootstrap) -->
+        <!-- align-items-center = makes child elements centered along the axis of the flex container (from Bootstrap) -->
+        <div class="d-flex align-items-center">
+            <!-- Image for logo import along with fixed size within the navbar-->
+            <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+
+            <!--Website Name-->
+            <!-- custom class so I could style via CSS for font-size, padding, text colour-->
+            <a class="navbar-brand" href="/">Robert's Football Shop</a>
+        </div>
+        <!-- End of LEFT SIDE: Logo from logo.com and brand name -->
+
+
+        <!-- TOGGLER -->
+        <!-- changes the button to the 'Hamburger' button on smaller screens -->
+        <!-- data-bs-toggle="collapse" = makes the show/hide content active -->
+        <!-- aria handles the controls, so -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- the icon of the 'Hamburger' button on smaller screens -->
+            <span><i id="bar" class="fa-solid fa-bars"></i></span>
+        </button>
+
+        <!--Navigation bar when page is resized / Collapsible Content-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- End of TOGGLER Section -->
+
+
+            <!-- CENTRE: Nav links -->
+            <!-- navbar-nav is the class name for the container of these nav links (Styled in CSS)-->
+            <!-- ms-auto is bootstrap for pushing the elements in the navbar towards the right of the container-->
+            <ul class="navbar-nav ms-auto">
+                <!-- nav-item class name given for styling effects such as hover and colour transition in CSS-->
+                <!-- links to the .ejs pages (GET Methods are in app.js)-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/jerseyShop">Jerseys</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/miscShop">Miscellaneous</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contactUs">Contact</a>
+                </li>
+            </ul>
+            <!-- End of CENTRE: Nav links -->
+
+
+            <!-- RIGHT: Search + Icons-->
+            <!-- navbar-icons = class name for editing colour and size / transition in CSS -->
+            <!-- d-flex = makes into a flexbox container for aligning child elements (from Bootstrap) -->
+            <!-- align-items-center = makes child elements centered along the axis of the flex container (from Bootstrap) -->
+            <!-- me-3 = applies a margin to the end of the defined Bootstrap size of 3 -->
+            <div class="navbar-icons d-flex align-items-center me-3">
+                <form class="d-flex align-items-center me-3 search-form" action="/search" method="get">
+                    <!--for the search box, requires text input, has 'Search...' as a placeholder -->
+                    <!---->
+                    <input type="text" name="q" class="search-input" placeholder="Search..." aria-label="Record name">
+                    <!--search icon beside the search box which applies the search function when clicked-->
+                    <!--class of icon-button to apply the colour and size in CSS -->
+                    <button type="submit" class="icon-button" aria-label="Search">
+                        <!-- font awesome icon as the button -->
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <!-- Results dropdown -->
+                    <div id="searchResults" class="search-results"></div>
+                </form>
+
+                <!--Button link to Checkout-->
+                <a href="/checkout" class="nav-link">
+                    <!-- font awesome icon as the button -->
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </a>
+                <!--Buttion to Sign In-->
+                <!--Buttion to Sign In - Checks if user is logged in, if not log in option is given (app.js)-->
+                <!--Checks if user is logged in via sessions (app.js)-->
+                <!-- class of nav-link with ms-3 puts spacing and allows CSS for colour, transition, hover -->
+                <% if (!user) { %>
+                    <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
+                    <a href="/login" class="nav-link ms-3" title="Login">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                    <% } else { %>
+                        <!-- If user is Logged in then icon changes and alert to say 'already logged in' pops up if clicked-->
+                        <a href="#" class="nav-link" title="Already logged in"
+                            onclick="alert('User already logged in'); return false;">
+                            <i class="fa-solid fa-user-check"></i>
+                        </a>
+                        <% } %>
+            </div>
+            <!-- End of RIGHT: Search + Icons-->
+        </div>
+    </div>
+    <!-- End of class container-->
+</nav>
+
+<!-- End of Navbar Section -->
