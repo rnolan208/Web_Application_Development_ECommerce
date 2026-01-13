@@ -90,17 +90,12 @@ button:hover {
 
 .page-buttons .my-button {
     width: 100%;
-    flex: 1;
-    /* each button takes equal space */
-    margin: 0;
-    /* remove default spacing */
-    border-radius: 0;
-    /* remove button rounding for flush edges */
-    padding: 25px 0;
-    /* vertical height */
+    flex: 1; /* each button takes equal space */
+    margin: 0; /* remove default spacing */
+    border-radius: 0; /* remove button rounding for flush edges */
+    padding: 25px 0; /* vertical height */
     text-align: center;
-    font-size: 1.2rem;
-    /* slightly bigger if needed */
+    font-size: 1.2rem; 
     align-items: stretch;
 }
 
@@ -387,7 +382,7 @@ footer .copyright a:hover {
     background-color: rgb(238, 21, 64);
 }
 
-
+/* ShopItemss Page */
 /*For the product item page*/
 #product {
     font-weight: 700;

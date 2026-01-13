@@ -6,15 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
+    <!-- makes page title from db depending on what club and version is shown -->
     <title>
         <%= myClub %>
             <%= myVersion %>
     </title>
 
-    <!--Importing Bootstrap for CSS-->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Importing Bootstrap 5 for CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!--Linking CSS file-->
     <link rel="stylesheet" href="/public/css/style.css">
 
@@ -32,46 +32,95 @@
         <!--------------------------->
 
 
+        <!---------------------------->
+        <!-- Product Display Section-->
+        <!--
+            - creates a bootstrap container
+            - mt-5 = margin top with size of 5
+            - pt-4 pb-4 = padding at top and bottom with a size of 4      
+        -->
         <div class="container mt-5 pt-4 pb-4">
+            <!-- creates a row -->
             <div class="row">
-                <!--Left side of the column - Product Name and Image in a container-->
+
+
+                <!----------------------------------------------->
+                <!-- Left Side Column - Product Name and Image -->
+
+                <!-- Item Name -->
+                <!-- 
+                    - col-md-8 = takes 2/3 of the grid columns on medium and large screens
+                    - d-flex flex-column = flexbox to stack child elements vertically
+                    - align-items-center = aligns the child elements centrally on the horizontal axis
+                    - text-center = makes the text display centrally
+                -->
                 <div class="col-md-8 d-flex flex-column align-items-center text-center">
+                    <!-- id for CSS to style font-->
                     <h1 id="product">
+                        <!-- dynamically gets product name from db server -->
                         <%= myClub %>
                     </h1>
+                    <!-- End of Item Name -->
 
 
-                    <!--For Loop using myLeague from app.js to get the image from the correct folder-->
-                    <!--Jesrseys are in images/jerseys/ and everything else is in images/misc_items-->
-                    <!--Make the array miscProducts-->
-                    <!--If the League column in db matches any of the miscProducts array, use the misc_items folder-->
-                    <!--Otherwise jerseys is the standard folder to use for the images-->
-                    <!--Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague-->
-                    <% const miscProducts=['Ball', 'Shin Pads' , 'Gloves' , 'Goals' ]; let imageFolder='jerseys' ; let
-                        leagueLabel='League:' ; for (let i=0; i < miscProducts.length; i++) { if
-                        (myLeague===miscProducts[i]) { imageFolder='misc_items' ; leagueLabel='Product:' ; break; } } %>
-
+                    <!-- Item Image -->
+                    <!--
+                        - For Loop using myLeague from app.js to get the image from the correct folder
+                        - Jesrseys are in images/jerseys/ and everything else is in images/misc_items
+                        - Make the array miscProducts for selected products
+                        - If the League column in db matches any of the miscProducts array, use the misc_items folder
+                        - Otherwise jerseys is the standard folder to use for the images
+                        - Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague
+                    -->
+                    <% const miscProducts = ['Ball', 'Shin Pads' , 'Gloves' , 'Goals' ]; 
+                        let imageFolder = 'jerseys' ; 
+                        let leagueLabel = 'League:' ; 
+                            for (let i=0; i < miscProducts.length; i++) { 
+                                if (myLeague === miscProducts[i]) { 
+                                    imageFolder = 'misc_items' ; 
+                                    leagueLabel = 'Product:' ; 
+                                    break; 
+                            } 
+                        } 
+                    %>
+ 
                         <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
                         <div class="product-image-wrapper">
                             <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>"
                                 class="img-fluid mt-4 product-image" alt="Product Image">
                         </div>
+                        <!-- End of Item Image -->
+
                 </div>
+                <!-- End of Left Side Column -->
+                <!----------------------------->
 
 
-
-                <!--Right side of the column - Crest at Top above Information-->
+                <!--------------------------------------------------------------------------->
+                <!--Right Side Column - Crest, Version, Price, Size, Quantity, Add to Cart -->
                 <div class="col-md-4">
-                    <!-- Crest / Logo -->
+
+                    <!-- Crest / Logo Image -->
+                    <!-- 
+                        - All crests and logos are saved in the same folder so no need for loop
+                        - text-center = bootstrap to align text horizontally within its container
+                        - mb-4 = bootstrap margin bottom size 4 
+                    -->
                     <div class="text-center mb-4">
                         <img src="/public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;"
                             alt="Club Crest">
                     </div>
+                    <!-- End of Crest / Logo Image -->
+
+
                     <!-- Product info -->
+                    <!-- id used for Javascript addToCart Button -->
                     <h2 id="type" data-id="<%= myID %>">
                         <%= myClub %>
                             <%= myVersion %>
                     </h2>
+
+                    <!-- League Label (Displays League or Product depending on item - Jersey or Misc)-->
                     <!-- The leagueLabel was defined in the for loop with const miscProducts -->
                     <p><strong>
                             <%= leagueLabel %>
@@ -81,41 +130,67 @@
                     <p><strong>Manufacturer: </strong>
                         <%= myManufacturer %>
                     </p>
+                    <!-- End of Product info -->
+
+
+                    <!-- Product Price -->
+                    <!-- text-danger = applies a red colour -->
                     <h3 class="text-danger">
+                        <!-- id used for Javascript addToCart Button -->
                         €<span id="price">
                             <%= myPrice %>
                         </span>
                     </h3>
+                    <!-- End of Product Price -->
+                    
 
-                    <!--Size option - Done with if loop based on the name given under the 'League' column in db -->
-                    <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
+                    <!--Size Option -->
+                    <!--
+                        - creates a new bootstrap row
+                        - mb-3 = applies a margin to the bottom of size 3
+                        - align-items-center = vertically centres the columns in the row
+                    -->
                     <div class="row mb-3 align-items-center">
+                        <!-- 
+                            - col-4 = small screen take 1/3 of width
+                            - col-md-3 = medium and above screens take 1/4 of width
+                        -->
                         <div class="col-4 col-md-3">
                             <strong>Size: </strong>
                         </div>
+                        <!-- 
+                            - col-8 = small screen take 2/3 of width
+                            - col-md-4 = medium and above screens take 1/3 of width
+                        -->
                         <div class="col-8 col-md-4">
+                            <!-- id used for Javascript addToCart Button -->
+                            <!-- name used for ejs for the discount function -->
                             <select id="size" name="size">
+                                <!-- 
+                                    - Notes in this section use <%# %> otherwise ejs will include them as code
+                                    - Done with if loop based on the name given under the 'League' column in db
+                                -->
                                 <%# Size options for Footballs using the else if %>
-                                    <% if (myLeague==="Ball" ) { %>
+                                    <% if (myLeague === "Ball" ) { %>
                                         <option value="Size 3">Size 3</option>
                                         <option value="Size 4">Size 4</option>
                                         <option value="Size 5" selected>Size 5</option>
 
                                         <%# Size options for Goalkeeper Gloves using the else if %>
-                                            <% } else if (myLeague==="Gloves" ) { %>
+                                            <% } else if (myLeague === "Gloves" ) { %>
                                                 <option value="Xtra Small">Junior</option>
                                                 <option value="Small">Adult Small</option>
                                                 <option value="Medium" selected>Adult Medium</option>
                                                 <option value="Large">Adult Large</option>
 
                                                 <%# Size Options for Shin Pads using the else if %>
-                                                    <% } else if (myLeague==="Shin Pads" ) { %>
+                                                    <% } else if (myLeague === "Shin Pads" ) { %>
                                                         <option value="Small">Small</option>
                                                         <option value="Medium">Medium</option>
                                                         <option value="Large" selected>Large</option>
 
                                                         <%# Default Value for any uncategorised Items %>
-                                                            <% } else if (myLeague==="Goals" ) { %>
+                                                            <% } else if (myLeague === "Goals" ) { %>
                                                                 <option value="Standard">Standard</option>
 
                                                                 <%# Size Options for Jerseys (different league names -
@@ -131,15 +206,35 @@
                             </select>
                         </div>
                     </div>
+                    <!--End of Size Option -->
 
-                    <!-- Alert Message Appears On Screen Noting Items Added to Cart -->
+
+                    <!-- Alert Message Location On Screen Saying Items Added to Cart -->
+                    <!-- id used for Javascript addToCart Button -->
                     <div id="alertPlaceholder" class="mt-3"></div>
+                    <!-- End of Alert Message On Screen -->
 
-                    <!--Quantity option-->
+
+                    <!-- Quantity Option -->
+                    <!--
+                        - creates a bootstrap row
+                        - mb-3 = margin bottom of size 3
+                        - align-items-center = child elements are vertically centred
+                    -->
                     <div class="row mb-3 align-items-center">
+                        <!--
+                            - col-4 = on small screen will take 1/3 of width
+                            - on medium or above screens will take 1/4 of width
+                        -->
                         <div class="col-4 col-md-3">
                             <strong>Quantity: </strong>
                         </div>
+                        <!--
+                            - col-8 = on small screen will take 2/3 of width
+                            - on medium or above screens will take 1/3 of width
+                            - dropdown menu, id used for javascript, 
+                            - name used for server (req.body.quantity)
+                        -->
                         <div class="col-8 col-md-4">
                             <select id="quantity" name="quantity">
                                 <option value="0">0</option>
@@ -151,43 +246,81 @@
                             </select>
                         </div>
                     </div>
+                    <!-- End of Quantity Option -->
 
-                    <!--Button for adding items to Cart-->
+
+                    <!-- Button for adding items to Cart -->
+                    <!--
+                        - creates a bootstrap button
+                        - btn-dark = gives dark theme (stands out from other buttons on page)
+                        - btn-lg = large button
+                        - mt-4 = margin top of size 4
+                        - w-100 = button is 100% width of its container
+                        - onclick="addToCart()" = javascript function
+                    -->
                     <button class="btn btn-dark btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
+                    <!-- End of Button -->
 
 
-
-                    <!-- Back to home Button -->
+                    <!-- Back to Home Button -->
                     <div class="mt-4 text-center">
                         <a href="/" class="text-muted">
                             <button>← Back to Home Page</button>
                         </a>
                     </div>
+                    <!-- End of Back to Home Button -->
+
                 </div>
+                <!-- End of Right Side Column -->
+                <!------------------------------>
 
             </div>
         </div>
 
-        <!--Link to alternative product (exampe Arsenal away if on Arsenal home page) -->
+        <!-- End of Product Display Section-->
+        <!----------------------------------->
+
+
+        <!---------------------------------------------------------------------------->
+        <!-- Alternative Products Link (exampe Arsenal away if on Arsenal home page) -->
+        <!-- if an alternative link exists (done in app.js) -->
         <% if (altLink) { %>
-            <div class="d-flex justify-content-center align-items-center gap-4 my-3">
+            <!--
+                - d-flex = creates flexbox container
+                - justify-content-center = centres all child elements within the container horizontally
+                - align-items-center = centres all child elements within the container vertically
+                - my-3 = top and bottom margin of size 3
+            -->
+            <div class="d-flex justify-content-center align-items-center my-3">
+                <!--
+                    - anchor link using a bootstrap button
+                    - btn-outline-dark = puts dark border / outline around button
+                    - references the alternative jersey
+                -->
                 <a class="btn btn-outline-dark" href="<%= altLink %>">
                     Go to <%= myClub %>
                         <%= altVersion %> →
                 </a>
             </div>
             <% } %>
+            <!-- End of Alternative Products Link -->
+            <!-------------------------------------->
+
 
                 <!------------------------------->
                 <!-- Links to Other Shop Pages -->
+                <!-- class of page-buttons for CSS display and width -->
                 <div class="page-buttons">
                     <a href="/jerseyShop">
+                        <!-- class my-button for CSS width, flex, padding, font, alignment, margin -->
                         <button class="my-button">JERSEYS</button>
                     </a>
                     <a href="/miscShop">
+                        <!-- class my-button for CSS width, flex, padding, font, alignment, margin -->
                         <button class="my-button">MISCELLANEOUS</button>
                     </a>
                     <a href="/shop-all">
+                        <!-- class my-button for CSS width, flex, padding, font, alignment, margin -->
                         <button class="my-button">SHOP ALL</button>
                     </a>
                 </div>
@@ -259,18 +392,26 @@
 
 </html>
 
+
 <script>
 
-    //For the code structure from Bootstrap to apply the alert colour
+    //For the code structure from Bootstrap to apply the alerts
     //https://getbootstrap.com/docs/5.0/components/alerts/
 
+    // --------------
+    // ALERT FUNCTION
+    // --------------
     let alertTimeout;
 
     function showAlert(message, type) {
+        // Where alert will be displayed on page
         const alertPlaceholder = document.getElementById("alertPlaceholder");
 
         // Clear previous alert & timeout
         clearTimeout(alertTimeout);
+
+        // Place new alert into the alertPlaceholder
+        // `type` (based on size options) determines the color of the alert
         alertPlaceholder.innerHTML = `
         <div class="alert alert-${type} fade show" role="alert">
             ${message}
@@ -282,21 +423,27 @@
             alertPlaceholder.innerHTML = "";
         }, 3000);
     }
+    // ---------------------
+    // END OF ALERT FUNCTION
+    // ---------------------
 
 
 
 
+    // --------------------
+    // ADD TO CART FUNCTION
+    // --------------------
     function addToCart() {
         //alert("This is from the function!");
-        //storing all the information from the db to store in local storage / memory
-        //Price and Quantity needs to be Ints for Checkout so converted via Number
-        let product = document.getElementById("product").innerHTML;
-        let type = document.getElementById("type").innerHTML;
-        let quantity = Number(document.getElementById("quantity").value);
-        let size = document.getElementById("size").value;
-        let price = Number(document.getElementById("price").innerHTML);
-        let image = document.getElementById("product_image").src;
-        let ID = document.getElementById("type").dataset.id
+        //storing all the information from the DOM in local storage
+        //Price and Quantity needs to be Ints (numbers) for Checkout so converted via Number
+        let product = document.getElementById("product").innerHTML;         // Product Name
+        let type = document.getElementById("type").innerHTML;               // Product Type (jersey, ball, gloves, etc)
+        let quantity = Number(document.getElementById("quantity").value);   // Quantity
+        let size = document.getElementById("size").value;                   // Size
+        let price = Number(document.getElementById("price").innerHTML);     // Price
+        let image = document.getElementById("product_image").src;           // Product Image Location
+        let ID = document.getElementById("type").dataset.id                 // Product ID from database
         //information above combined into one array
         let itemData = {
             id: ID,
@@ -309,22 +456,34 @@
 
         };
 
-        //save the key with the product name and type (example: Arsenal Away M. Fulham Home XL, etc)
+        // Save the key with the product name and type (example: Arsenal Away M, Fulham Home XL, etc)
+        // Allows for multiple of same product with different sizes to be added to cart
         let key = type + "" + size;
         localStorage.setItem(key, JSON.stringify(itemData));
 
-        //alert on screen
+
+
+        // -----------------------
+        // ALERT BASED ON QUANTITY
         //if the quantity selected is 0 the warning (yellow) colour is used
-        if (quantity === "0") {
+        if (quantity === 0) {
             showAlert("No item added to the cart", "warning");
             return;
-        } else if (quantity === "1") {
+        } else if (quantity === 1) {
             //if the quanity selected is 1 the success colour (green) is used
             showAlert(quantity + " item added to cart", "success");
-        } else {
+        } else if (quantity > 1) {
             //if the quanity selected is more than 1 the primary colour (blue) is used
             showAlert(quantity + " items added to cart", "primary");
         }
+        // END OF ALERT BASED ON QUANTITY
+        // ------------------------------
 
     }
+
+    // ---------------------------
+    // END OF ADD TO CART FUNCTION
+    // ---------------------------
+
+
 </script>
