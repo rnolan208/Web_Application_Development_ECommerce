@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <!--Page Title-->
-    <title>Robert's Sports Shop - About</title>
+    <title>About</title>
 
     <!--Importing Bootstrap 5 for CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,42 +32,89 @@
         <!--------------------------->
         <!--Main Page Body Section -->
 
+        <!-- ID of home to apply the background image from CSS -->
         <section id="home">
+
+            <!-- Container to centre content and apply Bootstrap layout -->
             <div class="container">
+
+                <!-- Section Title -->
                 <h1 class="aboutTitle">ABOUT</h1>
                 <br>
+
+                <!-- Row to contain two main columns: left and right, with content aligned in the middle of columns -->
                 <div class="row justify-content-center">
+
+                    <!-- Left side - Project and Shop information -->
+                    <!--
+                        - col-md-5 = uses 5/12 of the container width
+                        - d-flex = makes the display a flexbox 
+                        - flex-column = changes main axis from row to column 
+                        - align-items-center = centres the child elements (stack) horizontally inside the column
+                        - text-center = center the text inside each child
+                    -->
                     <div class="col-md-5 d-flex flex-column align-items-center text-center">
-                        <!--Left side - Project and Shop information-->
+                        <!-- class of aboutUS for CSS to apply
+                            - background colour
+                            - padding
+                            - border radius
+                        -->
                         <div class="aboutUS">
+                            <!-- Welcome Message -->
                             <h4>Welcome to <strong>Robert’s Football Shop</strong>, your first stop for football
                                 merchandise
                                 from top football leagues.</h4>
                             <br>
+                            <!-- About the Project -->
                             <h5>Robert’s Football Shop is an e-commerce store created as part of the Web Applications
                                 Development module within the
-                                Software Development H. Dip. at ATU 2025/26.</h5>
+                                Software Development H. Dip. at ATU 2025/26.
+                            </h5>
+                            <!-- Website Purpose and Focus -->
                             <h5>The website was designed to showcase the core features and functionality of
                                 a modern online retail platform. The store specialises in football apparel and
                                 equipment,
                                 with a strong focus on quality,
-                                variety, and ease of use.</h5>
+                                variety, and ease of use.
+                            </h5>
+                            <!-- Developer’s Aim -->
                             <h5>My aim is to provide a smooth and enjoyable shopping experience, from browsing products
                                 to
                                 completing secure online purchases,
                                 while applying real-world HTML, CSS, JavaScipt, and NODE principles learned through
                                 academic
-                                study.</h5>
+                                study.
+                            </h5>
 
                         </div>
                     </div>
+                    <!-- End of Left side - Project and Shop information -->
+
+
+                    <!-- Empty Spacer Column (for layout purposes) of 2 (1/6th of container width) -->
                     <div class="col-md-2 d-flex flex-column align-items-center text-center"></div>
-                    <!--Right side - outline of what the site sells-->
+
+
+                    <!-- Right side - Products Offered -->
+                    <!--
+                        - col-md-5 = uses 5/12 of the container width
+                        - d-flex = makes the display a flexbox 
+                        - flex-column = changes main axis from row to column 
+                        - align-items-center = centres the child elements (stack) horizontally inside the column
+                        - text-center = center the text inside each child
+                    -->
                     <div class="col-md-5 d-flex flex-column align-items-center text-center">
+                        <!-- class of aboutUS for CSS to apply
+                            - background colour
+                            - padding
+                            - border radius
+                            - margin for list styling                         
+                        -->
                         <div class="aboutUS">
                             <h4>We offer a wide selection of soccer jerseys from top competitions, including:</h4>
                             <br>
                             <h5>
+                                <!-- list-unstyled = no bullet points -->
                                 <ul class="list-unstyled">
                                     <li>Premier League</li>
                                     <li>League of Ireland</li>
@@ -79,17 +126,22 @@
                                 </ul>
                             </h5>
                             <br>
+                            <!-- Additional Products -->
                             <h5>In addition to jerseys, Robert’s Football Shop also stocks a range of football
                                 essentials,
                                 such as footballs, goalkeeper
-                                gloves, soccer goals, and shin guards.</h5>
+                                gloves, soccer goals, and shin guards.
+                            </h5>
                             <br>
+                            <!-- Closing Thank You Message -->
                             <h5>Thank you for visiting <strong>Robert’s Football Shop</strong> and supporting this
                                 project.
                             </h5>
                         </div>
                     </div>
+                    <!-- End of Right side - Products Offered -->
                 </div>
+                <!-- End of Row -->
         </section>
 
         <!-- End of Main Page Body Section -->
@@ -142,16 +194,16 @@
         <!-- Footer Section-->
         <%- include('templates/footer') %>
 
-            <!-- End of Footer Section-->
-            <!-------------------------->
+        <!-- End of Footer Section-->
+        <!-------------------------->
 
 
-            <!--Link JAVASCRIPT FILE-->
-            <script src="/public/script.js"></script>
+        <!--Link JAVASCRIPT FILE-->
+        <script src="/public/script.js"></script>
 
 
-            <!--Importing Bootstrap 5 for JS-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!--Importing Bootstrap 5 for JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

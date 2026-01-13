@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Robert's Sports Shop - Contact US</title>
+    <title>Contact US</title>
 
     <!--Importing Bootstrap 5 for CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,57 +29,124 @@
 
         <!--------------------------->
         <!--Main Page Body Section -->
+
+        <!-- ID of home to apply the background image from CSS -->
         <section id="home">
+
+            <!-- Container to center content and apply Bootstrap layout -->
             <div class="container">
+
+                <!-- Section Title -->
                 <h1 class="contactTitle">CONTACT US</h1>
                 <br>
-                <!-- Top Row -->
+
+                <!-- Top Row: Contact Info and Address -->
+                <!-- justify-content-center = centres all columns horizontally within the row -->
                 <div class="row justify-content-center">
+
+                    <!-- Left Column: Name, Email, Phone, Customer Support -->
+                    <!--
+                        - col-md-6 = sets this column to half the container width
+                        - d-flex = makes the div a flex container
+                        - flex-column = changes flex direction to stack vertically
+                        - align-items-center = aligns child elements centrally within the column
+                        - text-center = centers inline text of all child elements                    
+                    -->
                     <div class="col-md-6 d-flex flex-column align-items-center text-center">
-                        <!--Left side - Name, Email, Number-->
+                        <!-- contactUS class for CSS styling of background colour, padding, border-radius, box shadow -->
                         <div class="contactUS">
+                            <!-- Section Heading -->
                             <h2>Get in Touch</h2>
-                            <p><strong>Get in Touch</strong></p>
+                            <p><strong>Contact Us</strong></p>
+                            <!-- Contact Details -->
                             <p><strong>Phone:</strong> +353 (059) 00 12345</p>
-                            <p><strong>Email:</strong> <a
-                                    href="mailto:robertsfootballshop@atu.ie">robertsfootballshop@atu.ie</a></p>
+                            <p><strong>Email:</strong> 
+                                <!-- anchor tag to make a link when clicked
+                                    - mailto = opens user’s default email client to send an email to given address
+                                -->
+                                 <a href="mailto:robertsfootballshop@atu.ie">robertsfootballshop@atu.ie</a></p>
                             <p><strong>Customer Support:</strong> Mon – Sat, 9am – 6pm</p>
                         </div>
                     </div>
-                    <!--Right side - Address -->
+                    <!-- End of Left Column -->
+
+                    <!--Right Column: Shop Address -->
+                    <!--
+                        - col-md-6 = sets this column to half the container width
+                        - d-flex = makes the div a flex container
+                        - flex-column = changes flex direction to stack vertically
+                        - align-items-center = aligns child elements centrally within the column
+                        - text-center = centers inline text of all child elements                    
+                    -->
                     <div class="col-md-6 d-flex flex-column align-items-center text-center">
+                        <!-- contactUS class for CSS styling of background colour, padding, border-radius, box shadow -->
                         <div class="contactUS">
+                            <!-- Section Heading -->
                             <h2>Our Location</h2>
+                            <!-- Address Details -->
                             <p><strong>Address:</strong></p>
                             <p>Robert's Football Shop</p>
                             <p>123 Street Name,</p>
                             <p>ATU, Galway, Ireland</p>
                         </div>
                     </div>
+                    <!--End of Right Column -->
 
 
-                    <!--Bottom row -->
+                    <!--Bottom Row: Embedded Map -->
+                    <!--
+                        - row = creates new row for content
+                        - justify-content-center = centres child columns horizontally
+                        - mt-4 = applies margin at the top of bootstrap value 4
+                        - col-12 = on small screens fills the full 12 column in width (bootstrap)
+                        - col-md-10 = on medium screens and above takes 10 out of 12 columns in width (bootstrap)
+                    -->
                     <div class="row justify-content-center mt-4">
                         <div class="col-12 col-md-10">
-                            <!--Map Location using embedded iframe link gotten from Google Maps-->
+
+                            <!-- Map Container -->
                             <div class="map-box">
+                                <!-- Google Maps iframe Map (location set for ATU Galway) -->
+                                <!--
+                                    - width & height = sets size of iframe map
+                                    - allowfullscreen = allows map to go fullscreen if button clicked
+                                    - loading="lazy" = delays loading until it is about to appear to improve page performance
+                                    - referrerpolicy="no-referrer-when-downgrade" = about privacy and policy
+                                -->
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2385.6691007853437!2d-9.0106931!3d53.2775483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b9132cb2e133f%3A0x5a81260c20e02143!2sATU%20Galway%20City!5e0!3m2!1sen!2sie!4v1767821131460!5m2!1sen!2sie"
                                     width="900" height="550" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
+                            <!-- End of Google Maps iframe Map-->
+
                             <!--Button with link to location on Google Maps-->
+                            <!--
+                                - traget="blank" = opens in new tab
+                                - btn = makes it into a button
+                                - btn-primary = applies the colour blue
+                                - mt-3 = margin at top of bootstrap size 3
+                                -->
                             <a class="map-button"
                                 href="https://www.google.com/maps/place/ATU+Galway+City/@53.2775483,-9.013268,17z/data=!3m1!4b1!4m6!3m5!1s0x485b9132cb2e133f:0x5a81260c20e02143!8m2!3d53.2775483!4d-9.0106931!16zL20vMDJ4ZHF4?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
                                 target="_blank" class="btn btn-primary mt-3">
                                 Open in Google Maps
                             </a>
+                            <!-- End of Button with link -->
+
                         </div>
                     </div>
+                    <!--End of Bottom Row -->
+
                 </div>
             </div>
+            <!-- End of Container -->
+             
         </section>
+        
+        <!--End of Main Page Body Section -->
+        <!---------------------------------->
 
 
         <!------------------------>
