@@ -21,351 +21,229 @@
 
 
 <body>
-    <!--Navbar from Bootstrap-->
-    <!--Navbar class with padding at top and bottom of 3-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-        <div class="container">
+    <!-------------------->
+    <!-- Navbar Section -->
+    <%- include('templates/navbar') %>
 
-            <!--LEFT SIDE: Logo from logo.com and brand name-->
-            <div class="navbar-left d-flex align-items-center">
-                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+        <!-- End of Navbar Section -->
+        <!--------------------------->
 
-                <!--Website Name-->
-                <a class="navbar-brand" href="/">Robert's Football Shop</a>
+
+        <!----------------------------->
+        <!--Links to Other Shop Pages-->
+        <div class="page-buttons">
+            <a href="/jerseyShop">
+                <button class="my-button">JERSEYS</button>
+            </a>
+            <a href="/shop-all">
+                <button class="my-button">SHOP ALL</button>
+            </a>
+        </div>
+        <!--End of Links to Other Shop Pages-->
+        <!------------------------------------>
+
+
+        <!--FEATURED SECTIONS-->
+        <!-- Card like layout with image reference, item name, price, and button leading to shop page of product-->
+        <!--Footballs Section-->
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-5 py-5">
+                <h3>Footballs</h3>
+                <hr>
+                <a href="/shop-all#footballs">
+                    <button class="my-button">All Footballs</button>
+                </a>
             </div>
-
-            <!-- TOGGLER -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span><i id="bar" class="fa-solid fa-bars"></i></span>
-            </button>
-
-            <!--Navigation bar when page is resized / Collapsible Content-->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <!-- CENTRE: Nav links -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactUs">Contact</a>
-                    </li>
-                </ul>
-
-
-                <!-- RIGHT: Search + Icons-->
-                <div class="navbar-icons d-flex align-items-center mr-3">
-                    <form class="d-flex align-items-center mr-3 search-form" action="/search" method="get">
-                        <input type="text" name="q" class="search-input" placeholder="Search..."
-                            aria-label="Record name">
-                        <button type="submit" class="icon-button" aria-label="Search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <!-- Results dropdown -->
-                        <div id="searchResults" class="search-results"></div>
-                    </form>
-                    </form>
-                    <!--Button to Checkout-->
-                    <a href="/checkout" class="nav-link">
-                        <i class="fa-solid fa-basket-shopping"></i>
+            <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/world_cup_ball.png" alt="World Cup 2026">
+                    <h5 class="p-name">World Cup 2026</h5>
+                    <a href="/shop?rec=237">
+                        <button class="details">More Details</button>
                     </a>
-                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
-                    <!--Checks if user is logged in via sessions-->        
-                    <% if (!user) { %>
-                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
-                        <a href="/login" class="nav-link" title="Login">
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        </a>
-                        <% } else { %>
-                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
-                            <a href="#" class="nav-link" title="Already logged in"
-                                onclick="alert('User already logged in'); return false;">
-                                <i class="fa-solid fa-user-check"></i>
-                            </a>
-                            <% } %>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/premier_league_ball.png"
+                        alt="Premier League 25/26">
+                    <h5 class="p-name">Premier League 25/26</h5>
+                    <a href="/shop?rec=238">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/champions_league_ball.png"
+                        alt="Champions League 25/26">
+                    <h5 class="p-name">Champions League 25/26</h5>
+                    <a href="/shop?rec=243">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/europa_league_ball.png"
+                        alt="Europa League 25/26">
+                    <h5 class="p-name">Europa League 25/26</h5>
+                    <a href="/shop?rec=244">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
 
-    <!--Links to Other Shop Pages-->
-    <div class="page-buttons">
-        <a href="/jerseyShop">
-            <button class="my-button">JERSEYS</button>
-        </a>
-        <a href="/shop-all">
-            <button class="my-button">SHOP ALL</button>
-        </a>
-    </div>
-
-    <!--FEATURED SECTIONS-->
-    <!-- Card like layout with image reference, item name, price, and button leading to shop page of product-->
-    <!--Footballs Section-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Footballs</h3>
-            <hr>
-            <a href="/shop-all#footballs">
-                <button class="my-button">All Footballs</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/world_cup_ball.png" alt="World Cup 2026">
-                <h5 class="p-name">World Cup 2026</h5>
-                <a href="/shop?rec=237">
-                    <button class="details">More Details</button>
+        <!--Football Goals-->
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-5 py-5">
+                <h3>Football Goals</h3>
+                <hr>
+                <a href="/shop-all#goals">
+                    <button class="my-button">All Football Goals</button>
                 </a>
             </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/premier_league_ball.png" alt="Premier League 25/26">
-                <h5 class="p-name">Premier League 25/26</h5>
-                <a href="/shop?rec=238">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/champions_league_ball.png" alt="Champions League 25/26">
-                <h5 class="p-name">Champions League 25/26</h5>
-                <a href="/shop?rec=243">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/europa_league_ball.png" alt="Europa League 25/26">
-                <h5 class="p-name">Europa League 25/26</h5>
-                <a href="/shop?rec=244">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!--Football Goals-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Football Goals</h3>
-            <hr>
-            <a href="/shop-all#goals">
-                <button class="my-button">All Football Goals</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/forza8x4.png" alt="8 x 4 Forza">
-                <h5 class="p-name">8 x 4 Forza</h5>
-                <a href="/shop?rec=261">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/samba8x5.png" alt="8 x 5 Samba">
-                <h5 class="p-name">8 x 5 Samba</h5>
-                <a href="/shop?rec=265">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/forza12x6.png" alt="12 x 6 Forza">
-                <h5 class="p-name">12 x 6 Forza</h5>
-                <a href="/shop?rec=262">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/samba12x6.png" alt="12 x 6 Samba">
-                <h5 class="p-name">12 x 6 Samba</h5>
-                <a href="/shop?rec=264">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!--Goalkeeper Gloves-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Goalkeeper Gloves</h3>
-            <hr>
-            <a href="/shop-all#gloves">
-                <button class="my-button">All Goalkeeper Gloves</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/vaporGrip3.png" alt="Vapor Grip 3">
-                <h5 class="p-name">Vapor Grip 3</h5>
-                <a href="/shop?rec=256">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/phantom.png" alt="Phantom">
-                <h5 class="p-name">Phantom</h5>
-                <a href="/shop?rec=257">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/predatorpro.png" alt="Predator Pro">
-                <h5 class="p-name">Predator Pro</h5>
-                <a href="/shop?rec=258">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/copaPro.png" alt="Copa Pro">
-                <h5 class="p-name">Copa Pro</h5>
-                <a href="/shop?rec=259">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!--Shin Pads-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Shin Pads</h3>
-            <hr>
-            <a href="/shop-all#shinPads">
-                <button class="my-button">All Shin Pads</button>
-            </a>
-        </div>
-        <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/tiro.png" alt="Tiro">
-                <h5 class="p-name">Tiro</h5>
-                <a href="/shop?rec=249">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/club.png" alt="Club">
-                <h5 class="p-name">Club</h5>
-                <a href="/shop?rec=250">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/shadow.png" alt="Shadow">
-                <h5 class="p-name">Shadow</h5>
-                <a href="/shop?rec=251">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-12">
-                <img class="img-fluid mb-3" src="/public/images/misc_items/king.png" alt="King">
-                <h5 class="p-name">King</h5>
-                <a href="/shop?rec=254">
-                    <button class="details">More Details</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!--Back to Top Button-->
-    <button id="backToTop" title="Go to top">↑ Top</button>
-
-    <!--Link JAVASCRIPT FILE-->
-    <script src="/public/script.js"></script>
-
-
-    <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
-    <footer>
-        <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
-        <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
-        <div class="row container mx-auto pt-3 align-items-stretch">
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
-                    width="100px">
-                <!--text below has padding added via bootstrap for spacing above it-->
-                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need it!!
-                </p>
-                <p> Shop with us to guarantee you<br>
-                    <em>Score Your Next Victory</em>
-                </p>
-
-            </div>
-            <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <h5 class="pb-2">Featured</h5>
-                <!--list of featured items without bullet points and all in uppercase-->
-                <ul class="text-uppercase list-unstyled">
-                    <li><a href="/shop-all#footballs">Footballs</a></li>
-                    <li><a href="/shop-all#gloves">Gloves</a></li>
-                    <li><a href="/jerseyShop">Jerseys</a></li>
-                    <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/miscShop">Miscellaneous</a></li>
-                </ul>
-            </div>
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <!-- contact us section with address, phone, and email-->
-                <h5 class="pb-2">Contact Us</h5>
-                <div>
-                    <h6 class="text-uppercase">Address</h6>
-                    <p>123 STREET NAME, ATU, GALWAY, IRELAND</p>
+            <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/forza8x4.png" alt="8 x 4 Forza">
+                    <h5 class="p-name">8 x 4 Forza</h5>
+                    <a href="/shop?rec=261">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
-                <div>
-                    <h6 class="text-uppercase">Phone</h6>
-                    <p>(059) 00 12345</p>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/samba8x5.png" alt="8 x 5 Samba">
+                    <h5 class="p-name">8 x 5 Samba</h5>
+                    <a href="/shop?rec=265">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
-                <div>
-                    <h6 class="text-uppercase">Email</h6>
-                    <p>robertsfootballshop@atu.ie</p>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/forza12x6.png" alt="12 x 6 Forza">
+                    <h5 class="p-name">12 x 6 Forza</h5>
+                    <a href="/shop?rec=262">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/samba12x6.png" alt="12 x 6 Samba">
+                    <h5 class="p-name">12 x 6 Samba</h5>
+                    <a href="/shop?rec=264">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
             </div>
-            <!--Large logo section with the image placed centrally and at 100% height via bootstrap-->
-            <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
-                <img class="img-fluid w-75 m-1" src="/public/images/logo/logo-red-transparent.png" alt="large logo">
+        </section>
+
+
+
+        <!--Goalkeeper Gloves-->
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-5 py-5">
+                <h3>Goalkeeper Gloves</h3>
+                <hr>
+                <a href="/shop-all#gloves">
+                    <button class="my-button">All Goalkeeper Gloves</button>
+                </a>
             </div>
-        </div>
-
-        <!--very bottom of footer with the copyright info-->
-        <div class="copyright mt-3 py-3">
-            <div class="row container mx-auto">
-                <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
-                <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
-                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
+            <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/vaporGrip3.png" alt="Vapor Grip 3">
+                    <h5 class="p-name">Vapor Grip 3</h5>
+                    <a href="/shop?rec=256">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
-                <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
-                <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
-                    <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/phantom.png" alt="Phantom">
+                    <h5 class="p-name">Phantom</h5>
+                    <a href="/shop?rec=257">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
-                <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
-                <div class="col-lg-4 col-12 text-lg-end text-center">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/predatorpro.png" alt="Predator Pro">
+                    <h5 class="p-name">Predator Pro</h5>
+                    <a href="/shop?rec=258">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/copaPro.png" alt="Copa Pro">
+                    <h5 class="p-name">Copa Pro</h5>
+                    <a href="/shop?rec=259">
+                        <button class="details">More Details</button>
+                    </a>
                 </div>
             </div>
-        </div>
-
-    </footer>
+        </section>
 
 
+        <!--Shin Pads-->
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-5 py-5">
+                <h3>Shin Pads</h3>
+                <hr>
+                <a href="/shop-all#shinPads">
+                    <button class="my-button">All Shin Pads</button>
+                </a>
+            </div>
+            <div class="row mx-auto container-fluid">
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/tiro.png" alt="Tiro">
+                    <h5 class="p-name">Tiro</h5>
+                    <a href="/shop?rec=249">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/club.png" alt="Club">
+                    <h5 class="p-name">Club</h5>
+                    <a href="/shop?rec=250">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/shadow.png" alt="Shadow">
+                    <h5 class="p-name">Shadow</h5>
+                    <a href="/shop?rec=251">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="/public/images/misc_items/king.png" alt="King">
+                    <h5 class="p-name">King</h5>
+                    <a href="/shop?rec=254">
+                        <button class="details">More Details</button>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!--Importing Bootstrap for JS and Popper-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+
+
+        <!---------------------->
+        <!--Back to Top Button-->
+        <!-- id set for styling in CSS, function in Javascript-->
+        <button id="backToTop" title="Go to top">↑ Top</button>
+
+        <!--End of Back to Top Button-->
+        <!----------------------------->
+
+
+        <!------------------->
+        <!-- Footer Section-->
+        <%- include('templates/footer') %>
+
+        <!-- End of Footer Section-->
+        <!-------------------------->
+
+
+        <!--Link JAVASCRIPT FILE-->
+        <script src="/public/script.js"></script>
+
+
+
+        <!--Importing Bootstrap for JS and Popper-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 
 

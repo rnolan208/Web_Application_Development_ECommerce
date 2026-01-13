@@ -24,363 +24,235 @@
 </head>
 
 <body>
-    <!--Navbar from Bootstrap-->
-    <!--Navbar class with padding at top and bottom of 3-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-        <div class="container">
+    <!-------------------->
+    <!-- Navbar Section -->
+    <%- include('templates/navbar') %>
 
-            <!--LEFT SIDE: Logo from logo.com and brand name-->
-            <div class="navbar-left d-flex align-items-center">
-                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
-
-                <!--Website Name-->
-                <a class="navbar-brand" href="/">Robert's Football Shop</a>
-            </div>
-
-            <!-- TOGGLER -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span><i id="bar" class="fa-solid fa-bars"></i></span>
-            </button>
-
-            <!--Navigation bar when page is resized / Collapsible Content-->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <!-- CENTRE: Nav links -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactUs">Contact</a>
-                    </li>
-                </ul>
+        <!-- End of Navbar Section -->
+        <!--------------------------->
 
 
-                <!-- RIGHT: Search + Icons-->
-                <div class="navbar-icons d-flex align-items-center mr-3">
-                    <form class="d-flex align-items-center mr-3 search-form" action="/search" method="get">
-                        <input type="text" name="q" class="search-input" placeholder="Search..."
-                            aria-label="Record name">
-                        <button type="submit" class="icon-button" aria-label="Search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <!-- Results dropdown -->
-                        <div id="searchResults" class="search-results"></div>
-                    </form>
-                    </form>
-                    <!--Button to Checkout-->
-                    <a href="/checkout" class="nav-link">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                    </a>
-                    <!--Buttion to Sign In-->
-                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
-                    <!--Checks if user is logged in via sessions-->        
-                    <% if (!user) { %>
-                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
-                        <a href="/login" class="nav-link" title="Login">
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        </a>
-                        <% } else { %>
-                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
-                            <a href="#" class="nav-link" title="Already logged in"
-                                onclick="alert('User already logged in'); return false;">
-                                <i class="fa-solid fa-user-check"></i>
-                            </a>
-                            <% } %>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-    <div class="container mt-5 pt-4 pb-4">
-        <div class="row">
-            <!--Left side of the column - Product Name and Image in a container-->
-            <div class="col-md-8 d-flex flex-column align-items-center text-center">
-                <h1 id="product">
-                    <%= myClub %>
-                </h1>
-
-
-                <!--For Loop using myLeague from app.js to get the image from the correct folder-->
-                <!--Jesrseys are in images/jerseys/ and everything else is in images/misc_items-->
-                <!--Make the array miscProducts-->
-                <!--If the League column in db matches any of the miscProducts array, use the misc_items folder-->
-                <!--Otherwise jerseys is the standard folder to use for the images-->
-                <!--Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague-->
-                <% const miscProducts=['Ball', 'Shin Pads' , 'Gloves' , 'Goals' ]; let imageFolder='jerseys' ; let
-                    leagueLabel='League:' ; for (let i=0; i < miscProducts.length; i++) { if
-                    (myLeague===miscProducts[i]) { imageFolder='misc_items' ; leagueLabel='Product:' ; break; } } %>
-
-                    <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
-                    <div class="product-image-wrapper">
-                        <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>"
-                            class="img-fluid mt-4 product-image" alt="Product Image">
-                    </div>
-            </div>
-
-
-
-            <!--Right side of the column - Crest at Top above Information-->
-            <div class="col-md-4">
-                <!-- Crest / Logo -->
-                <div class="text-center mb-4">
-                    <img src="/public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;"
-                        alt="Club Crest">
-                </div>
-                <!-- Product info -->
-                <h2 id="type" data-id="<%= myID %>">
-                    <%= myClub %>
-                        <%= myVersion %>
-                </h2>
-                <!-- The leagueLabel was defined in the for loop with const miscProducts -->
-                <p><strong>
-                        <%= leagueLabel %>
-                    </strong>
-                    <%= myLeague %>
-                </p>
-                <p><strong>Manufacturer: </strong>
-                    <%= myManufacturer %>
-                </p>
-                <h3 class="text-danger">
-                    €<span id="price">
-                        <%= myPrice %>
-                    </span>
-                </h3>
-
-                <!--Size option - Done with if loop based on the name given under the 'League' column in db -->
-                <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
-                <div class="row mb-3 align-items-center">
-                    <div class="col-4 col-md-3">
-                        <strong>Size: </strong>
-                    </div>
-                    <div class="col-8 col-md-4">
-                        <select id="size" name="size">
-                            <%# Size options for Footballs using the else if %>
-                                <% if (myLeague==="Ball" ) { %>
-                                    <option value="Size 3">Size 3</option>
-                                    <option value="Size 4">Size 4</option>
-                                    <option value="Size 5" selected>Size 5</option>
-
-                                    <%# Size options for Goalkeeper Gloves using the else if %>
-                                        <% } else if (myLeague==="Gloves" ) { %>
-                                            <option value="Xtra Small">Junior</option>
-                                            <option value="Small">Adult Small</option>
-                                            <option value="Medium" selected>Adult Medium</option>
-                                            <option value="Large">Adult Large</option>
-
-                                            <%# Size Options for Shin Pads using the else if %>
-                                                <% } else if (myLeague==="Shin Pads" ) { %>
-                                                    <option value="Small">Small</option>
-                                                    <option value="Medium">Medium</option>
-                                                    <option value="Large" selected>Large</option>
-
-                                                    <%# Default Value for any uncategorised Items %>
-                                                        <% } else if (myLeague==="Goals" ) { %>
-                                                            <option value="Standard">Standard</option>
-
-                                                            <%# Size Options for Jerseys (different league names -
-                                                                Premier League, La Liga, etc) using if loop %>
-                                                                <% } else { %>
-                                                                    <option value="Xtra Small">XS</option>
-                                                                    <option value="Small">S</option>
-                                                                    <option value="Medium" selected>M</option>
-                                                                    <option value="Large">L</option>
-                                                                    <option value="Xtra Large">XL</option>
-                                                                    <option value="Double Xtra Large">2XL</option>
-                                                                    <% } %>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Alert Message Appears On Screen Noting Items Added to Cart -->
-                <div id="alertPlaceholder" class="mt-3"></div>
-
-                <!--Quantity option-->
-                <div class="row mb-3 align-items-center">
-                    <div class="col-4 col-md-3">
-                        <strong>Quantity: </strong>
-                    </div>
-                    <div class="col-8 col-md-4">
-                        <select id="quantity" name="quantity">
-                            <option value="0">0</option>
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!--Button for adding items to Cart-->
-                <button class="btn btn-dark btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
-
-
-
-                <!-- Back to home Button -->
-                <div class="mt-4 text-center">
-                    <a href="/" class="text-muted">
-                        <button>← Back to Home Page</button>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!--Link to alternative product (exampe Arsenal away if on Arsenal home page) -->
-    <% if (altLink) { %>
-        <div class="d-flex justify-content-center align-items-center gap-4 my-3">
-            <a class="btn btn-outline-dark" href="<%= altLink %>">
-                Go to <%= myClub %>
-                    <%= altVersion %> →
-            </a>
-        </div>
-        <% } %>
-
-
-            <!--Links to Other Shop Pages-->
-            <div class="page-buttons">
-                <a href="/jerseyShop">
-                    <button class="my-button">JERSEYS</button>
-                </a>
-                <a href="/miscShop">
-                    <button class="my-button">MISCELLANEOUS</button>
-                </a>
-                <a href="/shop-all">
-                    <button class="my-button">SHOP ALL</button>
-                </a>
-            </div>
-
-
-
-        <!------------------------>
-        <!--Brand Logos Section -->
-
-        <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar 
-        at bottom of screen and set the width of the images in the row-->
-        <section class="container">
-            <!--
-            Row (bootstrap) to keep all images in one row, with img-fluid (bootstrap) to make the images responsive
-            - col-lg-2 allows all six images in the row on a large screen
-            - col-md-4 stacks them in two rows with three images per row on medium screen
-            - col-6 puts two images per row on smaller sized screens, such as mobile
-        -->
+        <div class="container mt-5 pt-4 pb-4">
             <div class="row">
-                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
-                    alt="nike">
-                <img class="img-fluid col-lg-2 col-md-4 col-6"
-                    src="/public/images/brands/adidas-logo-black-and-white.png" alt="addidas">
-                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
-                    alt="puma">
-                <img class="img-fluid col-lg-2 col-md-4 col-6"
-                    src="/public/images/brands/umbro-logo-black-and-white.png" alt="umbro">
-                <img class="img-fluid col-lg-2 col-md-4 col-6"
-                    src="/public/images/brands/Oneills-logo-black-and-white.png" alt="o'neills">
-                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
-                    alt="macron">
+                <!--Left side of the column - Product Name and Image in a container-->
+                <div class="col-md-8 d-flex flex-column align-items-center text-center">
+                    <h1 id="product">
+                        <%= myClub %>
+                    </h1>
+
+
+                    <!--For Loop using myLeague from app.js to get the image from the correct folder-->
+                    <!--Jesrseys are in images/jerseys/ and everything else is in images/misc_items-->
+                    <!--Make the array miscProducts-->
+                    <!--If the League column in db matches any of the miscProducts array, use the misc_items folder-->
+                    <!--Otherwise jerseys is the standard folder to use for the images-->
+                    <!--Using same loop to define if the item will be labelled as 'League' or 'Product' with myLeague-->
+                    <% const miscProducts=['Ball', 'Shin Pads' , 'Gloves' , 'Goals' ]; let imageFolder='jerseys' ; let
+                        leagueLabel='League:' ; for (let i=0; i < miscProducts.length; i++) { if
+                        (myLeague===miscProducts[i]) { imageFolder='misc_items' ; leagueLabel='Product:' ; break; } } %>
+
+                        <!--This will select the image based on the imageFolder from the loop above (jerseys or misc_items)-->
+                        <div class="product-image-wrapper">
+                            <img id="product_image" src="/public/images/<%= imageFolder %>/<%= myImage %>"
+                                class="img-fluid mt-4 product-image" alt="Product Image">
+                        </div>
+                </div>
+
+
+
+                <!--Right side of the column - Crest at Top above Information-->
+                <div class="col-md-4">
+                    <!-- Crest / Logo -->
+                    <div class="text-center mb-4">
+                        <img src="/public/images/crest/<%= myCrest %>" class="img-fluid" style="max-width: 120px;"
+                            alt="Club Crest">
+                    </div>
+                    <!-- Product info -->
+                    <h2 id="type" data-id="<%= myID %>">
+                        <%= myClub %>
+                            <%= myVersion %>
+                    </h2>
+                    <!-- The leagueLabel was defined in the for loop with const miscProducts -->
+                    <p><strong>
+                            <%= leagueLabel %>
+                        </strong>
+                        <%= myLeague %>
+                    </p>
+                    <p><strong>Manufacturer: </strong>
+                        <%= myManufacturer %>
+                    </p>
+                    <h3 class="text-danger">
+                        €<span id="price">
+                            <%= myPrice %>
+                        </span>
+                    </h3>
+
+                    <!--Size option - Done with if loop based on the name given under the 'League' column in db -->
+                    <!--Notes in this section use <%# %> otherwise ejs will include them as code-->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-4 col-md-3">
+                            <strong>Size: </strong>
+                        </div>
+                        <div class="col-8 col-md-4">
+                            <select id="size" name="size">
+                                <%# Size options for Footballs using the else if %>
+                                    <% if (myLeague==="Ball" ) { %>
+                                        <option value="Size 3">Size 3</option>
+                                        <option value="Size 4">Size 4</option>
+                                        <option value="Size 5" selected>Size 5</option>
+
+                                        <%# Size options for Goalkeeper Gloves using the else if %>
+                                            <% } else if (myLeague==="Gloves" ) { %>
+                                                <option value="Xtra Small">Junior</option>
+                                                <option value="Small">Adult Small</option>
+                                                <option value="Medium" selected>Adult Medium</option>
+                                                <option value="Large">Adult Large</option>
+
+                                                <%# Size Options for Shin Pads using the else if %>
+                                                    <% } else if (myLeague==="Shin Pads" ) { %>
+                                                        <option value="Small">Small</option>
+                                                        <option value="Medium">Medium</option>
+                                                        <option value="Large" selected>Large</option>
+
+                                                        <%# Default Value for any uncategorised Items %>
+                                                            <% } else if (myLeague==="Goals" ) { %>
+                                                                <option value="Standard">Standard</option>
+
+                                                                <%# Size Options for Jerseys (different league names -
+                                                                    Premier League, La Liga, etc) using if loop %>
+                                                                    <% } else { %>
+                                                                        <option value="Xtra Small">XS</option>
+                                                                        <option value="Small">S</option>
+                                                                        <option value="Medium" selected>M</option>
+                                                                        <option value="Large">L</option>
+                                                                        <option value="Xtra Large">XL</option>
+                                                                        <option value="Double Xtra Large">2XL</option>
+                                                                        <% } %>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Alert Message Appears On Screen Noting Items Added to Cart -->
+                    <div id="alertPlaceholder" class="mt-3"></div>
+
+                    <!--Quantity option-->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-4 col-md-3">
+                            <strong>Quantity: </strong>
+                        </div>
+                        <div class="col-8 col-md-4">
+                            <select id="quantity" name="quantity">
+                                <option value="0">0</option>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Button for adding items to Cart-->
+                    <button class="btn btn-dark btn-lg mt-4 w-100" onclick="addToCart()">Add to Cart</button>
+
+
+
+                    <!-- Back to home Button -->
+                    <div class="mt-4 text-center">
+                        <a href="/" class="text-muted">
+                            <button>← Back to Home Page</button>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </section>
+        </div>
 
-        <!--End of Brand Logos Section -->
-        <!------------------------------->
+        <!--Link to alternative product (exampe Arsenal away if on Arsenal home page) -->
+        <% if (altLink) { %>
+            <div class="d-flex justify-content-center align-items-center gap-4 my-3">
+                <a class="btn btn-outline-dark" href="<%= altLink %>">
+                    Go to <%= myClub %>
+                        <%= altVersion %> →
+                </a>
+            </div>
+            <% } %>
 
-
-            <!--Link JAVASCRIPT FILE-->
-            <script src="/public/script.js"></script>
-
-
-            <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
-            <footer>
-                <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
-                <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
-                <div class="row container mx-auto pt-3 align-items-stretch">
-                    <div class="footer-one col-lg-3 col-md-6 col-12">
-                        <img id="footer_small_logo" src="public/images/logo/logo-grayscale-transparent.png" alt="logo"
-                            width="100px">
-                        <!--text below has padding added via bootstrap for spacing above it-->
-                        <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need
-                            it!!
-                        </p>
-                        <p> Shop with us to guarantee you<br>
-                            <em>Score Your Next Victory</em>
-                        </p>
-
-                    </div>
-                    <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
-                    <div class="footer-one col-lg-3 col-md-6 col-12">
-                        <h5 class="pb-2">Featured</h5>
-                        <!--list of featured items without bullet points and all in uppercase-->
-                        <ul class="text-uppercase list-unstyled">
-                            <li><a href="/shop-all#footballs">Footballs</a></li>
-                            <li><a href="/shop-all#gloves">Gloves</a></li>
-                            <li><a href="/jerseyShop">Jerseys</a></li>
-                            <li><a href="/shop-all#goals">Goals</a></li>
-                            <li><a href="/miscShop">Miscellaneous</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-one col-lg-3 col-md-6 col-12">
-                        <!-- contact us section with address, phone, and email-->
-                        <h5 class="pb-2">Contact Us</h5>
-                        <div>
-                            <h6 class="text-uppercase">Address</h6>
-                            <p>123 STREET NAME, ATU, GALWAY, IRELAND</p>
-                        </div>
-                        <div>
-                            <h6 class="text-uppercase">Phone</h6>
-                            <p>(059) 00 12345</p>
-                        </div>
-                        <div>
-                            <h6 class="text-uppercase">Email</h6>
-                            <p>robertsfootballshop@atu.ie</p>
-                        </div>
-                    </div>
-                    <!--Large logo section with the image placed centrally and at 100% height via bootstrap-->
-                    <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
-                        <img class="img-fluid w-75 m-1" src="public/images/logo/logo-red-transparent.png"
-                            alt="large logo">
-                    </div>
+                <!------------------------------->
+                <!-- Links to Other Shop Pages -->
+                <div class="page-buttons">
+                    <a href="/jerseyShop">
+                        <button class="my-button">JERSEYS</button>
+                    </a>
+                    <a href="/miscShop">
+                        <button class="my-button">MISCELLANEOUS</button>
+                    </a>
+                    <a href="/shop-all">
+                        <button class="my-button">SHOP ALL</button>
+                    </a>
                 </div>
+                <!-- End of Link to Other Shop Pages -->
+                <!------------------------------------->
 
-                <!--very bottom of footer with the copyright info-->
-                <div class="copyright mt-3 py-3">
-                    <div class="row container mx-auto">
-                        <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
-                        <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
-                            <img src="public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
-                        </div>
-                        <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
-                        <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
-                            <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
-                        </div>
-                        <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
-                        <div class="col-lg-4 col-12 text-lg-end text-center">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>
-                        </div>
+
+                <!------------------------>
+                <!--Brand Logos Section -->
+
+                <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar 
+                    at bottom of screen and set the width of the images in the row-->
+                <section class="container">
+                    <!--
+                        Row (bootstrap) to keep all images in one row, with img-fluid (bootstrap) to make the images responsive
+                        - col-lg-2 allows all six images in the row on a large screen
+                        - col-md-4 stacks them in two rows with three images per row on medium screen
+                        - col-6 puts two images per row on smaller sized screens, such as mobile
+                    -->
+                    <div class="row">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/nike-logo-black-and-white.png" alt="nike">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/adidas-logo-black-and-white.png" alt="addidas">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/puma-logo-black-and-white.png" alt="puma">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/umbro-logo-black-and-white.png" alt="umbro">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/Oneills-logo-black-and-white.png" alt="o'neills">
+                        <img class="img-fluid col-lg-2 col-md-4 col-6"
+                            src="/public/images/brands/macron-black-and-white.png" alt="macron">
                     </div>
-                </div>
+                </section>
 
-            </footer>
+                <!--End of Brand Logos Section -->
+                <!------------------------------->
 
 
-            <!--Importing Bootstrap for JS and Popper-->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+                <!---------------------->
+                <!--Back to Top Button-->
+                <!-- id set for styling in CSS, function in Javascript-->
+                <button id="backToTop" title="Go to top">↑ Top</button>
+
+                <!--End of Back to Top Button-->
+                <!----------------------------->
+
+
+                <!------------------->
+                <!-- Footer Section-->
+                <%- include('templates/footer') %>
+
+                    <!-- End of Footer Section-->
+                    <!-------------------------->
+
+
+                    <!--Link JAVASCRIPT FILE-->
+                    <script src="/public/script.js"></script>
+
+
+
+                    <!--Importing Bootstrap for JS and Popper-->
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 
 
 </body>
@@ -434,7 +306,7 @@
             s: size,
             p: price,
             img: image,
-            
+
         };
 
         //save the key with the product name and type (example: Arsenal Away M. Fulham Home XL, etc)

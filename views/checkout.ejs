@@ -7,10 +7,9 @@
 
     <title>Checkout</title>
 
-    <!--Importing Bootstrap for CSS-->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Importing Bootstrap 5 for CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!--Linking CSS file-->
     <link rel="stylesheet" href="/public/css/style.css">
 
@@ -20,441 +19,402 @@
 </head>
 
 <body>
-    <!--Navbar from Bootstrap-->
-    <!--Navbar class with padding at top and bottom of 3-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-        <div class="container">
+    <!-------------------->
+    <!-- Navbar Section -->
+    <%- include('templates/navbar') %>
 
-            <!--LEFT SIDE: Logo from logo.com and brand name-->
-            <div class="navbar-left d-flex align-items-center">
-                <img src="/public/images/logo/logo-red-transparent.png" alt="logo" width="70">
+        <!-- End of Navbar Section -->
+        <!--------------------------->
 
-                <!--Website Name-->
-                <a class="navbar-brand" href="/">Robert's Football Shop</a>
+
+
+        <!-------------------------->
+        <!-- Shopping Cart Section-->
+
+        <!-- bootstrap container with top margin of size 5 -->
+        <div class="container mt-5">
+            <h1>Shopping Cart</h1>
+            <br>
+
+
+            <!----------------------->
+            <!-- Cart table headers-->
+            <!--
+                - d-flex = sets the display to flexbox
+                - font-weight-bold = makes the font bold
+                - border-bottom = adds a border to the bottom to visually separate the header row from the cart items
+                - pb-2 = padding-bottom size 2
+                - mb-2 = margin-bottom size 2
+            -->
+            <section>
+                <div class="cart-header d-flex font-weight-bold border-bottom pb-2 mb-2">
+                    <div class="col-image">Product</div>
+                    <div class="col-name"></div>
+                    <div class="col-size">Size</div>
+                    <div class="col-price">Price</div>
+                    <div class="col-quantity">Quantity</div>
+                    <div class="col-total">Total</div>
+                    <div class="col-cancel">Remove</div>
+                </div>
+                <!-- End of Cart table headers-->
+                <!------------------------------>
+
+
+                <!--------------------------------------->
+                <!-- Items Currently in Cart Container -->
+                <!--
+                    - items are dynamically inserted by JavaScript (via id of cart_items)
+                    - empty_cart is handled by the script if no items in cart
+                    - border = adds thin border
+                    - p-3 = adds padding of size 3
+                    - mb-3 = adds margin-bottom of size 3
+                -->
+                <div id="cart_items" class="border p-3 mb-3">
+                    <p id="empty_cart"></p>
+                </div>
+                <!-- End of Items Currently in Cart Container -->
+                <!---------------------------------------------->
+
+
+                <!--Final Price for Shopping Cart-->
+                <!-- id of final_price used by JavaScript to dynamically insert the final price -->
+                <h3 id="final_price" class="text-right"></h3>
+                <!-- End of Final Price for Shopping Cart -->
+                <!------------------------------------------>
+
+            </section>
+            <hr>
+            <!-- End of Cart table headers-->
+            <!------------------------------>
+            
+
+
+
+            <!------------------------------------------------>
+            <!-- CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
+            <!--
+                - container for main checkout section
+                - mt-5 = margin-top of size 5
+                - max-width: 900px = limits the width of the container to 900px
+                - mb-4 = ensures the heading Checkout has space below so the form does not sit too close
+            
+            -->
+            <div class="container mt-5" style="max-width: 900px;">
+                <h1 class="mb-4">Checkout</h1>
+
+
+                <!--A Post method for submitting the form, redirects to paymentSuccess page-->
+                <form action="/paymentSuccess" method="POST">
+
+
+                    <!-------------------------------------------->
+                    <!-- TOP ROW: Shipping Address (full width) -->
+                    <!--
+                        - creates a new row
+                        - g-3 = adds gap of 3 between columns
+                        - mb-4 = adds a margin of size 4 below the row to separate it from the next section 
+                    -->
+                    <div class="row g-3 mb-4">
+                        <!-- col-md-6 = medium screens and larger this takes half the row width, full width on smaller -->
+                        <div class="col-md-6">
+                            <!--
+                                - form-label = bootstrap style and spacing
+                                - name="firstName" = key for node.js server known as req.body.firstName
+                                - class="form-control" = styling input via bootstrap
+                                - required = ensures the form must be filled in before submitting
+                            -->
+                            <label class="form-label">First Name: </label>
+                            <input type="text" name="firstName" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- name="lastName" = key for node.js server known as req.body.lastName -->
+                            <label class="form-label">Last Name: </label>
+                            <input type="text" name="lastName" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- name="addressLine1" = key for node.js server known as req.body.addressLine1 -->
+                            <label class="form-label">Address Line 1: </label>
+                            <input type="text" name="addressLine1" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- name="addressLine2" = key for node.js server known as req.body.addressLine2 -->
+                            <label class="form-label">Address Line 2: </label>
+                            <input type="text" name="addressLine2" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- name="city" = key for node.js server known as req.body.city -->
+                            <label class="form-label">City: </label>
+                            <input type="text" name="city" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- name="zip" = key for node.js server known as req.body.zip -->
+                            <label class="form-label">ZIP / Eircode: </label>
+                            <input type="text" name="zip" class="form-control" required>
+                        </div>
+
+                        <!-- col-md-12 = column will use full width on all sizes -->
+                        <div class="col-md-12">
+                            <!-- 
+                                - name="email" = key for node.js server known as req.body.email 
+                                - type=email = ensures an email address is entered
+                            -->
+                            <label class="form-label">E-mail: </label>
+                            <input type="email" name="email" class="form-control" required
+                                placeholder="you@example.com">
+                        </div>
+                    </div>
+
+                    <!-- End of TOP ROW: Shipping Address -->
+                    <!-------------------------------------->
+
+
+                    <!------------------------->
+                    <!-- SECOND ROW: Payment -->
+                    <div class="row g-3 mb-4">
+                    <!--
+                        - creates a new row
+                        - g-3 = adds gap of 3 between columns
+                        - mb-4 = adds a margin of size 4 below the row to separate it from the next section 
+                    -->
+
+                        <!-- col-md-4 will take up 1/3 of container width on screen-->
+                        <div class="col-md-4">
+                            <label for="payment">Payment Method:</label>
+                            <!-- Dropdown menu using select-->
+                            <select id="payment" name="payment">
+                                <!-- The different payment options to choose, values used in javascript -->
+                                <option value="credit-card">Credit Card</option>
+                                <option value="paypal">Paypal</option>
+                                <option value="stripe">Stripe</option>
+                                <option value="crypto">Cryptocurrency</option>
+                            </select>
+                        </div>
+
+                        <!----------------------------------------------------------->
+                        <!-- Input Payment Details Containers (from custom module) -->
+
+                        <!-- col-md-8 will take up 2/3 of container width on screen-->
+                        <div class="col-md-8">
+                            <!-- id used to load correct layout from custom module payment.js -->
+                            <div id="credit-card-stripe-fields" class="payment-fields">
+                                <%- creditCardFields %>
+                            </div>
+
+                            <!-- display none is used so that these are not initially shown when page loads-->
+                             <!-- id used to load correct layout from custom module payment.js -->
+                            <div id="paypal-fields" class="payment-fields" style="display: none;">
+                                <%- paypalFields %>
+                            </div>
+
+                            <!-- id used to load correct layout from custom module payment.js -->
+                            <div id="crypto-fields" class="payment-fields" style="display: none;">
+                                <%- cryptoFields %>
+                            </div>
+                        </div>
+
+                        <!-- End of Input Payment Details Containers (from custom module) -->
+                        <!------------------------------------------------------------------>
+
+                    </div>
+
+                    <!-- End of SECOND ROW: Payment -->
+                    <!-------------------------------->
+
+
             </div>
+            <br>
+            <hr>
 
-            <!-- TOGGLER -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span><i id="bar" class="fa-solid fa-bars"></i></span>
-            </button>
+            <!-- End of CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
+            <!------------------------------------------------------->
 
-            <!--Navigation bar when page is resized / Collapsible Content-->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
 
-                <!-- CENTRE: Nav links -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jerseyShop">Jerseys</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/miscShop">Miscellaneous</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contactUs">Contact</a>
-                    </li>
-                </ul>
+            <!-------------------------------------->
+            <!-- Total Cost & Bottom Row: Buttons -->
+            <!--
+                - creates a new row
+                - align-items-center = vertically centres all content in the row
+                - mb-4 = adds a margin of size 4 below the row to separate it from the next section 
+            -->
+            <div class="row align-items-center mb-4">
+                <!--
+                    - col = allows auto-size within the row
+                    - d-flex align-items-center = will make the heading vertically centred 
+                -->
+                <div class="col d-flex align-items-center">
+                    <!-- mb-0 = removes extra margin under the heading -->
+                    <h3 class="mb-0">
+                        <!-- id is used for Javascript to dynamically fill the total cost -->
+                        Total Cost: <span id="checkout_total"></span>
+                    </h3>
+                </div>
 
-
-                <!-- RIGHT: Search + Icons-->
-                <div class="navbar-icons d-flex align-items-center mr-3">
-                    <form class="d-flex align-items-center mr-3 search-form" action="/search" method="get">
-                        <input type="text" name="q" class="search-input" placeholder="Search..."
-                            aria-label="Record name">
-                        <button type="submit" class="icon-button" aria-label="Search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <!-- Results dropdown -->
-                        <div id="searchResults" class="search-results"></div>
-                    </form>
-                    </form>
-                    <!--Button to Checkout-->
-                    <a href="/checkout" class="nav-link">
-                        <i class="fa-solid fa-basket-shopping"></i>
+                <!-- Buttons -->
+                <!-- 
+                    - col = allows auto-size within the row
+                    - d-flex align-items-end = pushed the content to the right hand side
+                    - align-items-center = ensures the buttons are vertically centred
+                    - gap-2 = adds spacing between buttons of size 2
+                -->
+                <div class="col d-flex justify-content-end align-items-center gap-2">
+                    <a href="/shop-all" class="mr-3">
+                        <!-- button which brings user back to shopEntire page -->
+                        <button type="button">Continue Shopping</button>
                     </a>
-                    <!--Buttion to Sign In-->
-                    <!--Buttion to Sign In - Checks if user is logged in, if not log in option-->
-                    <!--Checks if user is logged in via sessions-->
-                    <% if (!user) { %>
-                        <!-- If user is Not logged in then the login icon and option appear, redirecting to login page if clicked-->
-                        <a href="/login" class="nav-link" title="Login">
-                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        </a>
-                        <% } else { %>
-                            <!-- If user is Logged in then icon changed and alert to say logged in pops up if clicked-->
-                            <a href="#" class="nav-link" title="Already logged in"
-                                onclick="alert('User already logged in'); return false;">
-                                <i class="fa-solid fa-user-check"></i>
-                            </a>
-                            <% } %>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-
-
-    <!-------------------------->
-    <!-- Shopping Cart Section-->
-
-    <div class="container mt-5">
-        <h1>Shopping Cart</h1>
-        <br>
-
-        <!-- Cart headers-->
-        <section>
-            <div class="cart-header d-flex font-weight-bold border-bottom pb-2 mb-2">
-                <div class="col-image">Product</div>
-                <div class="col-name"></div>
-                <div class="col-size">Size</div>
-                <div class="col-price">Price</div>
-                <div class="col-quantity">Quantity</div>
-                <div class="col-total">Total</div>
-                <div class="col-cancel">Remove</div>
-            </div>
-
-            <!--Items Currently in Cart Container-->
-            <!--empty_cart is handled by the script if no items in cart-->
-            <div id="cart_items" class="border p-3 mb-3">
-                <p id="empty_cart"></p>
-            </div>
-
-            <!--Final Price for Shopping Cart-->
-            <h3 id="final_price" class="text-right"></h3>
-        </section>
-        <hr>
-
-
-
-        <!------------------------------------------------>
-        <!-- CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
-        <div class="container mt-5" style="max-width: 900px;">
-            <h1 class="mb-4">Checkout</h1>
-
-            <!--A Post method for submitting the form, redirects to paymentSuccess page-->
-            <form action="/paymentSuccess" method="POST">
-
-                <!-------------------------------------------->
-                <!-- TOP ROW: Shipping Address (full width) -->
-                <div class="row g-3 mb-4">
-                    <div class="col-md-6">
-                        <label class="form-label">First Name: </label>
-                        <input type="text" name="firstName" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Last Name: </label>
-                        <input type="text" name="lastName" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Address Line 1: </label>
-                        <input type="text" name="addressLine1" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Address Line 2: </label>
-                        <input type="text" name="addressLine2" class="form-control">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">City: </label>
-                        <input type="text" name="city" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">ZIP / Eircode: </label>
-                        <input type="text" name="zip" class="form-control" required>
-                    </div>
-
-                    <!--Ensure the user puts an email address in with the type=email command-->
-                    <div class="col-md-12">
-                        <label class="form-label">E-mail: </label>
-                        <input type="email" name="email" class="form-control" required placeholder="you@example.com">
-                    </div>
-                </div>
-
-                <!-- End of TOP ROW: Shipping Address -->
-                <!-------------------------------------->
-
-
-                <!------------------------->
-                <!-- SECOND ROW: Payment -->
-                <div class="row g-3 mb-4">
-
-                    <!-- col-md-4 will take up 1/3 of container width on screen-->
-                    <div class="col-md-4">
-                        <label for="payment">Payment Method:</label>
-                        <!-- Dropdown menu using select-->
-                        <select id="payment" name="payment">
-                            <!-- The different payment options to choose-->
-                            <option value="credit-card">Credit Card</option>
-                            <option value="paypal">Paypal</option>
-                            <option value="stripe">Stripe</option>
-                            <option value="crypto">Cryptocurrency</option>
-                        </select>
-                    </div>
-
-                    <!----------------------------------------------------------->
-                    <!-- Input Payment Details Containers (from custom module) -->
-
-                    <!-- col-md-8 will take up 2/3 of container width on screen-->
-                    <div class="col-md-8">
-                        <div id="credit-card-stripe-fields" class="payment-fields">
-                            <%- creditCardFields %>
-                        </div>
-
-                        <!-- display none is used so that these are not initially shown when page loads-->
-                        <div id="paypal-fields" class="payment-fields" style="display: none;">
-                            <%- paypalFields %>
-                        </div>
-
-                        <div id="crypto-fields" class="payment-fields" style="display: none;">
-                            <%- cryptoFields %>
-                        </div>
-                    </div>
-
-                    <!-- End of Input Payment Details Containers (from custom module) -->
-                    <!------------------------------------------------------------------>
-
-                </div>
-
-                <!-- End of SECOND ROW: Payment -->
-                <!-------------------------------->
-
-
-
-        </div>
-
-        <!-- End of CHECKOUT SECTION -> PAYMENT, NAME, ADDRESS -->
-        <!------------------------------------------------------->
-
-        <br>
-        <hr>
-
-        <!-------------------------------------->
-        <!-- Total Cost & Bottom Row: Buttons -->
-        <div class="row align-items-center mb-4">
-            <div class="col d-flex align-items-center">
-                <h3 class="mb-0">
-                    Total Cost: <span id="checkout_total"></span>
-                </h3>
-            </div>
-
-            <div class="col d-flex justify-content-end align-items-center gap-2">
-                <a href="/shop-all" class="mr-3">
-                    <button type="button">Continue Shopping</button>
-                </a>
-                
+                    <!-- button which submits the form (if correctly filled out) to place the order -->
+                    <!-- action at top of form redirects to the paymentSuccess page -->
                     <button id="placeOrderBtn" type="submit">Place Order</button>
-                
+
+                </div>
+                <!-- End of Buttons -->
             </div>
+
+            </form>
+            <!-- End of Post Method form -->
+
         </div>
+        <hr>
 
-        </form>
-    </div>
-    <hr>
-
-    <!-- End of Shopping Cart Section-->
-    <!--------------------------------->
+        <!-- End of Shopping Cart Section-->
+        <!--------------------------------->
 
 
-    <!--------------------------------------------------------------------------------------------------------------------------------->
-    <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar at bottom of screen-->
+        <!------------------------>
+        <!--Brand Logos Section -->
 
-    <section id="band" class="container">
-        <!--use row to keep all images in one row. Using img-fluid from bootstrap to make the images responsive and fit across screen in columns per size of screen -->
-        <div class="row">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
-                alt="nike">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/adidas-logo-black-and-white.png"
-                alt="addidas">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
-                alt="puma">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/umbro-logo-black-and-white.png"
-                alt="umbro">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/Oneills-logo-black-and-white.png"
-                alt="o'neills">
-            <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
-                alt="macron">
-        </div>
-    </section>
-
-    <!-- End of logos band across screen-->
-    <!------------------------------------>
-
-
-    <!---------------------->
-    <!--Back to Top Button-->
-    <!-- Works from the scipt.js file-->
-
-    <button id="backToTop" title="Go to top">↑ Top</button>
-
-    <!-- End of Back to Top Button-->
-    <!------------------------------>
-
-
-    <!-------------------------->
-    <!--Import JAVASCRIPT FILE-->
-
-    <script src="/public/script.js"></script>
-
-    <!-- End of JavaScript Import-->
-    <!----------------------------->
-
-
-    <!------------------------------------------------------------------------->
-    <!--setting up footer at bottom of page with bootstrap class margin-top 5-->
-
-    <footer>
-        <!--using rows in bootstrap for the footer elements and colums for each screen size - large:3 medium:6 small:12-->
-        <!--using row container to ensure no slider at bottom of page and padding at top of 5-->
-        <div class="row container mx-auto pt-3 align-items-stretch">
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <img id="footer_small_logo" src="/public/images/logo/logo-grayscale-transparent.png" alt="logo"
-                    width="100px">
-                <!--text below has padding added via bootstrap for spacing above it-->
-                <p class="pt-4">All your sporting needs in one location. If we don't have it, then you dont need
-                    it!!
-                </p>
-                <p> Shop with us to guarantee you<br>
-                    <em>Score Your Next Victory</em>
-                </p>
-
+        <!--A band of brands across screen for logos of items being sold. Using class container to remove sliding bar 
+        at bottom of screen and set the width of the images in the row-->
+        <section class="container">
+            <!--
+            Row (bootstrap) to keep all images in one row, with img-fluid (bootstrap) to make the images responsive
+            - col-lg-2 allows all six images in the row on a large screen
+            - col-md-4 stacks them in two rows with three images per row on medium screen
+            - col-6 puts two images per row on smaller sized screens, such as mobile
+        -->
+            <div class="row">
+                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/nike-logo-black-and-white.png"
+                    alt="nike">
+                <img class="img-fluid col-lg-2 col-md-4 col-6"
+                    src="/public/images/brands/adidas-logo-black-and-white.png" alt="addidas">
+                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/puma-logo-black-and-white.png"
+                    alt="puma">
+                <img class="img-fluid col-lg-2 col-md-4 col-6"
+                    src="/public/images/brands/umbro-logo-black-and-white.png" alt="umbro">
+                <img class="img-fluid col-lg-2 col-md-4 col-6"
+                    src="/public/images/brands/Oneills-logo-black-and-white.png" alt="o'neills">
+                <img class="img-fluid col-lg-2 col-md-4 col-6" src="/public/images/brands/macron-black-and-white.png"
+                    alt="macron">
             </div>
-            <!--List of features items with link to the store page sections, bootstrap for spacing and padded bottom of 2 before the list-->
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <h5 class="pb-2">Featured</h5>
-                <!--list of featured items without bullet points and all in uppercase-->
-                <ul class="text-uppercase list-unstyled">
-                    <li><a href="/shop-all#footballs">Footballs</a></li>
-                    <li><a href="/shop-all#gloves">Gloves</a></li>
-                    <li><a href="/jerseyShop">Jerseys</a></li>
-                    <li><a href="/shop-all#goals">Goals</a></li>
-                    <li><a href="/miscShop">Miscellaneous</a></li>
-                </ul>
-            </div>
-            <div class="footer-one col-lg-3 col-md-6 col-12">
-                <!-- contact us section with address, phone, and email-->
-                <h5 class="pb-2">Contact Us</h5>
-                <div>
-                    <h6 class="text-uppercase">Address</h6>
-                    <p>123 STREET NAME, ATU, GALWAY, IRELAND</p>
-                </div>
-                <div>
-                    <h6 class="text-uppercase">Phone</h6>
-                    <p>(059) 00 12345</p>
-                </div>
-                <div>
-                    <h6 class="text-uppercase">Email</h6>
-                    <p>robertsfootballshop@atu.ie</p>
-                </div>
-            </div>
-            <!--Large logo section with the image placed centrally and at 100% height via bootstrap-->
-            <div class="footer-one col-lg-3 col-md-6 col-12 d-flex align-items-center justify-content-center">
-                <img class="img-fluid w-75 m-1" src="/public/images/logo/logo-red-transparent.png" alt="large logo">
-            </div>
-        </div>
+        </section>
 
-        <!--very bottom of footer with the copyright info-->
-        <div class="copyright mt-3 py-3">
-            <div class="row container mx-auto">
-                <!--Setting column sizes of large:3 medium:6 small:12 and image of accepted payment types-->
-                <div class="col-lg-4 col-12 text-lg-start text-center mb-3 mb-lg-0">
-                    <img src="/public/images/payment/visa-logo-png-2026.png" alt="visa, mastercard" width="50%">
-                </div>
-                <!--Copyright with screen sizes and putting in text-nowrap to keep it all on one line-->
-                <div class="col-lg-4 col-12 text-center mb-3 mb-lg-0">
-                    <p class="mb-0 text-nowrap">Roberts Footall Shop &copy 2026. All Rights Reserved</p>
-                </div>
-                <!--Social Media Icons from Font Awesome with links(no links included for this project)-->
-                <div class="col-lg-4 col-12 text-lg-end text-center">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></i></a>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-
-    <!-- End of footer section-->
-    <!-------------------------->
+        <!--End of Brand Logos Section -->
+        <!------------------------------->
 
 
-    <!--Importing Bootstrap for JS and Popper-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+        <!---------------------->
+        <!--Back to Top Button-->
+        <!-- id set for styling in CSS, function in Javascript-->
+        <button id="backToTop" title="Go to top">↑ Top</button>
 
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-            //store cost of all items
-            let cost_allItems = 0;
-            let cartContainer = document.getElementById("cart_items");
-            let emptyMessage = document.getElementById("empty_cart");
-
-            let hasItems = false;
+        <!--End of Back to Top Button-->
+        <!----------------------------->
 
 
 
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                //console.log(key);
-                let content = JSON.parse(localStorage.getItem(key));
+        <!------------------->
+        <!-- Footer Section-->
+        <%- include('templates/footer') %>
 
-                //Make sure both price and quantity are type int
-                if (
-                    !content ||
-                    typeof content.p !== "number" ||
-                    typeof content.quan !== "number" ||
-                    !content.s
-                ) {
-                    continue;
-                }
-
-                //Store the price and quantity as variables
-                let price = content.p;
-                let quantity = content.quan;
-                let discountRate = 0;
-                let discountSize = content.s;
-
-                //apply the discount logic 
-                if (discountSize === "Xtra Small") {
-                    //20% off for size Xtra Small
-                    discountRate = 0.20;
-                } else if (discountSize === "Small") {
-                    //10% off for size Small
-                    discountRate = 0.10;
-                }
-
-                //Calculate the final price by taking the discount amount from the original price
-                let discountedPrice = price * (1 - discountRate);
-                //Update the total cost for the items
-                let total_cost = discountedPrice * content.quan;
-
-                //console.log(content);
-                if (content.quan > 0) {
-                    hasItems = true;
-                    cost_allItems += total_cost;
+        <!-- End of Footer Section-->
+        <!-------------------------->
 
 
-                    //output of the image, the key (product name and type), the quantity, the size, and the overall cost
-                    //Apply a banner 'alert' of the discount only if a discount is applied - ${discountRate > 0 ?
-                    //Then insert the image, name, size, quantity,
-                    //price (with discount if applied and using <del> to strikthrough original)
-                    //Sum the overall cost from the total row (toFixed(2)) ensures discounted prices are in this row
-                    //Everything is wrapped in the div "cart-item-container" with data-key so I can remove items from cart
-                    cartContainer.innerHTML += `
+        <!--Link JAVASCRIPT FILE-->
+        <script src="/public/script.js"></script>
+
+
+        <!--Importing Bootstrap 5 for JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+            <script>
+
+                // Waits until all of the HTML document is loaded before running any JavaScript
+                document.addEventListener("DOMContentLoaded", () => {
+
+                    // Stores cost of all items in cart
+                    let cost_allItems = 0;
+
+                    // References to the cart display area and empty-cart message
+                    let cartContainer = document.getElementById("cart_items");
+                    let emptyMessage = document.getElementById("empty_cart");
+
+                    // Checks if valid items exist in the cart
+                    let hasItems = false;
+
+
+                    // A loop to go through everything saved in local storage
+                    for (let i = 0; i < localStorage.length; i++) {
+
+                        // Gets the storage keys (from local storge)
+                        let key = localStorage.key(i);
+                        // Parse the stored JSON objects from the key
+                        let content = JSON.parse(localStorage.getItem(key));
+
+                        // Make sure the objects exist
+                        // Make sure both price and quantity are type int
+                        // Make sure size exists
+                        if (
+                            !content ||
+                            typeof content.p !== "number" ||
+                            typeof content.quan !== "number" ||
+                            !content.s
+                        ) {
+                            // If all above are true then continue and skip any invalid entries
+                            continue;
+                        }
+
+                        // Store the price and quantity as variables
+                        // Store variables for the discount rate
+                        let price = content.p;
+                        let quantity = content.quan;
+                        let discountRate = 0;
+                        let discountSize = content.s;
+
+                        //apply the discount logic based on size
+                        if (discountSize === "Xtra Small") {
+                            // 20% off for size Xtra Small
+                            discountRate = 0.20;
+                        } else if (discountSize === "Small") {
+                            // 10% off for size Small
+                            discountRate = 0.10;
+                        }
+
+                        //Calculate the discounted price by taking the discount amount from the original price
+                        let discountedPrice = price * (1 - discountRate);
+                        //Update the total cost for the items (price x quantity)
+                        let total_cost = discountedPrice * content.quan;
+
+                        // Only show items with a quantity greater than 0
+                        if (content.quan > 0) {
+                            hasItems = true;
+                            cost_allItems += total_cost;
+
+                            // Insert the cart items into HTML for the page
+                            //output of the image, the key (product name and type), the quantity, the size, and the overall cost
+                            //Apply a banner 'alert' of the discount only if a discount is applied - ${discountRate > 0 ?
+                            //Then insert the image, name, size, quantity,
+                            //price (with discount if applied and using <del> to strikthrough original)
+                            //Sum the overall cost from the total row (toFixed(2)) ensures discounted prices are in this row
+                            //Everything is wrapped in the div "cart-item-container" with data-key so I can remove items from cart
+                            cartContainer.innerHTML += `
                         <div class="cart-item-container" data-key="${key}">
                             ${discountRate > 0 ? `
                                 <div class="alert alert-warning w-100 mb-3">
@@ -471,8 +431,8 @@
                             <div class="col-name"><a href="/shop?rec=${content.id}">${content.type}</a></div>
                             <div class="col-size">${content.s}</div>          
                             <div class="col-price">${discountRate > 0 ? `<del>€${price.toFixed(2)}</del><br>€${discountedPrice.toFixed(2)}`
-                            : `€${price.toFixed(2)}`
-                        }
+                                    : `€${price.toFixed(2)}`
+                                }
                                     </div>
 
                             <div class="col-quantity">${content.quan}</div>
@@ -483,91 +443,110 @@
                     </div>
                 
                  `;
-                }
-            }
+                        }
+                    }
 
-            //if loop to apply "No Items In Cart" message if no items have been selected,  
-            //and apply it to the emptyMessage variable defined at top of script
-            if (!hasItems) {
-                emptyMessage.textContent = "No Items In Cart";
-            } else {
-                emptyMessage.textContent = "";
-            }
+                    //if loop to apply "No Items In Cart" message if no valid items exist in cart,  
+                    //and apply it to the emptyMessage variable defined at top of script
+                    if (!hasItems) {
+                        emptyMessage.textContent = "No Items In Cart";
+                    } else {
+                        emptyMessage.textContent = "";
+                    }
 
 
-            // Remove item from cart
-            const cancelIcons = document.querySelectorAll(".col-cancel i");
-            cancelIcons.forEach(icon => {
-                icon.addEventListener("click", (e) => {
-                    const container = e.target.closest(".cart-item-container");
-                    const key = container.getAttribute("data-key");
-                    localStorage.removeItem(key); // Remove the saved Item from Local Storage via its data-key
-                    location.reload(); // Refresh the cart
+                    // Remove item from cart
+                    // Done via click listeners
+                    const cancelIcons = document.querySelectorAll(".col-cancel i");
+                    cancelIcons.forEach(icon => {
+                        icon.addEventListener("click", (e) => {
+                            // Gets the key / data of the item in the row which was clicked
+                            const container = e.target.closest(".cart-item-container");
+                            const key = container.getAttribute("data-key");
+                            localStorage.removeItem(key); // Remove the saved Item from Local Storage via its data-key
+                            location.reload(); // Refresh the page to reload the cart display
+                        });
+                    });
+
+
+                    // ---------------------
+                    // Create the total cost
+                    // ---------------------
+                    const totalText = "€" + cost_allItems.toFixed(2);
+
+                    // To get the price to show in both the cart
+                    // and beneath the checkout part after the enter card details part
+                    document.getElementById("final_price").textContent = "Total: " + totalText;
+                    document.getElementById("checkout_total").textContent = totalText;
+                    
+                    // ----------------------------
+                    // End of Create the total cost
+                    // ----------------------------
+
+
+                    // -------------------------------
+                    // Login check before order submit
+                    // -------------------------------
+                    const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+                    // This variable comes from ejs res.locals.user (sessions)
+                    const loggedInUser = "<%= user ? user : '' %>";
+
+                    // If user is not logged in then the alert pops up and then cannot proceed via preventDefault
+                    placeOrderBtn.addEventListener("click", (e) => {
+                        if (!loggedInUser) {
+                            e.preventDefault(); // Stop form submission
+                            alert("Please Login before you can proceed");
+                        }
+
+                    });
+
+                    // --------------------------------------
+                    // End of Login check before order submit
+                    // --------------------------------------
+
+
+                    //--------------------------
+                    // Payment switching options
+                    //--------------------------
+                    const paymentSelect = document.getElementById("payment");
+                    const creditCardStripeFields = document.getElementById("credit-card-stripe-fields");
+                    const paypalFields = document.getElementById("paypal-fields");
+                    const cryptoFields = document.getElementById("crypto-fields");
+
+                    // Show only the payment field which is selected 
+                    // from the custom node module payment.ejs
+                    function showPaymentFields(method) {
+                        creditCardStripeFields.style.display = "none";
+                        paypalFields.style.display = "none";
+                        cryptoFields.style.display = "none";
+
+                        if (method === "credit-card" || method === "stripe") {
+                            creditCardStripeFields.style.display = "block";
+                        } else if (method === "paypal") {
+                            paypalFields.style.display = "block";
+                        } else if (method === "crypto") {
+                            cryptoFields.style.display = "block";
+                        }
+                    }
+
+                    // Show correct form on page load
+                    showPaymentFields(paymentSelect.value);
+
+                    // Change form when user selects a different payment method
+                    paymentSelect.addEventListener("change", (e) => {
+                        showPaymentFields(e.target.value);
+                    });
+
+                    //--------------------------------
+                    //End of Payment switching options
+                    //--------------------------------
+
+
                 });
-            });
 
 
-            const totalText = "€" + cost_allItems.toFixed(2);
-
-            //To get the price to show beneath the checkout part after the enter card details part
-            document.getElementById("final_price").textContent = "Total: " + totalText;
-            document.getElementById("checkout_total").textContent = totalText;
-
-
-            // Check if user is logged in before placing order 
-            const placeOrderBtn = document.getElementById("placeOrderBtn");
-
-            // This variable comes from your EJS res.locals.user
-            const loggedInUser = "<%= user ? user : '' %>";
-
-            // If user is logged in then they can proceed, if not the alert pops up and then cannot proceed via preventDefault
-            placeOrderBtn.addEventListener("click", (e) => {
-                if (!loggedInUser) {
-                    e.preventDefault(); // Stop form submission
-                    alert("Please Login before you can proceed");
-                }
-
-            });
-
-            //--------------------------
-            // Payment switching options
-            //--------------------------
-            const paymentSelect = document.getElementById("payment");
-            const creditCardStripeFields = document.getElementById("credit-card-stripe-fields");
-            const paypalFields = document.getElementById("paypal-fields");
-            const cryptoFields = document.getElementById("crypto-fields");
-
-            function showPaymentFields(method) {
-                creditCardStripeFields.style.display = "none";
-                paypalFields.style.display = "none";
-                cryptoFields.style.display = "none";
-
-                if (method === "credit-card" || method === "stripe") {
-                    creditCardStripeFields.style.display = "block";
-                } else if (method === "paypal") {
-                    paypalFields.style.display = "block";
-                } else if (method === "crypto") {
-                    cryptoFields.style.display = "block";
-                }
-            }
-
-            // Show correct form on page load
-            showPaymentFields(paymentSelect.value);
-
-            // Change form when user selects a different payment method
-            paymentSelect.addEventListener("change", (e) => {
-                showPaymentFields(e.target.value);
-            });
-
-            //--------------------------------
-            //End of Payment switching options
-            //--------------------------------
-
-
-        });
-
-
-    </script>
+            </script>
 
 
 </body>
