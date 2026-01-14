@@ -7,10 +7,9 @@
 
     <title>Robert's Sports Shop - Miscellaneous</title>
 
-    <!--Importing Bootstrap for CSS-->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Importing Bootstrap 5 for CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!--Linking CSS file-->
     <link rel="stylesheet" href="/public/css/style.css">
 
@@ -33,9 +32,11 @@
         <!--Links to Other Shop Pages-->
         <div class="page-buttons">
             <a href="/jerseyShop">
+                <!-- class my-button for CSS margin, padding, text align, font size -->
                 <button class="my-button">JERSEYS</button>
             </a>
             <a href="/shop-all">
+                <!-- class my-button for CSS margin, padding, text align, font size -->
                 <button class="my-button">SHOP ALL</button>
             </a>
         </div>
@@ -44,178 +45,292 @@
 
 
         <!--FEATURED SECTIONS-->
-        <!-- Card like layout with image reference, item name, price, and button leading to shop page of product-->
+        <!-- Card like layout with image reference, item name, and button leading to shop page of product-->
+        
+
         <!--Footballs Section-->
-        <section id="featured" class="my-5 pb-5">
+        <!--
+            - my-5 = margin top and bottom size 5
+            - py-5 = padding top and bottom size 5
+        -->
+        <section class="my-5 pb-5">
+            <!--
+                - bootstrap container
+                - text-center = centres all text
+                - mt-5 = margin top size 5
+                - py-5 = padding top and bottom size 5
+            -->
             <div class="container text-center mt-5 py-5">
                 <h3>Footballs</h3>
                 <hr>
+                <!-- link to shopEntire section id -->
                 <a href="/shop-all#footballs">
+                    <!-- class my-button for CSS margin, padding, text align, font size -->
                     <button class="my-button">All Footballs</button>
                 </a>
             </div>
+            <!--
+                - creates bootstrap row
+                - mx-auto = horizontal margin is automatic
+                - container-fluid = full width container
+            -->
             <div class="row mx-auto container-fluid">
+                <!--
+                    - class product for CSS font weight and image wrapper
+                    - text center = text aligned centrally on horizontal axis
+                    - col-lg-3 = large screens 4 products per row
+                    - col-md-4 = medium screens 3 products per row
+                    - col-12 = small screens 1 product per row
+                    - anchor link to product page via ID in app.js
+                    - img-fluid makes image responsive
+                    - mb-3 = adds margin size 3 to bottom of image
+                -->
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/world_cup_ball.png" alt="World Cup 2026">
-                    <h5 class="p-name">World Cup 2026</h5>
+                    <h5>World Cup 2026</h5>
                     <a href="/shop?rec=237">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/premier_league_ball.png"
                         alt="Premier League 25/26">
-                    <h5 class="p-name">Premier League 25/26</h5>
+                    <h5>Premier League 25/26</h5>
                     <a href="/shop?rec=238">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/champions_league_ball.png"
                         alt="Champions League 25/26">
-                    <h5 class="p-name">Champions League 25/26</h5>
+                    <h5>Champions League 25/26</h5>
                     <a href="/shop?rec=243">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/europa_league_ball.png"
                         alt="Europa League 25/26">
-                    <h5 class="p-name">Europa League 25/26</h5>
+                    <h5>Europa League 25/26</h5>
                     <a href="/shop?rec=244">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
             </div>
         </section>
+        <!--End of Footballs Section-->
 
 
-        <!--Football Goals-->
-        <section id="featured" class="my-5 pb-5">
+        <!-- Football Goals -->
+        <!--
+            - my-5 = margin top and bottom size 5
+            - py-5 = padding top and bottom size 5
+        -->
+        <section class="my-5 pb-5">
+            <!--
+                - bootstrap container
+                - text-center = centres all text
+                - mt-5 = margin top size 5
+                - py-5 = padding top and bottom size 5
+            -->
             <div class="container text-center mt-5 py-5">
                 <h3>Football Goals</h3>
                 <hr>
+                <!-- link to shopEntire section id -->
                 <a href="/shop-all#goals">
+                    <!-- class my-button for CSS margin, padding, text align, font size -->
                     <button class="my-button">All Football Goals</button>
                 </a>
             </div>
+            <!--
+                - creates bootstrap row
+                - mx-auto = horizontal margin is automatic
+                - container-fluid = full width container
+            -->
             <div class="row mx-auto container-fluid">
+                <!--
+                    - class product for CSS font weight and image wrapper
+                    - text center = text aligned centrally on horizontal axis
+                    - col-lg-3 = large screens 4 products per row
+                    - col-md-4 = medium screens 3 products per row
+                    - col-12 = small screens 1 product per row
+                    - anchor link to product page via ID in app.js
+                    - img-fluid makes image responsive
+                    - mb-3 = adds margin size 3 to bottom of image
+                -->
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/forza8x4.png" alt="8 x 4 Forza">
-                    <h5 class="p-name">8 x 4 Forza</h5>
+                    <h5>8 x 4 Forza</h5>
                     <a href="/shop?rec=261">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/samba8x5.png" alt="8 x 5 Samba">
-                    <h5 class="p-name">8 x 5 Samba</h5>
+                    <h5>8 x 5 Samba</h5>
                     <a href="/shop?rec=265">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/forza12x6.png" alt="12 x 6 Forza">
-                    <h5 class="p-name">12 x 6 Forza</h5>
+                    <h5>12 x 6 Forza</h5>
                     <a href="/shop?rec=262">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/samba12x6.png" alt="12 x 6 Samba">
-                    <h5 class="p-name">12 x 6 Samba</h5>
+                    <h5>12 x 6 Samba</h5>
                     <a href="/shop?rec=264">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
             </div>
         </section>
+        <!-- End of Football Goals -->
 
 
-
-        <!--Goalkeeper Gloves-->
-        <section id="featured" class="my-5 pb-5">
+        <!-- Goalkeeper Gloves -->
+        <!--
+            - my-5 = margin top and bottom size 5
+            - py-5 = padding top and bottom size 5
+        -->
+        <section class="my-5 pb-5">
+            <!--
+                - bootstrap container
+                - text-center = centres all text
+                - mt-5 = margin top size 5
+                - py-5 = padding top and bottom size 5
+            -->
             <div class="container text-center mt-5 py-5">
                 <h3>Goalkeeper Gloves</h3>
                 <hr>
+                <!-- link to shopEntire section id -->
                 <a href="/shop-all#gloves">
+                    <!-- class my-button for CSS margin, padding, text align, font size -->
                     <button class="my-button">All Goalkeeper Gloves</button>
                 </a>
             </div>
+            <!--
+                - creates bootstrap row
+                - mx-auto = horizontal margin is automatic
+                - container-fluid = full width container
+            -->
             <div class="row mx-auto container-fluid">
+                <!--
+                    - class product for CSS font weight and image wrapper
+                    - text center = text aligned centrally on horizontal axis
+                    - col-lg-3 = large screens 4 products per row
+                    - col-md-4 = medium screens 3 products per row
+                    - col-12 = small screens 1 product per row
+                    - anchor link to product page via ID in app.js
+                    - img-fluid makes image responsive
+                    - mb-3 = adds margin size 3 to bottom of image
+                -->
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/vaporGrip3.png" alt="Vapor Grip 3">
-                    <h5 class="p-name">Vapor Grip 3</h5>
+                    <h5>Vapor Grip 3</h5>
                     <a href="/shop?rec=256">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/phantom.png" alt="Phantom">
-                    <h5 class="p-name">Phantom</h5>
+                    <h5>Phantom</h5>
                     <a href="/shop?rec=257">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/predatorpro.png" alt="Predator Pro">
-                    <h5 class="p-name">Predator Pro</h5>
+                    <h5>Predator Pro</h5>
                     <a href="/shop?rec=258">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/copaPro.png" alt="Copa Pro">
-                    <h5 class="p-name">Copa Pro</h5>
+                    <h5>Copa Pro</h5>
                     <a href="/shop?rec=259">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
             </div>
         </section>
+        <!-- End of Goalkeeper Gloves -->
 
 
         <!--Shin Pads-->
-        <section id="featured" class="my-5 pb-5">
+        <!--
+            - my-5 = margin top and bottom size 5
+            - py-5 = padding top and bottom size 5
+        -->
+        <section class="my-5 pb-5">
+            <!--
+                - bootstrap container
+                - text-center = centres all text
+                - mt-5 = margin top size 5
+                - py-5 = padding top and bottom size 5
+            -->
             <div class="container text-center mt-5 py-5">
                 <h3>Shin Pads</h3>
                 <hr>
+                <!-- link to shopEntire section id -->
                 <a href="/shop-all#shinPads">
+                    <!-- class my-button for CSS margin, padding, text align, font size -->
                     <button class="my-button">All Shin Pads</button>
                 </a>
             </div>
+            <!--
+                - creates bootstrap row
+                - mx-auto = horizontal margin is automatic
+                - container-fluid = full width container
+            -->
             <div class="row mx-auto container-fluid">
+                <!--
+                    - class product for CSS font weight and image wrapper
+                    - text center = text aligned centrally on horizontal axis
+                    - col-lg-3 = large screens 4 products per row
+                    - col-md-4 = medium screens 3 products per row
+                    - col-12 = small screens 1 product per row
+                    - anchor link to product page via ID in app.js
+                    - img-fluid makes image responsive
+                    - mb-3 = adds margin size 3 to bottom of image
+                -->
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/tiro.png" alt="Tiro">
-                    <h5 class="p-name">Tiro</h5>
+                    <h5>Tiro</h5>
                     <a href="/shop?rec=249">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/club.png" alt="Club">
-                    <h5 class="p-name">Club</h5>
+                    <h5>Club</h5>
                     <a href="/shop?rec=250">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/shadow.png" alt="Shadow">
-                    <h5 class="p-name">Shadow</h5>
+                    <h5>Shadow</h5>
                     <a href="/shop?rec=251">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
                 <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="/public/images/misc_items/king.png" alt="King">
-                    <h5 class="p-name">King</h5>
+                    <h5>King</h5>
                     <a href="/shop?rec=254">
-                        <button class="details">More Details</button>
+                        <button>More Details</button>
                     </a>
                 </div>
             </div>
         </section>
+        <!-- End of Shin Pads -->
 
+        <!-- END OF FEATURED SECTIONS -->
 
 
         <!---------------------->
@@ -240,10 +355,8 @@
 
 
 
-        <!--Importing Bootstrap for JS and Popper-->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+        <!--Importing Bootstrap 5 for JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
