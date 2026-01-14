@@ -23,6 +23,7 @@ app.use(express.json());
 
 //Uses absolute path if project folder is loaded on different system - not hard-coding file paths
 const path = require("path");
+
 //Allows Node to browse backend folders such as for carousel images
 const fs = require("fs");
 
@@ -43,6 +44,8 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 //------------------------------
 // For Home Page Carousel Images
 app.get("/", (req, res) => {
+    
+    // Route to the saved images
     const imagesDir = path.join(__dirname, "public/images/jerseys");
 
     //Creates empty array for the images to be stored before shuffle
@@ -183,34 +186,32 @@ app.get("/search", function (req, res) {
 //-------------------------------
 // Routes to Pages in the website
 
-//Route back to Home Page (GET Method)
-//app.get("/", function (req, res) {
-//   res.render("home");
-//})
-
-
 //Route to the About page (GET Method)
 app.get("/about", (req, res) => {
     res.render("about");
 });
+// End of Route for About page (GET Method)
 
 
 //Route to the Contact Us page (GET Method)
 app.get("/contactUs", (req, res) => {
     res.render("contactUs");
 });
+// End of Route for Contact Us page (GET Method)
 
 
 //Route to the Jersey Shop Page (GET Method)
 app.get("/jerseyShop", (req, res) => {
     res.render("jerseyShop");
 });
+// End of Route for Jersey Shop Page (GET Method)
 
 
 //Route to the Misc Items Shop Page (GET Method)
 app.get("/miscShop", (req, res) => {
     res.render("miscShop");
 });
+// End of Route for Misc Items Shop Page (GET Method)
 
 
 //Route for the entire shopEntire page (GET Method)
@@ -226,6 +227,7 @@ app.get("/shop-all", (req, res) => {
         });
     });
 });
+// End of Route for shopEntire page (GET Method)
 
 
 //Route to Payment / Order Successful after Checkout Page (POST METHOD)
@@ -238,6 +240,7 @@ app.post("/paymentSuccess", (req, res) => {
         orderNumber // pass as object to avoid error
     });
 });
+// End of Route for Payment / Order Successful after Checkout Page (POST METHOD)
 
 // End of Routes to Pages in the website
 //--------------------------------------

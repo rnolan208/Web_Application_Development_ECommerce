@@ -6,7 +6,8 @@ https://getbootstrap.com/docs/5.0/examples/cheatsheet/#typography
 */
 
 
-/*Generic style settings*/
+/*------------------------*/
+/* Generic style settings */
 * {
     margin: 0;
     padding: 0;
@@ -55,7 +56,13 @@ p {
     font-size: 1rem;
     font-weight: 400;
 }
+/* End of Generic style settings */
+/*-------------------------------*/
 
+
+
+/*-------------------------*/
+/* Generic Button Settings */
 /*Button*/
 button {
     font-size: 0.8rem;
@@ -113,6 +120,8 @@ button:hover {
     color: black;
     background-color: transparent;
 }
+/* End of Generic Button Settings*/
+/*-------------------------------*/
 
 
 
@@ -226,14 +235,13 @@ button:hover {
     }
 }
 
-
 /*End of Navbar Section*/
 /*---------------------*/
 
 
 
-/*------------------------------*/
-/*Background Image for Home Page*/
+/*----------------------------------------------------------------*/
+/*Background Image for Home Page, About Page, and Contact Us Page */
 
 /*Link for image, set as the background*/
 #home {
@@ -249,8 +257,8 @@ button:hover {
     padding-bottom: 80px;
 }
 
-/*End of Background Image for Home Page*/
-/*-------------------------------------*/
+/* End of Background Image for Home Page, About Page, and Contact Us Page */
+/*------------------------------------------------------------------------*/
 
 
 
@@ -298,7 +306,8 @@ footer li a:hover {
     color: #d8d8d8;
 }
 
-/*Social Media icons in the copyright section placed in round blocks with colour, width/height, margin for spacing, and transition*/
+/* Social Media icons in the copyright section placed in round blocks with red colour, 
+    white background, width/height, margin for spacing, and transition */
 footer .copyright a {
     color: rgb(238, 21, 64);
     width: 38px;
@@ -312,12 +321,13 @@ footer .copyright a {
     margin: 0 5px;
 }
 
+/* Change the icon to black and background to red when hover over icon */
 footer .copyright a:hover {
     color: black;
     background-color: rgb(238, 21, 64);
 }
 
-/*background of white for the transparen footer logo*/
+/*background of white for the transparent footer logo*/
 #footer_small_logo {
     width: 150px;
     height: 100px;
@@ -335,7 +345,15 @@ footer .copyright a:hover {
 /*---------------------*/
 
 
-/*featured items section for scaling and alignment to cover entire space with max-height and be centered*/
+
+/*-----------*/
+/* Home Page */
+
+#feat_items .one {
+    position: relative;
+}
+
+/* featured items section for scaling and alignment to cover entire space with max-height and be centered */
 #feat_items .one img {
     width: 100%;
     max-height: 600px;
@@ -369,8 +387,8 @@ footer .copyright a:hover {
 /*featured items - move the button down 70px from the top of the image*/
 #feat_items .one .details button {
     transform: translateY(70px);
+    z-index: 5;
 }
-
 
 
 /*The Slogan Text settings*/
@@ -382,7 +400,63 @@ footer .copyright a:hover {
     background-color: rgb(238, 21, 64);
 }
 
-/* ShopItemss Page */
+
+/*Casousel on Home Page*/
+
+.img-wrap {
+    position: relative;
+}
+
+.carousel-img {
+    display: none;
+    max-height: 500px;
+    width: 100%;
+    object-fit: contain;
+    /* keeps the whole image visible */
+}
+
+.carousel-img.active {
+    display: block;
+}
+
+/* Make the carousel container a positioning context */
+.car {
+    position: relative;
+}
+
+/* Style and position carousel navigation buttons */
+.car .prev,
+.car .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Position left and right buttons */
+.car .prev {
+    left: 10px;
+}
+
+.car .next {
+    right: 10px;
+}
+
+
+/* End of Home Page */
+/*------------------*/
+
+
+
+/*----------------*/
+/* ShopItems Page */
+
 /*For the product item page*/
 #product {
     font-weight: 700;
@@ -430,38 +504,18 @@ img {
     transform: scale(1.15);
 }
 
-
 /*Stop navbar overlapping on pages*/
 body {
-    padding-top: 70px;
-    /* adjusted for navbar height */
+    padding-top: 70px; /* adjusted for navbar height */
 }
 
-
-/*---------------------*/
-/*Casousel on Home Page*/
-
-.img-wrap {
-    position: relative;
-}
-
-.carousel-img {
-    display: none;
-    max-height: 500px;
-    width: 100%;
-    object-fit: contain;
-    /* keeps the whole image visible */
-}
-
-.carousel-img.active {
-    display: block;
-}
-
-/*End of Casousel on Home Page*/
-/*----------------------------*/
+/* End of ShopItems Page */
+/*-----------------------*/
 
 
-/*About page - create white background with 85% transparency behind text*/
+
+/*------------------------------------------------------------------------*/
+/* About page - create white background with 85% transparency behind text */
 .aboutUS {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
@@ -469,15 +523,23 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* margin in the list items for spacing */
 .aboutUS ul li {
     margin-bottom: 8px;
 }
 
+/* align the title text */
 .aboutTitle {
     text-align: center;
 }
 
-/*Contact US page - create white background with 85% transparency behind text*/
+/* End of About Page */
+/*-------------------*/
+
+
+
+/*-----------------------------------------------------------------------------*/
+/* Contact US page - create white background with 85% transparency behind text */
 
 .contactUS {
     background-color: rgba(255, 255, 255, 0.85);
@@ -516,9 +578,13 @@ body {
     color: rgb(238, 21, 64);
 }
 
+/* End of Contact US page */
+/*------------------------*/
 
-/*----------------------------------------------*/
-/*Back to Top Button (applied on multiple pages)*/
+
+
+/*------------------------------------------------*/
+/* Back to Top Button (applied on multiple pages) */
 
 #backToTop {
     position: fixed; /* button stays in the same place when scrolling */
@@ -542,11 +608,12 @@ body {
     color: rgb(238, 21, 64);
 }
 
-/*End of Back to Top Button*/
-/*-------------------------*/
+/* End of Back to Top Button */
+/*---------------------------*/
 
 
 
+/*----------------------------------------------*/
 /* ShopEntire page for the Page Sections navbar */
 .shop-sticky-nav {
     display: flex;
@@ -585,7 +652,13 @@ body {
     }
 }
 
-/*CHECKOUT PAGE LAYOUT FOR ITEMS IN CART*/
+/* End of ShopEntire page */
+/*------------------------*/
+
+
+
+/*----------------------------------------*/
+/* CHECKOUT PAGE LAYOUT FOR ITEMS IN CART */
 /* Flex container for each row */
 .cart-item {
     display: flex;
@@ -638,6 +711,10 @@ body {
 .col-name a:hover {
     cursor: pointer;
 }
+
+/* End of CHECKOUT PAGE LAYOUT */
+/*-----------------------------*/
+
 
 
 /*----------------------------------------------*/
