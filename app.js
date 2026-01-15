@@ -10,7 +10,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// Makes user available to all page if logged in
+// Makes user available to all pages if logged in
 app.use((req, res, next) => {
     res.locals.user = req.session.user || null;
     next();
@@ -44,7 +44,7 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 //------------------------------
 // For Home Page Carousel Images
 app.get("/", (req, res) => {
-    
+
     // Route to the saved images
     const imagesDir = path.join(__dirname, "public/images/jerseys");
 
@@ -167,11 +167,11 @@ app.get("/search", function (req, res) {
         function (err, rows) {
             if (err) {
                 console.error("Search error:", err);
-                return res.status(500).send("Search failed");
+                return res.redirect("/?searchError=1"); // redirect to homepage with error flag
             }
 
             if (rows.length === 0) {
-                return res.status(404).send("No products found");
+                return res.redirect("/?searchError=1"); // redirect if no products found
             }
 
             res.redirect(`/shop?rec=${rows[0].ID}`);
@@ -235,9 +235,22 @@ app.post("/paymentSuccess", (req, res) => {
     // Generate a random number
     const orderNumber = Math.floor(Math.random() * 900000 + 100000); // 6-digit number
 
+    // Capture all form data from checkout.ejs
+    const formData = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        addressLine1: req.body.addressLine1,
+        addressLine2: req.body.addressLine2,
+        city: req.body.city,
+        zip: req.body.zip,
+        email: req.body.email,
+        paymentMethod: req.body.payment
+    };
+
     //Generates the order number when page is rendered
     res.render("paymentSuccess", { 
-        orderNumber // pass as object to avoid error
+        orderNumber,    // pass as object to avoid error
+        formData        // add the user data input from checkout.ejs
     });
 });
 // End of Route for Payment / Order Successful after Checkout Page (POST METHOD)
@@ -268,10 +281,10 @@ app.get('/checkout', (req, res) => {
 
 //--------------------------------
 //Create Users for the application
-auth.createUser("user@123.ie", "pass")
+auth.createUser("user@123.com", "pass")
 
-//test users work
-console.log(auth.authenticateUser("user@123.ie", "pass"));
+//test users work8
+console.log(auth.authenticateUser("user@123.com", "pass"));
 
 // End of application users
 //-------------------------

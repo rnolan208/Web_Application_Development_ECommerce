@@ -31,6 +31,22 @@
 
         <!-- The order number is brought in from app.js (randomly generated with math random)-->
         <p>Order Number: <strong><%= orderNumber %></strong></p>
+        
+
+        <!-- Customer Info -->
+        <!-- Via POST Method on checkout.ejs form-->
+        <h3>Customer Details</h3>
+        <p>
+            Name: <strong><%= formData.firstName %> <%= formData.lastName %></strong><br>
+            Address: <strong><%= formData.addressLine1 %>
+                <% if (formData.addressLine2) { %> <%= formData.addressLine2 %> <% } %>,
+                <%= formData.city %>, <%= formData.zip %></strong><br>
+            Email: <strong><%= formData.email %></strong><br>
+            Payment Method: <strong><%= formData.paymentMethod %></strong>
+        </p>
+        <!-- End of Customer Info -->
+
+
         <h3>Paymentment Successful</h3>
         <p>Thank you for your purchase! Here is your receipt:</p>
 

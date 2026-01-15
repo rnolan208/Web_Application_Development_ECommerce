@@ -117,3 +117,13 @@
 </nav>
 
 <!-- End of Navbar Section -->
+
+<!-- Error handling for products which dont exist -->
+<script>
+    // Check URL for searchError
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('searchError') === '1') {
+        alert("No products found for your search. Please try again!");
+    }
+</script>
+<!-- End of Error handling for products which dont exist -->
