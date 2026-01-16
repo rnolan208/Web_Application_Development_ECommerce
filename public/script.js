@@ -26,3 +26,29 @@ backToTopButton.addEventListener("click", () => {
   });
 });
 
+
+
+
+//Script I got online to ensure anchor links loaded correctly when going from
+//jerseyShop or miscShop onto the shopEntire page
+
+//source for the script - https://www.geeksforgeeks.org/html/offsetting-an-anchor-to-adjust-for-fixed-header/?utm_source=chatgpt.com
+//edited to match with offset for my navbar heading and to allow the images to load before the anchor tag 'kicks in'
+
+// Wait until the page is fully loaded
+window.addEventListener("load", () => {
+    // Check for hash (like #section or ids)
+    if (window.location.hash) {
+        // Targets the element with that ID
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            const yOffset = -120; // height offset
+            // Calculates where the element should scroll to
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            // Scroll to that exact position instead of landing randomly while images, etc, load on the screen
+            // Linked navbar also caused part of that issue (anchor links were landing in wrong places)
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    }
+});
+

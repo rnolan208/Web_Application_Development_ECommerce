@@ -87,6 +87,7 @@ button:hover {
 .page-buttons {
     display: flex;
     width: 100%;
+    margin-top: 70px
 }
 
 /*Give buttons equal spacing and remove the link underline*/
@@ -123,6 +124,12 @@ button:hover {
 /* End of Generic Button Settings*/
 /*-------------------------------*/
 
+
+/* Offeset due to navbar to make links land in correct sections */
+section {
+    scroll-margin-top: 120px; /* adjust to your navbar height */
+}
+/* End of Offset */
 
 
 /*--------------*/
@@ -249,12 +256,10 @@ button:hover {
     background-image: url("/public/images/background/abstract.jpg");
     width: 100%;
     min-height: 100vh;
-    background-size: cover;
+    background-size: cover; /* makes the image take over all the space */
     background-position: top center;
-    /*text and button on homepage*/
-    padding-top: 120px;
-    /* space for fixed navbar above */
-    padding-bottom: 80px;
+    padding-top: 120px; /*text and button on homepage*/
+    padding-bottom: 80px; /* space for fixed navbar above */
 }
 
 /* End of Background Image for Home Page, About Page, and Contact Us Page */
@@ -272,17 +277,15 @@ footer {
 }
 
 /*text colour and size for the footer, colour to match red elsewhere*/
-footer h5 {
-    color: #d8d8d8;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
+footer h5,
 footer h6 {
     color: #d8d8d8;
     font-weight: 700;
-    font-size: 1.1rem;
 }
+
+footer h5 { font-size: 1.2rem; }
+
+footer h6 { font-size: 1.1rem; }
 
 footer p {
     color: rgb(238, 21, 64);
@@ -419,7 +422,7 @@ footer .copyright a:hover {
     display: block;
 }
 
-/* Make the carousel container a positioning context */
+/* Positions the carousel container */
 .car {
     position: relative;
 }
@@ -460,10 +463,13 @@ footer .copyright a:hover {
 /*For the product item page*/
 #product {
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 #type {
     color: #555;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
 }
 
 img {
@@ -473,20 +479,11 @@ img {
 .product-image-wrapper {
     max-width: 520px;
     margin: 0 auto;
+    overflow: hidden; /* prevents image spilling out */
 }
 
 .product-image {
     transition: transform 0.4s ease;
-}
-
-#product {
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-#type {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
 }
 
 .text-danger {
@@ -494,19 +491,8 @@ img {
     font-weight: bold;
 }
 
-/*hover over the product image*/
-.product-image-wrapper {
-    overflow: hidden;
-    /* prevents image spilling out */
-}
-
 .product-image:hover {
     transform: scale(1.15);
-}
-
-/*Stop navbar overlapping on pages*/
-body {
-    padding-top: 70px; /* adjusted for navbar height */
 }
 
 /* End of ShopItems Page */
@@ -559,6 +545,12 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/*button change colour when over*/
+.map-button:hover {
+    background-color: black;
+    color: rgb(238, 21, 64);
+}
+
 .map-button {
     font-size: 0.8rem;
     font-weight: 700;
@@ -570,12 +562,7 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     transition: 0.3 ease;
-}
-
-/*button change colour when over*/
-.map-button:hover {
-    background-color: black;
-    color: rgb(238, 21, 64);
+    text-decoration: none; /*remove underline from link*/
 }
 
 /* End of Contact US page */
@@ -595,17 +582,6 @@ body {
     padding: 12px 20px; /* applies padding 12px to top and bottom, and 20px to left and right of the button */
     font-size: 0.9rem; /* sets the font-size for the button text*/
     border-radius: 5px; /* applies corner rounding on the button */
-    cursor: pointer; /* changes the cursor to a pointer when the mouse goes over the button */
-    background-color: rgb(238, 21, 64); /*sets the background colour*/
-    color: black; /*sets the text colours*/
-    border: none; /* makes sure there is no border around the button */
-    transition: 0.3s ease; /*applies a minimal tranisition delay*/
-}
-
-/*change colours when hover over, inverse from original colours to give visual feedback the button is active */
-#backToTop:hover {
-    background-color: black;
-    color: rgb(238, 21, 64);
 }
 
 /* End of Back to Top Button */
@@ -618,8 +594,7 @@ body {
 .shop-sticky-nav {
     display: flex;
     position: sticky;
-    top: 70px;
-    /* height of your main navbar */
+    top: 70px; /* height of the main navbar */
     z-index: 900;
     background-color: rgb(238, 21, 64);
 }
@@ -669,13 +644,11 @@ body {
 
 /* Column widths */
 .col-image {
-    flex: 0 0 80px;
-    /* fixed width for image */
+    flex: 0 0 80px; /* fixed width for image */
 }
 
 .col-name {
-    flex: 2;
-    /* product name takes more space */
+    flex: 2; /* product name takes more space */
     padding: 0 20px;
 }
 
@@ -710,6 +683,11 @@ body {
 /*Adds cursor when over the product name, showing its a link */
 .col-name a:hover {
     cursor: pointer;
+}
+
+/* Title at top of Checkout page*/
+.checkout-top {
+    margin-top: 120px;
 }
 
 /* End of CHECKOUT PAGE LAYOUT */
@@ -749,3 +727,6 @@ body {
 
 /* End of Style for Printing from Payment Success page */
 /*-----------------------------------------------------*/
+
+
+
